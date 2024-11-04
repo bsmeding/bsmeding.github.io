@@ -14,7 +14,6 @@ plugins:
       lang: en
   - tags:
       tags_file: tags.md
-      tags_dir: tags
 nav:
   - Home: index.md
   - About: about.md
