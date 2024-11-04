@@ -39,8 +39,20 @@ theme:
     mermaid: true
     mathjax: true
   features:
-    - navigation.instant
-    - navigation.instant.prefetch    
+    - navigation.sections
+    - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - content.code.copy
+    - content.action.view
+    - content.tabs.link
+    - search.share
+    - search.suggest
   search:
 extra:
   social:
