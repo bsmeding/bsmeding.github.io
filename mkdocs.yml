@@ -1,6 +1,6 @@
 site_name: bartsmeding.nl | network/infra automation | tutorials | blog | courses
 site_author: Bart Smeding
-site_url: https://bartsmeding.nl/
+site_url: https://bsmeding.github.io/
 repo_name: bsmeding/bsmeding.github.io
 
 plugins:
@@ -41,6 +41,9 @@ theme:
     highlightjs: true
     mermaid: true
     mathjax: true
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch    
   search:
 extra:
   social:
