@@ -5,12 +5,12 @@ repo_name: bsmeding/bsmeding.github.io
 
 plugins:
   - blog:
-      blog_dir: blog
-      post_url_format: "{slug}"
-      blog_toc: true
-      categories_toc: false
-      archive_name: "Blogs"
-      pagination_per_page: 4
+      # blog_dir: blog
+      # post_url_format: "{slug}"
+      # blog_toc: true
+      # categories_toc: false
+      # archive_name: "Blogs"
+      # pagination_per_page: 4
   - search:
       lang: en
   - tags:
