@@ -1,4 +1,16 @@
-site_name: bartsmeding - network and infra automation
-site_url: https://bartsmeding.github.io
+site_name: bartsmeding.nl | network and infra automation | tutorials | blog | courses
+site_url: https://www.bartsmeding.nl
 theme:
   name: material
+  palette:
+    primary: green
+    accent: light green
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  feature:
+    tabs: true
+    highlightjs: true
+    mermaid: true
+    mathjax: true
+  search:
