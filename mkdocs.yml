@@ -1,0 +1,4 @@
+site_name: bartsmeding - network and infra automation
+site_url: https://bartsmeding.github.io
+theme:
+  name: material
