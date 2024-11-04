@@ -5,10 +5,11 @@ repo_name: bsmeding/bsmeding.github.io
 
 plugins:
   - blog:
-      blog_dir: .
+      blog_dir: blogs
       post_url_format: "{slug}"
       blog_toc: true
       categories_toc: false
+      archive_name: "Blogs"
       pagination_per_page: 4
   - search:
       lang: en
@@ -17,9 +18,6 @@ plugins:
 nav:
   - Home: index.md
   - About: about.md
-  - Blog:
-    - 'Blog': blog.md
-    - 'Blog 2': blog2.md
   - Tutorials:
     - 'Tutorials': tutorials.md
     - 'Tutorials 2': tutorials2.md
