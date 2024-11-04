@@ -1,5 +1,5 @@
 site_name: bartsmeding.nl | network and infra automation | tutorials | blog | courses
-site_url: https://www.bartsmeding.nl
+# site_url: https://www.bartsmeding.nl
 theme:
   name: material
   palette:
