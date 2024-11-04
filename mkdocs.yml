@@ -11,6 +11,13 @@ plugins:
       # categories_toc: false
       # archive_name: "Blogs"
       # pagination_per_page: 4
+  - rss:
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags 
   - search:
       lang: en
   - tags:
