@@ -1,10 +1,38 @@
-site_name: bartsmeding.nl | network and infra automation | tutorials | blog | courses
-# site_url: https://www.bartsmeding.nl
+site_name: bartsmeding.nl | network/infra automation | tutorials | blog | courses
+site_author: Bart Smeding
+site_url: https://bartsmeding.nl/
+repo_name: bsmeding/bsmeding.github.io
+
+plugins:
+  - blog:
+      blog_dir: .
+      post_url_format: "{slug}"
+      blog_toc: true
+      categories_toc: false
+      pagination_per_page: 4
+  - search:
+      lang: en
+  - tags:
+      tags_file: tags.md
+      tags_dir: tags
+nav:
+  - Home: index.md
+  - About: about.md
+  - Blog:
+    - 'Blog': blog.md
+    - 'Blog 2': blog2.md
+  - Tutorials:
+    - 'Tutorials': tutorials.md
+    - 'Tutorials 2': tutorials2.md
+  - Courses:
+    - 'Courses': courses.md
+    - 'Courses 2': courses2.md
+  - Contact: contact.md
 theme:
   name: material
   palette:
-    primary: green
-    accent: light green
+    primary: blue
+    accent: light blue
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
@@ -14,3 +42,11 @@ theme:
     mermaid: true
     mathjax: true
   search:
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bsmeding
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/bartsmeding/
+    # - icon: fontawesome/brands/twitter
+    #   link: https://twitter.com/bsmeding
