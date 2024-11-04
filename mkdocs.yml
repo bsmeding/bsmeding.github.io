@@ -32,7 +32,7 @@ nav:
     - 'Ansible NAPALM': tutorials/ansible_cisco_napalm_diff.md
   - Courses:
     - 'Courses': courses.md
-    - 'Courses 2': courses2.md
+    - 'Courses Dutch': courses_NL.md
   - Contact: contact.md
 theme:
   name: material
