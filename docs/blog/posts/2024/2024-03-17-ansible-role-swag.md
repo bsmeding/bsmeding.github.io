@@ -28,19 +28,20 @@ INSTALL_PIP_PACKAGES=certbot-dns-<plugin>
 
 Set the required credentials (usually found in the plugin documentation) in /config/dns-conf/<plugin>.ini. It is recommended to attempt obtaining a certificate with STAGING=true first to make sure the plugin is working as expected.
 Security and password protection
-
-    The container detects changes to url and subdomains, revokes existing certs and generates new ones during start.
-    Per RFC7919, the container is shipping ffdhe4096 as the dhparams.pem.
-    If you'd like to password protect your sites, you can use htpasswd. Run the following command on your host to generate the htpasswd file docker exec -it swag htpasswd -c /config/nginx/.htpasswd <username>
-    You can add multiple user:pass to .htpasswd. For the first user, use the above command, for others, use the above command without the -c flag, as it will force deletion of the existing .htpasswd and creation of a new one
-    You can also use ldap auth for security and access control. A sample, user configurable ldap.conf is provided, and it requires the separate image linuxserver/ldap-auth to communicate with an ldap server.
+```
+The container detects changes to url and subdomains, revokes existing certs and generates new ones during start.
+Per RFC7919, the container is shipping ffdhe4096 as the dhparams.pem.
+If you'd like to password protect your sites, you can use htpasswd. Run the following command on your host to generate the htpasswd file docker exec -it swag htpasswd -c /config/nginx/.htpasswd <username>
+You can add multiple user:pass to .htpasswd. For the first user, use the above command, for others, use the above command without the -c flag, as it will force deletion of the existing .htpasswd and creation of a new one
+You can also use ldap auth for security and access control. A sample, user configurable ldap.conf is provided, and it requires the separate image linuxserver/ldap-auth to communicate with an ldap server.
+```
 
 ## Site config and reverse proxy
 
-    The default site config resides at /config/nginx/site-confs/default.conf. Feel free to modify this file, and you can add other conf files to this directory. However, if you delete the default file, a new default will be created on container start.
-    Preset reverse proxy config files are added for popular apps. See the README.md file under /config/nginx/proxy_confs for instructions on how to enable them. The preset confs reside in and get imported from this repo.
-    If you wish to hide your site from search engine crawlers, you may find it useful to add this configuration line to your site config, within the server block, above the line where ssl.conf is included add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive"; This will ask Google et al not to index and list your site. Be careful with this, as you will eventually be de-listed if you leave this line in on a site you wish to be present on search engines
-    If you wish to redirect http to https, you must expose port 80
+The default site config resides at /config/nginx/site-confs/default.conf. Feel free to modify this file, and you can add other conf files to this directory. However, if you delete the default file, a new default will be created on container start.
+Preset reverse proxy config files are added for popular apps. See the README.md file under /config/nginx/proxy_confs for instructions on how to enable them. The preset confs reside in and get imported from this repo.
+If you wish to hide your site from search engine crawlers, you may find it useful to add this configuration line to your site config, within the server block, above the line where ssl.conf is included add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive"; This will ask Google et al not to index and list your site. Be careful with this, as you will eventually be de-listed if you leave this line in on a site you wish to be present on search engines
+If you wish to redirect http to https, you must expose port 80
 
 ## Using certs in other containers
 
