@@ -84,7 +84,7 @@ If you wish to redirect http to https, you must expose port 80
     You can check the new sample and adjust your active config as needed.
 
 
-# Example Playbook
+## Example Playbook
 
 This example will install Docker and install reverse proxy container SWAG with most defaults.
 Please set the `swag__url` to you're own domain, and subdomains when needed.
@@ -125,7 +125,7 @@ swag__proxy_confs_subdomain:
   - server_name: dash.example.com
     listen: 443
     default_upstream_proto: http
-    default_upstream_url: 192.168.111.241
+    default_upstream_url: 192.168.1.10
     default_upstream_port: 9090
 ```
 
@@ -208,3 +208,4 @@ swag__proxy_confs_subdomain:
     default_upstream_proto: http
     default_upstream_url: 192.168.1.10
     default_upstream_port: 8080
+```
