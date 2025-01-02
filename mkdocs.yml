@@ -1,6 +1,6 @@
-site_name: bartsmeding.nl | network/infra automation | tutorials | blog | courses
+site_name: netdevops.it | bartsmeding.nl | network/infra automation | tutorials | blog | courses
 site_author: Bart Smeding
-site_url: https://bsmeding.github.io/
+site_url: https://netdevops.it/
 repo_name: bsmeding/bsmeding.github.io
 
 plugins:
