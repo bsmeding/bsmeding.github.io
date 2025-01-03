@@ -30,6 +30,7 @@ nav:
   - Tutorials:
     - 'Tutorials': tutorials.md
     - 'Ansible NAPALM': tutorials/ansible_cisco_napalm_diff.md
+    - 'Git basics': tutorials/git_basics.md
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
