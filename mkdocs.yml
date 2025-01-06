@@ -97,3 +97,6 @@ extra:
       link: https://www.linkedin.com/in/bartsmeding/
     # - icon: fontawesome/brands/twitter
     #   link: https://twitter.com/bsmeding
+  analytics:
+    provider: google
+    property: G-LF84C44PGC
