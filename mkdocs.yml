@@ -33,6 +33,7 @@ nav:
     - 'Ansible NAPALM': tutorials/ansible_cisco_napalm_diff.md
     - 'Git basics': tutorials/git_basics.md
     - 'Linux basics': tutorials/linux_basics.md
+    - 'Enable Winwows Subsystem for Linux': tutorials/enable_wsl_on_windows.md
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
