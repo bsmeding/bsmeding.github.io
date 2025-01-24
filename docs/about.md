@@ -2,7 +2,7 @@
 
 ## Network and Infrastructure Automation Specialist
 
-![Profile Picture](docs/images/bartsmeding.jpg)
+![Profile Picture](images/bartsmeding.jpg)
 
 ### Core Competencies:
 

@@ -1,6 +1,4 @@
-# Introduction to NetDevOps
-
-## What is NetDevOps?
+# What is NetDevOps?
 
 NetDevOps is an approach that brings modern DevOps principles and practices to network operations. It aims to improve agility, automation, and collaboration in network management by leveraging tools and methodologies commonly used in software development.
 
