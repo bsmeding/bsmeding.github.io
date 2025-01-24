@@ -4,6 +4,8 @@
 
 Welcome to **NetDevOps.it**, a hub for network engineers and DevOps enthusiasts seeking to elevate their network automation skills. This site is dedicated to sharing knowledge, tools, and insights for mastering the art of **Network Development Operations**.
 
+But What is NetDevOps? Please read the [What is NetDevOps page](netdevops.md)
+
 ## About Me
 
 Hi, I'm **Bart Smeding** — a passionate Network Automation Solutions Architect with years of experience helping companies transform their network operations. My mission is to guide organizations on their journey from **zero to hero** in network automation.
