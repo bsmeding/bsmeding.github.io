@@ -1,6 +1,8 @@
 # Who is Bart Smeding?
 
 ## Network and Infrastructure Automation Specialist
+Who is Bart?
+Bart Smeding is a seasoned network and infrastructure automation specialist with over 10 years of experience in the field. He has a deep understanding of Ansible, Network Automation (NA), DevOps, Python, CI/CD, and writing Ansible roles. Bart's expertise lies in building robust automation platforms that seamlessly onboard both brownfield and greenfield networks, ensuring seamless integration with existing systems.
 
 ![Profile Picture](images/bartsmeding.jpg)
 
