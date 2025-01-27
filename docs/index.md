@@ -2,6 +2,8 @@
 
 ## Your Gateway to Network Automation Excellence
 
+PLEASE NOTE THIS SITE IS UNDER CONTRUCTION, I RESTARTED MY OLD BLOG SITE NOW (JAN 2025) AND ADDING NEW CONTENT. BUT DUE TO LIMITED TIME IT IS NOT FULLY OPERATIONAL 
+
 Welcome to **NetDevOps.it**, a hub for network engineers and DevOps enthusiasts seeking to elevate their network automation skills. This site is dedicated to sharing knowledge, tools, and insights for mastering the art of **Network Development Operations**.
 
 But What is NetDevOps? Please read the [What is NetDevOps page](netdevops.md)
