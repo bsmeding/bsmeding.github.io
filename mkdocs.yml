@@ -26,7 +26,9 @@ plugins:
 nav:
   - Home: index.md
   - NetDevOps: netdevops.md
-  - About: about.md
+  - Ansible:
+    - 'ansible role and collection index': ansible_roles_and_collections.md
+    - 'role: Docker': ansible/ansible_role_docker.md
   - Blog:
     - blog/index.md  
   - Tutorials:
@@ -38,6 +40,7 @@ nav:
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
+  - About: about.md
   - Contact: contact.md
 theme:
   name: material

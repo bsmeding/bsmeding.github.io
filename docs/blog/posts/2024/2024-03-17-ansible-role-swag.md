@@ -114,7 +114,7 @@ Please note that this example playbook also use another role named `bsmeding.doc
 
     - name: Check if SWAG is installed
       ansible.builtin.include_role:
-        name: docker_swag
+        name: bsmeding.docker_swag
 ```
 
 ### Subdomain reverse proxy
