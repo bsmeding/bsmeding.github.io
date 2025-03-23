@@ -29,6 +29,8 @@ nav:
   - Ansible:
     - 'ansible role and collection index': ansible_roles_and_collections.md
     - 'role: Docker': ansible/ansible_role_docker.md
+  - Docker:
+    - 'Docker images index': docker_images.md
   - Blog:
     - blog/index.md  
   - Tutorials:
