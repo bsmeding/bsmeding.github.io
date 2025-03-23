@@ -19,7 +19,7 @@ You can use this images to test Ansible playbooks, roles etc, the images are bas
 | [ansible_cicd_rockylinux9](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_rockylinux9/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_rockylinux9/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_rockylinux9) | LINK |
 | [ansible_cicd_ubuntu2204](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian11/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_ubuntu2204/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_ubunut2204) | LINK |
 | [ansible_cicd_ubuntu2404](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian11/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_ubuntu2404/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_ubuntu2404) | LINK |
-
+| [ansible_cicd_alpine3](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_alpine3/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_alpine3/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_alpine3) | LINK |
 
 
 
