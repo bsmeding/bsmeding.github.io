@@ -11,10 +11,9 @@ You can use this images to test Ansible playbooks, roles etc, the images are bas
 
 
 
-| Container | CI Status | downloads | more info | 
-| ---- | ----------- | --------- | --------- | --------- |
-| [ansible_cicd_debian11](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian11/general) | Based on Debian 11 | [![Build](https://github.com/bsmeding/docker_container_ansible_cicd_debian11/actions/workflows/build.yml/badge.svg)] ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian11)
- | LINK |
+| Container | CI Status   | downloads | more info | 
+| --------- | ----------- | --------- | --------- |
+| [ansible_cicd_debian11](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian11/general) | [![Build](https://github.com/bsmeding/docker_container_ansible_cicd_debian11/actions/workflows/build.yml/badge.svg)] | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian11) | LINK |
 
 
 
@@ -23,7 +22,7 @@ You can use this images to test Ansible playbooks, roles etc, the images are bas
 
 
 | Container | description | CI Status | downloads | more info | 
-| ---- | ----------- | --------- | --------- | --------- |
+| --------- | ----------- | --------- | --------- | --------- |
 | [nautobot](https://hub.docker.com/repository/docker/bsmeding/nautobot/general) | Nautobot including plugins and apps | [![Build](https://github.com/bsmeding/docker_container_nautobot/actions/workflows/build.yml/badge.svg)] ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/nautobot) | LINK |
 
 
