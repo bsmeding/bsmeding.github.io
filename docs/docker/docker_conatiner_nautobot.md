@@ -54,3 +54,28 @@ To setup a working environment in Docker including database and redis, see an ex
 
 # More flexibility needed?
 If you need more flexibility, please take a look at my Ansible role to deploy Nautobot on Docker![here](https://github.com/bsmeding/ansible_role_nautobot_docker) or via [Ansible Galaxy](https://galaxy.ansible.com/ui/standalone/roles/bsmeding/nautobot_docker/)
+
+Example playbook to install Docker and Nautobot all-in-one with all defaults.
+
+First install the roles:
+
+- `ansible-galaxy role install bsmeding.docker`
+- `ansible-galaxy role install bsmeding.nautobot_docker`
+
+Then run the playbook:
+
+```yaml
+---
+- name: Install Nautobot
+  hosts: [nautobot]
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Check if Docker is installed
+      include_role:
+        name: bsmeding.docker
+
+    - name: Check if Nautobot is installed
+      include_role:
+        name: bsmeding.nautobot_docker
+```
