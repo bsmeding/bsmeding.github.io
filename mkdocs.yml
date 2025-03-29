@@ -31,6 +31,8 @@ nav:
     - 'role: Docker': ansible/ansible_role_docker.md
   - Docker:
     - 'Docker images index': docker_images.md
+  - AI:
+    - 'AI in networking': ai_in_networking.md
   - Blog:
     - blog/index.md  
   - Tutorials:
