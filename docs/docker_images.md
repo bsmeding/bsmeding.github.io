@@ -7,19 +7,35 @@ I maintain a couple of Docker images, mostly to run Ansible CiCd pipelines and n
 
 ## Docker CiCd images
 
-You can use this images to test Ansible playbooks, roles etc, the images are based on different Linux OS's with Ansible installed and some other packages mainly for `Network Automaiion` (`NetDevOps`) 
+You can use this images to test Ansible playbooks, roles etc, the images are based on different Linux OS's with Ansible installed and some other packages mainly for `Network Automaiion` (`NetDevOps`). For all distro's there is a verionless images that contains the latest distro release, so `ansible_cicd_debian` is same as `ansbile_cicd_debian12`.
+
+currently installed Python packages for network and CMDB testing:
+* ansible
+* cryptography
+* yamllint
+* pynautobot
+* pynetbox
+* jmespath
+* netaddr
+* pywinrm
 
 
 
 | Container | CI Status   | downloads | more info | 
 | --------- | ----------- | --------- | --------- |
-| [ansible_cicd_debian11](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian11/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_debian11/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian11) | LINK |
-| [ansible_cicd_debian12](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian12/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_debian12/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian12) | LINK |
-| [ansible_cicd_rockylinux8](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_rockylinux8/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_rockylinux8/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_rockylinux8) | LINK |
-| [ansible_cicd_rockylinux9](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_rockylinux9/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_rockylinux9/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_rockylinux9) | LINK |
-| [ansible_cicd_ubuntu2204](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_ubuntu2204/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_ubuntu2204/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_ubunut2204) | LINK |
-| [ansible_cicd_ubuntu2404](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_ubuntu2404/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_ubuntu2404/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_ubuntu2404) | LINK |
-| [ansible_cicd_alpine3](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_alpine3/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd_alpine3/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_alpine3) | LINK |
+| [ansible_cicd_debian11](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian11/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian11)
+| [ansible_cicd_debian12](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian12/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg)  | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian12)
+| [ansible_cicd_debian](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg)  | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian)
+| [ansible_cicd_rockylinux8](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_rockylinux8/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg)  | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_rockylinux8)
+| [ansible_cicd_rockylinux9](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_rockylinux9/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_rockylinux9)
+| [ansible_cicd_rockylinux](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_rockylinux/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_rockylinux)
+| [ansible_cicd_ubuntu2004](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_ubuntu2004/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_ubuntu2004)
+| [ansible_cicd_ubuntu2204](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_ubuntu2204/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_ubuntu2204)
+| [ansible_cicd_ubuntu2404](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_ubuntu2404/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_ubuntu2404)
+| [ansible_cicd_ubuntu](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_ubuntu/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_ubuntu)
+| [ansible_cicd_alpine3.20](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_alpine3.20/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_alpine3.20)
+| [ansible_cicd_alpine3.21](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_alpine3.21/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_alpine3.21)
+| [ansible_cicd_alpine3](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_alpine3/general) | ![Build](https://github.com/bsmeding/docker_container_ansible_cicd/actions/workflows/build.yml/badge.svg) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_alpine3)
 
 
 
