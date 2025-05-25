@@ -42,8 +42,8 @@ As a dedicated professional specializing in **network and infrastructure automat
 ## Technical Skills
 
 - **Network Engineering:** Project management, wireless networks, network monitoring and management, capacity planning, subnetting, IPv4 and IPv6, routing and switching techniques, and network security.
-- **Network Automation:** Designing and deploying automated solutions to optimize network operations.
-- **Certifications:** CCNA, CCNP Routing and Switching.
+- **Network Automation:** Architect in designing and deploying automated solutions to optimize network operations.
+- **Certifications:** Microsoft infra and security, CCNA, CCNP, Ansible, Git, Kubernetes, AWS.
 - **Microsoft Infrastructure and Security:** Comprehensive experience in managing and securing Microsoft environments.
 - **Storage Solutions:** Expertise in SAN and iSCSI storage solutions.
 - **Virtualization:** Proficient in Hyper-V clusters and VMware.
