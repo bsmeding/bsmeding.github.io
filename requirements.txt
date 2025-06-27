@@ -1,5 +1,4 @@
-mkdocs
-mkdocs-material[all]
-mkdocs-rss-plugin 
+mkdocs>=1.6
+mkdocs-material>=9.6
+mkdocs-rss-plugin
 mkdocs-git-revision-date-localized-plugin
-mkdocs-simple-sitemap
