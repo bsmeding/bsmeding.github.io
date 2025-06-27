@@ -1,20 +1,3 @@
----
-title: "Automating Networks with NAPALM & Ansible"
-date: 2024-05-27
-tags:
-
-- ansible
-- napalm
-- automation
-- netdevops
-  description: >
-  A step‑by‑step tutorial showing how to combine the power of NAPALM’s multi‑vendor abstraction with Ansible playbooks to audit, configure, and validate your network devices.
-
----
-
-> *“Write once, automate everywhere.”*\
-> — Every NetDevOps engineer, ever
-
 ## Why NAPALM + Ansible?
 
 [NAPALM](https://napalm.readthedocs.io) gives you a vendor‑agnostic Python API for interacting with network devices, while **Ansible** gives you idempotent automation driven by human‑readable YAML.\
