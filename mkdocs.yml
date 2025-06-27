@@ -15,7 +15,7 @@ plugins:
   - search:
       lang: en
   - git-revision-date-localized
-  - simple-sitemap
+  - sitemap
   - rss:
       match_path: blog/posts/.*
       date_from_meta:
