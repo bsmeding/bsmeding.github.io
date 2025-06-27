@@ -2,3 +2,4 @@ mkdocs
 mkdocs-material[all]
 mkdocs-rss-plugin 
 mkdocs-git-revision-date-localized-plugin
+mkdocs-simple-sitemap
