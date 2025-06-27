@@ -30,4 +30,5 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
+      - run: mkdocs build --clean    
       - run: mkdocs gh-deploy --force
