@@ -1,130 +1,81 @@
-site_name: netdevops.it | bartsmeding.nl | network/infra automation | tutorials | blog | courses
-site_author: Bart Smeding
+site_name: NetDevOps.it
+site_description: "Network & Infra Automation – Tutorials • Blog • Courses"
 site_url: https://netdevops.it/
-repo_name: bsmeding/bsmeding.github.io
+site_author: Bart Smeding
+repo_url: https://github.com/bsmeding/bsmeding.github.io
+edit_uri: edit/main/docs/
 
 plugins:
   - blog:
-      # blog_dir: blog
       post_url_format: "{slug}"
       blog_toc: true
-      categories_toc: false
-      # archive_name: "Blogs"
       pagination_per_page: 4
-  # - rss:
-  #     match_path: blog/posts/.* 
-  #     date_from_meta:
-  #       as_creation: date
-  #     categories:
-  #       - categories
-  #       - tags 
-  - search:
-      lang: en
   - tags:
       tags_file: tags.md
+  - search:
+      lang: en
+  - git-revision-date-localized
+  - sitemap
+  - rss:
+      match_path: blog/posts/.*
+      date_from_meta:
+        as_creation: date
+  - minify
 
 nav:
   - Home: index.md
   - NetDevOps: netdevops.md
-  - Ansible:
-    - 'ansible role and collection index': ansible_roles_and_collections.md
-    - 'bsmeding.docker': ansible/ansible_role_docker.md
-    - 'bsmeding.nginx_docker': ansible/ansible_role_nginx_docker.md
-    - 'bsmeding.gitlab_docker': ansible/ansible_role_gitlab_docker.md
-  - Docker:
-    - 'Docker images index': docker_images.md
-  - AI:
-    - 'AI in networking': ai_in_networking.md
-  - Blog:
-    - blog/index.md  
   - Tutorials:
-    - 'Tutorials': tutorials.md
-    - 'Ansible NAPALM': tutorials/ansible_cisco_napalm_diff.md
-    - 'Git basics': tutorials/git_basics.md
-    - 'Linux basics': tutorials/linux_basics.md
-    - 'Enable Winwows Subsystem for Linux': tutorials/enable_wsl_on_windows.md
-  - Courses:
-    - 'Courses': courses.md
-    - 'Courses Dutch': courses_NL.md
+      - tutorials.md
+      - tutorials/
+  - Blog: blog/index.md
+  - Courses: courses.md
   - About: about.md
-  - Contact: contact.md
+
 theme:
   name: material
   palette:
-    # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default # (1)!
-      primary: gray
-      accent: blue      
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: amber      
-      toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
-
+        name: Switch theme
+    - scheme: default
+      primary: indigo
+      accent: blue
+    - scheme: slate
+      primary: indigo
+      accent: blue
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
-  feature:
-    tabs: true
-    highlightjs: true
-    mermaid: true
-    mathjax: true
+    text: Roboto
+    code: Roboto Mono
   features:
-    - navigation.sections
-    - navigation.expand
-    - navigation.footer
-    - navigation.indexes
-    - navigation.sections
+    - navigation.top
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
+    - navigation.expand
+    - navigation.sections
+    - navigation.indexes
     - content.code.copy
-    - content.action.view
     - content.tabs.link
     - search.share
     - search.suggest
-  search:
+  privacy:
+    analytics:
+      google: G-LF84C44PGC
+      cookie: true
+
 extra:
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/bsmeding
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/bartsmeding/
-    # - icon: fontawesome/brands/twitter
-    #   link: https://twitter.com/bsmeding
-  consent:
-    title: Cookie consent
-    description: >- 
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
-    actions:
-      - accept
-      - manage       
-  analytics:
-    provider: google
-    property: G-LF84C44PGC
+
 markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
-      pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
   - pymdownx.superfences
