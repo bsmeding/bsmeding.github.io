@@ -25,10 +25,13 @@ nav:
   - NetDevOps: netdevops.md
   - Ansible:
     - 'ansible role and collection index': ansible_roles_and_collections.md
-    - 'role: Docker': ansible/ansible_role_docker.md
     - 'bsmeding.docker': ansible/ansible_role_docker.md
+    - 'bsmeding.nautobot_docker': ansible/ansible_role_nautobot_docker.md
+    - 'bsmeding.awx_docker': ansible/ansible_role_awx_docker.md
     - 'bsmeding.nginx_docker': ansible/ansible_role_nginx_docker.md
-    - 'bsmeding.gitlab_docker': ansible/ansible_role_gitlab_docker.md
+    - 'bsmeding.gitlab_ce_docker': ansible/ansible_role_gitlab_docker.md
+    - 'bsmeding.swag_docker': ansible/ansible_role_swag_docker.md
+
   - Docker:
     - 'Docker images index': docker_images.md
   - AI:
