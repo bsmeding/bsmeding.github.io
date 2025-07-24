@@ -2,6 +2,7 @@
 title: Ansible Introduction & Getting Started
 authors: [bsmeding]
 date: 2024-08-10
+summary: A quick introduction to Ansible, its use cases, and how to get started with automation.
 tags:
   - ansible
   - automation

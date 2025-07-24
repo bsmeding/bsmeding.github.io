@@ -1,11 +1,12 @@
 ---
 authors: [bsmeding]
-toc: true
+toc: false
 draft: true
 date: 2024-11-15
 layout: single
 comments: false
 title: Netdata Monitoring System
+summary: A placeholder for Netdata monitoring system setup and usage.
 tags: ["netdata", "monitoring", "docker"]
 ---
 

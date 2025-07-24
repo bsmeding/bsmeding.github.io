@@ -2,6 +2,7 @@
 title: Nornir Introduction & Getting Started
 authors: [bsmeding]
 date: 2024-08-24
+summary: An introduction to Nornir, a Python automation framework for network engineers, with a quick start example.
 tags:
   - nornir
   - network automation

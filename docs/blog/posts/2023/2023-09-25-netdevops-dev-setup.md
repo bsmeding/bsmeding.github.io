@@ -5,6 +5,7 @@ date: 2023-09-25
 layout: single
 comments: true
 title: Network Automation Development Setup
+summary: A step-by-step guide to setting up a full network automation development environment with Docker, AWX, Nautobot, and more.
 tags: ["ansible", "netdevops", "devnetops", "student", "course", "git", "gitea", "nginx", "awx", "lldap", "docker"]
 ---
 

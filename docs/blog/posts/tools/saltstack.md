@@ -2,6 +2,7 @@
 title: SaltStack Introduction & Getting Started
 authors: [bsmeding]
 date: 2024-08-17
+summary: A brief guide to SaltStack, its automation capabilities, and how to get started.
 tags:
   - saltstack
   - automation

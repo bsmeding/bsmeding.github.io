@@ -2,6 +2,7 @@
 title: GitLab CI/CD Introduction & Getting Started
 authors: [bsmeding]
 date: 2024-09-08
+summary: A concise guide to GitLab CI/CD, its pipeline features, and how to automate builds and tests.
 tags:
   - gitlab
   - ci/cd

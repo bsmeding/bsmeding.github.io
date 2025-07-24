@@ -2,6 +2,7 @@
 title: Jenkins Introduction & Getting Started
 authors: [bsmeding]
 date: 2024-09-01
+summary: A practical introduction to Jenkins CI/CD, its main features, and how to set up your first pipeline.
 tags:
   - jenkins
   - ci/cd

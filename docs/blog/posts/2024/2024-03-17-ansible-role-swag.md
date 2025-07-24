@@ -6,6 +6,7 @@ date: 2024-03-17
 layout: single
 comments: true
 title: Ansible Role - SWAG
+summary: How to use the Ansible role for deploying SWAG (Secure Web Application Gateway) with Docker.
 tags: ["ansible", "swag", "docker", "linuxserver"]
 ---
 

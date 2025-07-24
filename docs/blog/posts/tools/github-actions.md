@@ -2,6 +2,7 @@
 title: GitHub Actions Introduction & Getting Started
 authors: [bsmeding]
 date: 2024-09-15
+summary: A quick start to GitHub Actions for CI/CD, workflow automation, and integrating with the GitHub ecosystem.
 tags:
   - github
   - actions
