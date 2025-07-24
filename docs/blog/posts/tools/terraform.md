@@ -13,6 +13,7 @@ tags:
 # Terraform: Introduction & Getting Started
 
 **Terraform** is an open-source infrastructure as code (IaC) tool by HashiCorp for provisioning and managing cloud and on-premises resources declaratively.
+<!-- more -->
 
 ## Why Use Terraform?
 - Manage infrastructure as code across multiple providers

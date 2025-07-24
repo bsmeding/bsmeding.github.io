@@ -13,6 +13,7 @@ tags:
 # SaltStack: Introduction & Getting Started
 
 **SaltStack** (Salt) is an open-source automation and configuration management tool designed for fast, scalable, and secure infrastructure automation.
+<!-- more -->
 
 ## Why Use SaltStack?
 - Automate configuration and deployment

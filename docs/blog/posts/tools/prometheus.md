@@ -13,6 +13,7 @@ tags:
 # Prometheus: Introduction & Getting Started
 
 **Prometheus** is an open-source monitoring and alerting toolkit designed for reliability and scalability. It is widely used for collecting metrics and powering observability in cloud-native environments.
+<!-- more -->
 
 ## Why Use Prometheus?
 - Collect and store time-series metrics

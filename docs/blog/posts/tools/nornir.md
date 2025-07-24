@@ -13,6 +13,7 @@ tags:
 # Nornir: Introduction & Getting Started
 
 **Nornir** is a pure Python automation framework for network engineers. It provides inventory management, task execution, and plugin support for network automation workflows.
+<!-- more -->
 
 ## Why Use Nornir?
 - Automate network device configuration and validation

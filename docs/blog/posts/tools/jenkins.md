@@ -13,6 +13,7 @@ tags:
 # Jenkins: Introduction & Getting Started
 
 **Jenkins** is an open-source automation server widely used for building, testing, and deploying software through continuous integration and continuous delivery (CI/CD) pipelines.
+<!-- more -->
 
 ## Why Use Jenkins?
 - Automate software builds, tests, and deployments

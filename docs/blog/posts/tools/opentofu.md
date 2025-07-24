@@ -13,6 +13,7 @@ tags:
 # OpenTofu: Introduction & Getting Started
 
 **OpenTofu** is an open-source infrastructure as code (IaC) tool, forked from Terraform, designed to provision and manage cloud and on-premises resources declaratively.
+<!-- more -->
 
 ## Why Use OpenTofu?
 - Open-source alternative to Terraform

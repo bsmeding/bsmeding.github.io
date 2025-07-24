@@ -13,6 +13,7 @@ tags:
 # Ansible: Introduction & Getting Started
 
 **Ansible** is an open-source automation tool for configuration management, application deployment, and task automation. It uses simple YAML-based playbooks and requires no agent on managed nodes.
+<!-- more -->
 
 ## Why Use Ansible?
 - Automate repetitive IT tasks

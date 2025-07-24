@@ -13,6 +13,7 @@ tags:
 # GitLab CI/CD: Introduction & Getting Started
 
 **GitLab CI/CD** is a built-in continuous integration and delivery system in GitLab, enabling you to automate builds, tests, and deployments directly from your Git repository.
+<!-- more -->
 
 ## Why Use GitLab CI/CD?
 - Automate testing and deployment with every commit

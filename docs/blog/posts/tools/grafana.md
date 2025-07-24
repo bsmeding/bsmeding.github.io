@@ -14,6 +14,7 @@ tags:
 # Grafana: Introduction & Getting Started
 
 **Grafana** is an open-source analytics and monitoring platform for visualizing time-series data. It is widely used to create dashboards and alerts from data sources like Prometheus, InfluxDB, and more.
+<!-- more -->
 
 ## Why Use Grafana?
 - Visualize metrics from multiple sources

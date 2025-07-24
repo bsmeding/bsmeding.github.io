@@ -14,6 +14,7 @@ tags:
 # GitHub Actions: Introduction & Getting Started
 
 **GitHub Actions** is a CI/CD and automation platform built into GitHub, allowing you to automate workflows for building, testing, and deploying code.
+<!-- more -->
 
 ## Why Use GitHub Actions?
 - Automate builds, tests, and deployments on GitHub
