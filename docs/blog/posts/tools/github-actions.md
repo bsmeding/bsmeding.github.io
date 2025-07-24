@@ -1,5 +1,7 @@
 ---
 title: GitHub Actions Introduction & Getting Started
+authors: [bsmeding]
+date: 2024-09-15
 tags:
   - github
   - actions

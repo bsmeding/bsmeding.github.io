@@ -1,5 +1,7 @@
 ---
 title: Ansible Introduction & Getting Started
+authors: [bsmeding]
+date: 2024-08-10
 tags:
   - ansible
   - automation

@@ -1,5 +1,7 @@
 ---
 title: pyATS Introduction & Getting Started
+authors: [bsmeding]
+date: 2024-09-22
 tags:
   - pyats
   - network testing

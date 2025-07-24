@@ -1,5 +1,7 @@
 ---
 title: Nornir Introduction & Getting Started
+authors: [bsmeding]
+date: 2024-08-24
 tags:
   - nornir
   - network automation

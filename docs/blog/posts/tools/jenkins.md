@@ -1,5 +1,7 @@
 ---
 title: Jenkins Introduction & Getting Started
+authors: [bsmeding]
+date: 2024-09-01
 tags:
   - jenkins
   - ci/cd

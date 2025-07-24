@@ -1,5 +1,7 @@
 ---
 title: SaltStack Introduction & Getting Started
+authors: [bsmeding]
+date: 2024-08-17
 tags:
   - saltstack
   - automation

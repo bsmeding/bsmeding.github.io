@@ -1,5 +1,7 @@
 ---
 title: GitLab CI/CD Introduction & Getting Started
+authors: [bsmeding]
+date: 2024-09-08
 tags:
   - gitlab
   - ci/cd
