@@ -13,6 +13,8 @@ tags: ["ansible", "netdevops", "devnetops", "student", "course", "git", "gitea",
 
 This guide helps you set up a complete network automation development environment using Docker containers for CMDB (Nautobot), Ansible AWX, LDAP server, Git server (Gitea), and Nginx reverse proxy. **Do not use in production!**
 
+<!-- more -->
+
 Repository: [network_automation_dev_setup](https://github.com/bsmeding/network_automation_dev_setup)
 
 ---
