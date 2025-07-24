@@ -46,9 +46,9 @@ In traditional network operations, changes are often manual, error-prone, and sl
 |---------------------------|------------------------------------------|
 | Configuration Management  | [Ansible](blog/posts/tools/ansible.md), [SaltStack](blog/posts/tools/saltstack.md), [Nornir](blog/posts/tools/nornir.md) |
 | CI/CD Pipelines           | [Jenkins](blog/posts/tools/jenkins.md), [GitLab CI/CD](blog/posts/tools/gitlab-ci.md), [GitHub Actions](blog/posts/tools/github-actions.md) |
-| Infrastructure as Code    | [Terraform](blog/posts/tools/terraform.md), [CloudFormation](blog/posts/tools/cloudformation.md) |
+| Infrastructure as Code    | [Terraform](blog/posts/tools/terraform.md), [OpenTofu](blog/posts/tools/opentofu.md), [CloudFormation](blog/posts/tools/cloudformation.md) |
 | Network Automation        | [Netmiko](blog/posts/tools/netmiko.md), [NAPALM](blog/posts/tools/napalm.md), [pyATS](blog/posts/tools/pyats.md) |
-| Monitoring & Telemetry    | [Prometheus](blog/posts/tools/prometheus.md), [Grafana](blog/posts/tools/grafana.md) |
+| Monitoring & Telemetry    | [Prometheus](blog/posts/tools/prometheus.md), [Grafana](blog/posts/tools/grafana.md), [InfluxDB](blog/posts/tools/influxdb.md)  |
 | Version Control           | [Git](blog/posts/tools/git.md), [GitHub](blog/posts/tools/github.md), [GitLab](blog/posts/tools/gitlab.md) |
 
 ---
