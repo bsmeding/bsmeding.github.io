@@ -13,6 +13,8 @@ tags: ["proxmox", "virtualisation"]
 
 A quick guide to setting up a Proxmox cluster and troubleshooting corosync issues.
 
+<!-- more -->
+
 ---
 
 ## Important Note

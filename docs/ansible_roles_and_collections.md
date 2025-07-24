@@ -16,7 +16,7 @@ I maintain several Ansible roles and collections, primarily for network, cloud, 
 
 ## Ansible Roles Maintained by Bart Smeding
 
-Below is a list of Ansible roles I maintain, with links to Ansible Galaxy, CI status, and download badges.
+Below is a list of Ansible roles I maintain, with links to [Ansible Galaxy](https://galaxy.ansible.com/ui/standalone/namespaces/1041/), CI status, and download badges.
 
 | Role | Description | CI Status | Downloads |
 | ---- | ----------- | --------- | --------- |
