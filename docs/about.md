@@ -1,17 +1,27 @@
-# Who is Bart Smeding?
+---
+title: About Bart Smeding
+tags:
+  - about
+  - profile
+  - automation
+---
 
-## Network and Infrastructure Automation Specialist
-Who is Bart?
-Bart Smeding is a seasoned network and infrastructure automation specialist with over 25 years of experience in Microsoft infrastructure, network specialist in enterprise and datacenter network infrastructures and more than 10 years of experience in the field of infra automation. He has a deep understanding of Ansible, Network Automation (NA), DevOps, Python, CI/CD, and writing Ansible roles. Bart's expertise lies in building robust automation platforms that seamlessly onboard both brownfield and greenfield networks, ensuring seamless integration with existing systems.
+# Who is Bart Smeding?
 
 ![Profile Picture](images/bartsmeding3.jpg)
 
-### Core Competencies:
+## Network and Infrastructure Automation Specialist
+
+Bart Smeding is a seasoned network and infrastructure automation specialist with over 25 years of experience in Microsoft infrastructure and enterprise/datacenter networks, and more than 10 years in infrastructure automation. He has a deep understanding of **Ansible**, **Network Automation (NA)**, **DevOps**, **Python**, **CI/CD**, and writing Ansible roles. Bart's expertise lies in building robust automation platforms that seamlessly onboard both brownfield and greenfield networks, ensuring smooth integration with existing systems.
+
+---
+
+## Core Competencies
 
 - **Ansible**
 - **Network / Infrastructure Automation** (Primary Focus)
 - **DevOps**
-- **Python (Network Programming)** (Extensive Experience)
+- **Python (Network Programming)**
 - **CI/CD**
 - **Writing Ansible Roles**
 
@@ -25,30 +35,32 @@ As a dedicated professional specializing in **network and infrastructure automat
 
 ## Key Projects and Skills
 
-- **Network and Infrastructure Automation:** Implementing automation frameworks for complex network environments.
-- **Python for Network Automation:** Developing custom Python scripts for network orchestration and automation.
-- **Ansible Automation:** Expertise in creating playbooks for Cisco IOS, Arista, and Nexus for inventory management, configuration, and compliance checks.
-- **Ansible Development:** Writing modules, roles, collections, and custom filters to enhance automation efficiency.
-- **Ansible AWX Tower:** Development and deployment of AWX Tower for GUI management and project synchronization.
-- **Network Upgrades:** Efficiently executing IOS upgrades with Ansible.
-- **Dynamic Inventory Management:** Integrating Nautobot IPAM database with Ansible for dynamic inventory management.
+- **Network & Infrastructure Automation:** Implementing automation frameworks for complex network environments.
+- **Python for Network Automation:** Developing custom Python scripts for orchestration and automation.
+- **Ansible Automation:** Creating playbooks for Cisco IOS, Arista, and Nexus for inventory, configuration, and compliance.
+- **Ansible Development:** Writing modules, roles, collections, and custom filters to enhance automation.
+- **Ansible AWX Tower:** Deploying and managing AWX Tower for GUI management and project sync.
+- **Network Upgrades:** Executing IOS upgrades with Ansible.
+- **Dynamic Inventory Management:** Integrating Nautobot IPAM with Ansible for dynamic inventory.
 - **Nautobot Job Creation:** Simplifying site onboarding, image upgrades, and site testing.
 - **ChatOps Integration:** Adding chat functionality to Network Operations for data gathering and task execution.
-- **Linux Infrastructure Automation:** Automating tools and services such as Debian, BIND DNS, Nginx, Apache, PowerDNS, and load balancers.
-- **GitLab CI/CD:** Implementing and managing continuous integration and deployment pipelines to enhance development workflows.
+- **Linux Infrastructure Automation:** Automating tools/services like Debian, BIND DNS, Nginx, Apache, PowerDNS, and load balancers.
+- **GitLab CI/CD:** Implementing and managing CI/CD pipelines to enhance workflows.
 
 ---
 
 ## Technical Skills
 
-- **Network Engineering:** Project management, wireless networks, network monitoring and management, capacity planning, subnetting, IPv4 and IPv6, routing and switching techniques, and network security.
-- **Network Automation:** Architect in designing and deploying automated solutions to optimize network operations.
-- **Certifications:** Microsoft infra and security, CCNA, CCNP, Ansible, Git, Kubernetes, AWS.
-- **Microsoft Infrastructure and Security:** Comprehensive experience in managing and securing Microsoft environments.
-- **Storage Solutions:** Expertise in SAN and iSCSI storage solutions.
-- **Virtualization:** Proficient in Hyper-V clusters and VMware.
-- **Scripting and Programming:** Advanced proficiency in Python, VB, VBA, PHP, ASP, and Powershell for automation.
+- **Network Engineering:** Project management, wireless, monitoring, capacity planning, subnetting, IPv4/IPv6, routing/switching, security.
+- **Network Automation:** Architecting and deploying automated solutions to optimize operations.
+- **Certifications:** Microsoft infra/security, CCNA, CCNP, Ansible, Git, Kubernetes, AWS.
+- **Microsoft Infrastructure & Security:** Managing and securing Microsoft environments.
+- **Storage Solutions:** SAN and iSCSI expertise.
+- **Virtualization:** Hyper-V clusters and VMware proficiency.
+- **Scripting & Programming:** Advanced in Python, VB, VBA, PHP, ASP, and PowerShell for automation.
 
 ---
 
-I am eager to bring my expertise to new challenges, driving innovation and efficiency through **network and infrastructure automation**. Let's connect and explore how I can contribute to your organization's success.
+I am eager to bring my expertise to new challenges, driving innovation and efficiency through **network and infrastructure automation**.
+
+*Let's connect and explore how I can contribute to your organization's success!*

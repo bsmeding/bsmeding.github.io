@@ -1,3 +1,10 @@
+---
+title: NAPALM with Ansible
+tags:
+    - napalm
+    - ansible
+    - tutorial
+---
 ## Why NAPALM + Ansible?
 
 [NAPALM](https://napalm.readthedocs.io) gives you a vendor‑agnostic Python API for interacting with network devices, while **Ansible** gives you idempotent automation driven by human‑readable YAML.\
@@ -10,7 +17,7 @@ Together they let you:
 ### A note on the old `napalm` connection plugin
 
 The `ansible.netcommon.napalm` connection plugin was **deprecated** and removed from the collection starting in *ansible.netcommon 5.0*.\
-Modern playbooks should instead use the dedicated NAPALM modules (`napalm_get_facts`, `napalm_install_config`, `napalm_validate`, and friends) which keep the NAPALM logic self‑contained.
+Modern playbooks should instead use the dedicated NAPALM modules (`get_facts`, `install_config`, `validate`, and friends) which keep the NAPALM logic self‑contained.
 
 ## Prerequisites
 
@@ -18,7 +25,7 @@ Modern playbooks should instead use the dedicated NAPALM modules (`napalm_get_fa
 | ------------------------- | ----------------------------------- | -------------------------------------------------- |
 | Python                    | 3.10+                               | NAPALM and Ansible now test primarily on 3.9+      |
 | Ansible Core              | 2.16+                               | Install from `pip install ansible-core`            |
-| ansible‑napalm collection | latest                              | `ansible-galaxy collection install napalm.ansible` |
+| ansible‑napalm collection | latest                              | `ansible-galaxy collection install napalm.napalm`  |
 | Python NAPALM library     | 4.x                                 | `pip install napalm`                               |
 | Network devices           | IOS‑XE 17+, Junos 22+, EOS 4.30+, … | Anything supported by NAPALM                       |
 
@@ -30,7 +37,7 @@ If you prefer Docker, grab the ready‑made devcontainer from the [GitHub repo](
 python3 -m venv .venv
 source .venv/bin/activate
 pip install ansible-core napalm
-ansible-galaxy collection install napalm.ansible
+ansible-galaxy collection install napalm.napalm
 ```
 
 > **Tip:** Pin exact versions in a `requirements.txt` and `collections/requirements.yml` so your CI pipeline is repeatable.
@@ -90,8 +97,8 @@ Create `playbooks/gather-facts.yml`:
   hosts: lab_routers
   gather_facts: no
   tasks:
-    - name: Get facts
-      napalm.ansible.napalm_get_facts:
+    - name: Get facts (basic example)
+      napalm.napalm.get_facts:
         hostname: "{{ inventory_hostname }}"
         username: "{{ napalm_username }}"
         password: "{{ napalm_password }}"
@@ -101,6 +108,40 @@ Create `playbooks/gather-facts.yml`:
     - name: Show facts
       debug:
         var: result.facts
+
+# ---
+# Advanced example: Using filters, args, and assertions
+
+- name: Get advanced facts and validate
+  hosts: lab_routers
+  gather_facts: no
+  tasks:
+    - name: Get filtered facts from device
+      napalm.napalm.get_facts:
+        hostname: "{{ inventory_hostname }}"
+        username: "{{ napalm_username }}"
+        password: "{{ napalm_password }}"
+        optional_args:
+          path: "{{ playbook_dir }}/mocked/{{ inventory_hostname }}"
+          profile: "{{ profile | default('') }}"
+        filter:
+          - facts
+          - route_to
+          - interfaces
+        args:
+          route_to:
+            protocol: static
+            destination: 8.8.8.8
+      register: test_napalm
+
+    - name: Assert on returned facts
+      assert:
+        that:
+          - test_napalm.facts.hostname is defined
+          - test_napalm.facts.interfaces is defined
+          # Add more assertions as needed, e.g.:
+          # - test_napalm.facts.hostname == "expected-hostname"
+          # - '1.0.4.0/24' in test_napalm.facts.route_to
 ```
 
 Run it:
@@ -134,7 +175,7 @@ ok: [r1] => {
   gather_facts: no
   tasks:
     - name: Fetch running config
-      napalm.ansible.napalm_get_facts:
+      napalm.napalm.get_facts:
         filter: config
         hostname: "{{ inventory_hostname }}"
         username: "{{ napalm_username }}"
@@ -169,7 +210,7 @@ Playbook `playbooks/push-config.yml`:
   gather_facts: no
   tasks:
     - name: Install configuration
-      napalm.ansible.napalm_install_config:
+      napalm.napalm.install_config:
         hostname: "{{ ansible_host }}"
         username: "{{ napalm_username }}"
         password: "{{ napalm_password }}"
@@ -214,7 +255,7 @@ bgp_neighbors:
   gather_facts: no
   tasks:
     - name: Validate BGP
-      napalm.ansible.napalm_validate:
+      napalm.napalm.validate:
         hostname: "{{ ansible_host }}"
         username: "{{ napalm_username }}"
         password: "{{ napalm_password }}"

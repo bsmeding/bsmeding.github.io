@@ -1,3 +1,10 @@
+---
+title: Getting Started with Git: The Basics
+tags:
+    - git
+    - basics
+    - tutorial
+---
 # Getting Started with Git: The Basics
 
 If you’re diving into network automation or development, learning Git is essential. Git is a version control system that helps you track changes, collaborate with others, and manage code efficiently. Whether you’re working solo or as part of a team, Git keeps your projects organized and your work history intact.

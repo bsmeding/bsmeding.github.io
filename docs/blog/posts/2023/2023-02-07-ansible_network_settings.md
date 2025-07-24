@@ -1,31 +1,47 @@
 ---
 authors: [bsmeding]
 toc: true
-date: 2023-05-19
+date: 2023-02-07
 layout: single
 comments: true
-title: Setup Proxmox cluster
-tags: ["proxmox", "virtualisation"]
+title: Ansible - Network Settings
+tags: ["ansible", "network-cli"]
 ---
 
+# Ansible - Network Settings
 
+A quick guide to Ansible network settings and how to use them for network automation tasks.
 
+---
 
-# Create cluster
+## Overview
 
+Ansible provides modules and connection plugins for automating network devices. You can use the `network_cli` connection for most network platforms (Cisco, Arista, Juniper, etc.).
 
-Only hosts thas doesnt have any virtual guests running can be added to a cluster!
+---
 
+## Example: Using network_cli
 
-## corosync.conf
-The config from cluster is saved in the file `/etc/pve/corosync.conf`. When installing a new node sometimes this can be hanging on the corosync service. To solve try to remove on the `master`:
+```yaml
+- name: Run show version on Cisco IOS
+  hosts: routers
+  gather_facts: no
+  connection: network_cli
+  tasks:
+    - name: Show version
+      ios_command:
+        commands:
+          - show version
+      register: version_output
 
- ```bash
-systemctl stop pve-cluster
-systemctl stop corosync
-pmxcfs -l
-rm /etc/pve/corosync.conf
-rm -r /etc/corosync/*
-killall pmxcfs
-systemctl start pve-cluster
+    - name: Display output
+      debug:
+        var: version_output.stdout_lines
 ```
+
+---
+
+## Tips
+- Use `ansible_network_os` in your inventory to specify the platform (e.g., `ios`, `eos`, `junos`).
+- Use `ansible_user` and `ansible_password` for authentication.
+- For more, see the [Ansible Network Guide](https://docs.ansible.com/ansible/latest/network/index.html).

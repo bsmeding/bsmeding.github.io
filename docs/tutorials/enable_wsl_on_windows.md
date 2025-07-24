@@ -1,3 +1,10 @@
+---
+title: How to Enable Windows Subsystem for Linux (WSL)
+tags:
+    - wsl
+    - basics
+    - tutorial
+---
 # How to Enable Windows Subsystem for Linux (WSL)
 
 The Windows Subsystem for Linux (WSL) allows you to run a Linux environment directly on Windows without the need for a virtual machine or dual-boot setup. It’s a powerful tool for developers who want the best of both worlds: Windows and Linux.

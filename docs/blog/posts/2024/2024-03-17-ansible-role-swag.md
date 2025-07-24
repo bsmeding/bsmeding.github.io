@@ -9,91 +9,103 @@ title: Ansible Role - SWAG
 tags: ["ansible", "swag", "docker", "linuxserver"]
 ---
 
-We've released a new Ansible Role to deploy the SWAG (Secure Web Application Gateway) reverse-proxy server created by (linuxserver.io)[https://www.linuxserver.io/]
-This Ansible role will install the Docker image on Linux systems running docker with the SWAG docker image
+# Ansible Role: SWAG (Secure Web Application Gateway)
 
+We've released a new Ansible Role to deploy the SWAG (Secure Web Application Gateway) reverse-proxy server created by [linuxserver.io](https://www.linuxserver.io/). This role installs the SWAG Docker image on Linux systems running Docker.
 
-# Info from Linuxserver docker image
-full readme (here)[https://github.com/linuxserver/docker-swag]
+Repository: [linuxserver/docker-swag](https://github.com/linuxserver/docker-swag)
 
-SWAG - Secure Web Application Gateway (formerly known as letsencrypt, no relation to Let's Encrypt™) sets up an Nginx webserver and reverse proxy with php support and a built-in certbot client that automates free SSL server certificate generation and renewal processes (Let's Encrypt and ZeroSSL). It also contains fail2ban for intrusion prevention.
+---
+
+## What is SWAG?
+
+SWAG (Secure Web Application Gateway, formerly known as letsencrypt) sets up an Nginx webserver and reverse proxy with PHP support and a built-in certbot client for automated SSL certificate generation and renewal (Let's Encrypt and ZeroSSL). It also includes fail2ban for intrusion prevention.
+
+---
 
 ## Certbot Plugins
 
-SWAG includes many Certbot plugins out of the box, but not all plugins can be included. If you need a plugin that is not included, the quickest way to have the plugin available is to use our Universal Package Install Docker Mod.
+SWAG includes many Certbot plugins out of the box. If you need a plugin that's not included, use the Universal Package Install Docker Mod:
 
-Set the following environment variables on your container:
-
-DOCKER_MODS=linuxserver/mods:universal-package-install
-INSTALL_PIP_PACKAGES=certbot-dns-<plugin>
-
-Set the required credentials (usually found in the plugin documentation) in /config/dns-conf/<plugin>.ini. It is recommended to attempt obtaining a certificate with STAGING=true first to make sure the plugin is working as expected.
-Security and password protection
-```
-The container detects changes to url and subdomains, revokes existing certs and generates new ones during start.
-Per RFC7919, the container is shipping ffdhe4096 as the dhparams.pem.
-If you'd like to password protect your sites, you can use htpasswd. Run the following command on your host to generate the htpasswd file docker exec -it swag htpasswd -c /config/nginx/.htpasswd <username>
-You can add multiple user:pass to .htpasswd. For the first user, use the above command, for others, use the above command without the -c flag, as it will force deletion of the existing .htpasswd and creation of a new one
-You can also use ldap auth for security and access control. A sample, user configurable ldap.conf is provided, and it requires the separate image linuxserver/ldap-auth to communicate with an ldap server.
+```yaml
+environment:
+  DOCKER_MODS: linuxserver/mods:universal-package-install
+  INSTALL_PIP_PACKAGES: certbot-dns-<plugin>
 ```
 
-## Site config and reverse proxy
+Set the required credentials in `/config/dns-conf/<plugin>.ini`. Test with `STAGING=true` first.
 
-The default site config resides at /config/nginx/site-confs/default.conf. Feel free to modify this file, and you can add other conf files to this directory. However, if you delete the default file, a new default will be created on container start.
-Preset reverse proxy config files are added for popular apps. See the README.md file under /config/nginx/proxy_confs for instructions on how to enable them. The preset confs reside in and get imported from this repo.
-If you wish to hide your site from search engine crawlers, you may find it useful to add this configuration line to your site config, within the server block, above the line where ssl.conf is included add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive"; This will ask Google et al not to index and list your site. Be careful with this, as you will eventually be de-listed if you leave this line in on a site you wish to be present on search engines
-If you wish to redirect http to https, you must expose port 80
+---
 
-## Using certs in other containers
+## Security and Password Protection
 
-    This container includes auto-generated pfx and private-fullchain-bundle pem certs that are needed by other apps like Emby and Znc.
-        To use these certs in other containers, do either of the following:
-        (Easier) Mount the container's config folder in other containers (ie. -v /path-to-swag-config:/swag-ssl) and in the other containers, use the cert location /swag-ssl/keys/letsencrypt/
-        (More secure) Mount the SWAG folder etc that resides under /config in other containers (ie. -v /path-to-swag-config/etc:/swag-ssl) and in the other containers, use the cert location /swag-ssl/letsencrypt/live/<your.domain.url>/ (This is more secure because the first method shares the entire SWAG config folder with other containers, including the www files, whereas the second method only shares the ssl certs)
-        These certs include:
-        cert.pem, chain.pem, fullchain.pem and privkey.pem, which are generated by Certbot and used by nginx and various other apps
-        privkey.pfx, a format supported by Microsoft and commonly used by dotnet apps such as Emby Server (no password)
-        priv-fullchain-bundle.pem, a pem cert that bundles the private key and the fullchain, used by apps like ZNC
+- SWAG detects changes to URLs and subdomains, revokes existing certs, and generates new ones on start.
+- To password-protect your sites, use htpasswd:
+  ```bash
+  docker exec -it swag htpasswd -c /config/nginx/.htpasswd <username>
+  ```
+- For additional users, omit the `-c` flag.
+- LDAP authentication is also supported (see the provided `ldap.conf` and use the `linuxserver/ldap-auth` image).
+
+---
+
+## Site Config and Reverse Proxy
+
+- Default site config: `/config/nginx/site-confs/default.conf`
+- Add or modify conf files in this directory. Deleting the default will recreate it on container start.
+- Preset reverse proxy configs for popular apps are available in `/config/nginx/proxy_confs`.
+- To hide your site from search engines, add this to your site config:
+  ```nginx
+  add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+  ```
+- To redirect HTTP to HTTPS, expose port 80.
+
+---
+
+## Using Certs in Other Containers
+
+- Mount the SWAG config folder in other containers to use certs:
+  ```bash
+  -v /path-to-swag-config:/swag-ssl
+  # Use certs from /swag-ssl/keys/letsencrypt/
+  ```
+- Or, mount only the `/etc` subfolder for more security:
+  ```bash
+  -v /path-to-swag-config/etc:/swag-ssl
+  # Use certs from /swag-ssl/letsencrypt/live/<your.domain.url>/
+  ```
+
+---
 
 ## Using fail2ban
 
-    This container includes fail2ban set up with 5 jails by default:
-        nginx-http-auth
-        nginx-badbots
-        nginx-botsearch
-        nginx-deny
-        nginx-unauthorized
-    To enable or disable other jails, modify the file /config/fail2ban/jail.local
-    To modify filters and actions, instead of editing the .conf files, create .local files with the same name and edit those because .conf files get overwritten when the actions and filters are updated. .local files will append whatever's in the .conf files (ie. nginx-http-auth.conf --> nginx-http-auth.local)
-    You can check which jails are active via docker exec -it swag fail2ban-client status
-    You can check the status of a specific jail via docker exec -it swag fail2ban-client status <jail name>
-    You can unban an IP via docker exec -it swag fail2ban-client set <jail name> unbanip <IP>
-    A list of commands can be found here: https://www.fail2ban.org/wiki/index.php/Commands
+- SWAG includes fail2ban with 5 default jails.
+- To check status:
+  ```bash
+  docker exec -it swag fail2ban-client status
+  docker exec -it swag fail2ban-client status <jail name>
+  ```
+- To unban an IP:
+  ```bash
+  docker exec -it swag fail2ban-client set <jail name> unbanip <IP>
+  ```
+- See [fail2ban commands](https://www.fail2ban.org/wiki/index.php/Commands) for more.
 
-## Updating configs
+---
 
-    This container creates a number of configs for nginx, proxy samples, etc.
-    Config updates are noted in the changelog but not automatically applied to your files.
-    If you have modified a file with noted changes in the changelog:
-        Keep your existing configs as is (not broken, don't fix)
-        Review our repository commits and apply the new changes yourself
-        Delete the modified config file with listed updates, restart the container, reapply your changes
-    If you have NOT modified a file with noted changes in the changelog:
-        Delete the config file with listed updates, restart the container
-    Proxy sample updates are not listed in the changelog. See the changes here: https://github.com/linuxserver/reverse-proxy-confs/commits/master
-    Proxy sample files WILL be updated, however your renamed (enabled) proxy files will not.
-    You can check the new sample and adjust your active config as needed.
+## Updating Configs
 
+- Config updates are noted in the changelog but not automatically applied.
+- If you have modified a config file, review changes and apply manually, or delete and restart the container to regenerate.
+- Proxy sample updates are not listed in the changelog. See [reverse-proxy-confs commits](https://github.com/linuxserver/reverse-proxy-confs/commits/master).
+
+---
 
 ## Example Playbook
 
-This example will install Docker and install reverse proxy container SWAG with most defaults.
-Please set the `swag__url` to you're own domain, and subdomains when needed.
-All other variables possible with defaults see next chapter
+This example installs Docker and the SWAG reverse proxy container with most defaults. Set `swag__url` to your own domain and subdomains as needed.
 
-!NOTE
-Please note that this example playbook also use another role named `bsmeding.docker` that will install docker on a system. To install this role first install with `ansible-galaxy role install bsmeding.docker` or install docker on forehand and comment the first taks out.
-
+> **Note:** This playbook uses another role, `bsmeding.docker`, to install Docker. Install it with `ansible-galaxy role install bsmeding.docker` or install Docker manually and comment out the first task.
 
 ```yaml
 ---
@@ -117,10 +129,12 @@ Please note that this example playbook also use another role named `bsmeding.doc
         name: bsmeding.docker_swag
 ```
 
-### Subdomain reverse proxy
-To use the reverse proxy possibilities, there are templates available that can be used with limit information, you don't have tu create Nginx config files yourself
+---
 
-For example if you want to point `https://dash.example.com` to another server in your network on IP `http://192.168.111.241` port `9090` you can add this to the list `swag__proxy_confs_subdomain`
+## Subdomain Reverse Proxy Example
+
+To use the reverse proxy, templates are available so you don't have to create Nginx config files yourself. For example, to point `https://dash.example.com` to `http://192.168.111.241:9090`:
+
 ```yaml
 swag__proxy_confs_subdomain:
   - server_name: dash.example.com
@@ -130,7 +144,11 @@ swag__proxy_confs_subdomain:
     default_upstream_port: 9090
 ```
 
+---
+
 ## Variables
+
+A selection of variables you can use (see the role for full list):
 
 | Variable                            | Default Value                                       | Description                                                                                           |
 |-------------------------------------|-----------------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -188,6 +206,8 @@ swag__proxy_confs_subdomain:
 - `STAGING`: Use staging environment for testing (default: `false`).
 - `DOCKER_MODS`: Docker mods (optional).
 - `CF_ZONE_ID`, `CF_ACCOUNT_ID`, `CF_API_TOKEN`: Cloudflare credentials if using Cloudflare DNS validation.
+
+---
 
 ## Proxy Configuration Examples
 

@@ -80,7 +80,7 @@ You should see the installed version number.
 ---
 
 ## 🚀 Next Steps
-- Learn how to initialize your first Vagrant project.
+- Learn how to initialize your first Vagrant project. [TODO: Next chapter]
 - Check the [Vagrantfile reference](https://www.vagrantup.com/docs/vagrantfile) for configuration options.
 
 ---
