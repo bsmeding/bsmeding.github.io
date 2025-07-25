@@ -48,6 +48,7 @@ nav:
     - 'Linux basics': tutorials/linux_basics.md
     - 'Enable Winwows Subsystem for Linux': tutorials/enable_wsl_on_windows.md
     - 'Vagrant Installation': tutorials/vagrant_install.md
+    - 'SSO: Introduction': sso.md
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
