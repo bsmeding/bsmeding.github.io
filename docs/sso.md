@@ -1,12 +1,11 @@
 ---
-title: Single Sign-On (SSO) for Network Automation
+title: Single Sign-On (SSO) for tools
 tags:
   - sso
   - single sign-on
   - ldap
   - authelia
   - authentication
-  - network automation
   - ansible
   - devops
 ---
@@ -51,5 +50,3 @@ Many of the roles and solutions on this site support SSO out of the box or via i
 - [LDAP/Authelia setup (coming soon)]
 
 ---
-
-**Tip:** For best SEO, link to this page from your homepage, navigation, and relevant tutorials. 
