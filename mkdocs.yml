@@ -78,15 +78,15 @@ theme:
     - content.tabs.link
     - search.share
     - search.suggest
-  privacy:
-    analytics:
-      google: G-LF84C44PGC
-      cookie: true
 
 extra:
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/bartsmeding/
+  analytics:
+    provider: google
+    property: G-LF84C44PGC
+
 
 markdown_extensions:
   - admonition
