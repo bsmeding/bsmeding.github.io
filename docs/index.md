@@ -11,13 +11,11 @@ tags:
 
 # Welcome to NetDevOps.it
 
-> **SITE IS UNDER DEVELOPMENT!**
-
 ## Your Gateway to Network Automation Excellence
 
 Welcome to **NetDevOps.it**, a hub for network engineers and DevOps enthusiasts seeking to elevate their network automation skills. This site is dedicated to sharing knowledge, tools, and insights for mastering the art of **Network Development Operations**.
 
-> **Note:** This site is under construction (relaunched January 2025). New content is being added regularly, but some sections may not be fully operational yet.
+> **Note:** This site is under construction. New content is being added regularly, but some sections may not be fully operational yet.
 
 What is NetDevOps? See the [What is NetDevOps page](netdevops.md).
 

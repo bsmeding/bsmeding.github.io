@@ -22,7 +22,7 @@ vars:
 ```
 
 ## Cisco IOS Modules
-Use modules like `ios_command`, `ios_config`, and `ios_facts` for Cisco devices.
+Use modules like `cisco.ios.ios_command`, `cisco.ios.ios_config`, and `cisco.ios.ios_facts` for Cisco devices.
 
 **Example:**
 ```yaml
@@ -32,7 +32,7 @@ Use modules like `ios_command`, `ios_config`, and `ios_facts` for Cisco devices.
   connection: network_cli
   tasks:
     - name: Show version
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - show version
       register: version_output
@@ -41,7 +41,7 @@ Use modules like `ios_command`, `ios_config`, and `ios_facts` for Cisco devices.
 ```
 
 ## Using cli_command
-`cli_command` is a generic module for sending commands to network devices (multi-vendor).
+`ansible.netcommon.cli_command` is a generic module for sending commands to network devices (multi-vendor).
 
 **Example:**
 ```yaml
@@ -51,7 +51,7 @@ Use modules like `ios_command`, `ios_config`, and `ios_facts` for Cisco devices.
   connection: network_cli
   tasks:
     - name: Show interfaces
-      cli_command:
+      ansible.netcommon.cli_command:
         command: show interfaces
       register: interfaces
     - debug:
@@ -72,7 +72,7 @@ Some commands require privileged (enable) mode. Use `become: yes` and set `ansib
     ansible_become_password: your_enable_password
   tasks:
     - name: Show running config
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - show running-config
       register: config
@@ -90,7 +90,7 @@ export ANSIBLE_NET_PASSWORD=yourpass
 ```
 
 ## Gathering Network Facts
-Use modules like `ios_facts` to gather detailed information from devices.
+Use modules like `cisco.ios.ios_facts` to gather detailed information from devices.
 
 **Example:**
 ```yaml
@@ -100,7 +100,7 @@ Use modules like `ios_facts` to gather detailed information from devices.
   connection: network_cli
   tasks:
     - name: Get facts
-      ios_facts:
+      cisco.ios.ios_facts:
       register: facts
     - debug:
         var: facts

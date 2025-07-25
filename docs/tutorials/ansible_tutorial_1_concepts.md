@@ -125,7 +125,7 @@ A playbook is a YAML file describing automation tasks.
   gather_facts: no
   tasks:
     - name: Ping device
-      ping:
+      ansible.builtin.ping:
 ```
 
 ---
@@ -148,7 +148,7 @@ ansible_host: 192.0.2.1
 ---
 
 ## Ansible Facts
-Facts are variables automatically discovered about hosts. For network devices, use modules like `ios_facts` or `eos_facts`.
+Facts are variables automatically discovered about hosts. For network devices, use modules like `cisco.ios.ios_facts` or `arista.eos.eos_facts`.
 
 **Example:**
 ```yaml
@@ -158,7 +158,7 @@ Facts are variables automatically discovered about hosts. For network devices, u
   connection: network_cli
   tasks:
     - name: Get facts
-      ios_facts:
+      cisco.ios.ios_facts:
       register: facts
     - debug:
         var: facts

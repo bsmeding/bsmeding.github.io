@@ -24,11 +24,11 @@ Modules are used in playbooks as tasks.
   gather_facts: no
   tasks:
     - name: Ping
-      ping:
+      ansible.builtin.ping:
 ```
 
 ## Built-in vs. Community Modules
-- **Built-in modules:** Included with Ansible (e.g., `ping`, `copy`, `ios_command`)
+- **Built-in modules:** Included with Ansible (e.g., `ansible.builtin.ping`, `ansible.builtin.copy`, `cisco.ios.ios_command`)
 - **Community modules:** Provided by the community, often via Ansible Galaxy collections (e.g., `cisco.ios.ios_config`)
 
 ## Module Index & How to Search
@@ -37,7 +37,7 @@ Modules are used in playbooks as tasks.
 - Use `ansible-doc <module_name>` for documentation
 
 ## Vendor Modules
-Always try to use vendor-specific modules (e.g., `ios_command` for Cisco, `eos_command` for Arista) for best results.
+Always try to use vendor-specific modules (e.g., `cisco.ios.ios_command` for Cisco, `arista.eos.eos_command` for Arista) for best results.
 
 ## Your First Playbook with a Vendor Module
 ```yaml
@@ -48,7 +48,7 @@ Always try to use vendor-specific modules (e.g., `ios_command` for Cisco, `eos_c
   connection: network_cli
   tasks:
     - name: Get running config
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - show running-config
       register: config
