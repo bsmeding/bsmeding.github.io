@@ -1,6 +1,6 @@
 ---
 authors: [bsmeding]
-date: 2025-03-10
+date: 2025-04-10
 title: Nautobot Docker Images with Pre-Installed Apps
 summary: Discover ready-to-use Nautobot Docker images with all major apps pre-installed. Learn how to deploy Nautobot with Docker Compose and activate the plugins you need—no manual builds or pip installs required.
 tags: ["nautobot", "docker", "network automation", "cmdb", "ssot", "plugins", "apps"]
@@ -12,6 +12,7 @@ comments: true
 # Nautobot Docker Images with Pre-Installed Apps
 
 Managing and extending Nautobot with plugins and apps can be challenging, especially for users who are not familiar with Docker, Docker builds, or Python package management. To make things easier, I maintain a set of Docker images based on the official Nautobot images, but with almost all major Nautobot apps pre-installed and ready to use.
+<!-- more -->
 
 ## 🚀 What Are These Images?
 - **Based on the official Nautobot images** (latest two major versions: 1.x and 2.x)
