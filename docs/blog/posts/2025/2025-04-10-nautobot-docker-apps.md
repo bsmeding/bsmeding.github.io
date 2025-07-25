@@ -19,7 +19,7 @@ Managing and extending Nautobot with plugins and apps can be challenging, especi
 - **All major Nautobot apps pre-installed** ([see full list of apps](https://docs.nautobot.com/projects/core/en/stable/apps/))
 - **No need to build or install plugins manually**
 - **Just activate the plugins you want** in your `nautobot_config.py`
-- **Available on Docker Hub:** [bsmeding/nautobot](https://hub.docker.com/repository/docker/bsmeding/nautobot)
+- **Available on Docker Hub:** [bsmeding/nautobot](https://hub.docker.com/r/bsmeding/nautobot)
 
 ## 🧩 Included Nautobot Apps
 The images include (but are not limited to):
