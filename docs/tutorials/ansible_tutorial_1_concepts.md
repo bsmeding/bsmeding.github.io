@@ -114,6 +114,42 @@ ansible_host: 192.0.2.1
 
 ---
 
+## ansible.cfg: Ansible Configuration File
+
+The `ansible.cfg` file is the main configuration file for Ansible. It allows you to customize how Ansible behaves, set default paths, control privilege escalation, SSH settings, and more. Having a project-specific `ansible.cfg` in your project directory ensures consistent behavior for everyone working on the project.
+
+**Why use ansible.cfg?**
+- Centralizes configuration for your project
+- Avoids the need to pass extra flags on every command
+- Ensures reproducible and predictable automation
+
+**Common settings:**
+- `inventory`: Path to your inventory file
+- `roles_path`: Where Ansible looks for roles
+- `host_key_checking`: Disable SSH host key checking (useful for labs)
+- `retry_files_enabled`: Disable creation of retry files
+- `remote_user`: Default SSH user
+- `private_key_file`: Path to SSH private key
+- `timeout`: SSH connection timeout
+
+**Example ansible.cfg:**
+```ini
+[defaults]
+inventory = inventory.yml
+roles_path = roles
+host_key_checking = False
+retry_files_enabled = False
+remote_user = admin
+private_key_file = ~/.ssh/id_rsa
+timeout = 30
+```
+
+**Tip:**
+- Place your `ansible.cfg` in the root of your project directory. Ansible will automatically use it if present.
+- You can override any setting with command-line flags if needed.
+
+---
+
 ## Ansible Playbook Structure
 A playbook is a YAML file describing automation tasks.
 
