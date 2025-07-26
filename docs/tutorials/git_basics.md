@@ -146,7 +146,15 @@ git merge feature-branch
 Resolve any conflicts, if necessary, and finalize the merge.
 
 ---
+### 7. Other commands
 
+Rename branch `master` to `main`
+```bash
+git branch -m master main
+```
+
+
+---
 ## Wrapping Up
 
 Git is a powerful tool that can simplify your workflow and improve collaboration. By mastering the basics, you’ll be well on your way to managing your projects effectively. In future posts, we’ll dive deeper into more advanced Git features.
