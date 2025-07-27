@@ -117,9 +117,15 @@ Run it every time you add a new folder to your `ANSIBLE_ROLES` development envir
 Here’s a simple playbook to test your role:
 
 ```yaml
-- hosts: dev1
+- hosts: all
+  become: true
   roles:
-    - bsmeding.nautobot_docker
+    - role: bsmeding.docker  # Ensure Docker is installed, this is not my development role, but to be shure Docker is installed
+    - role: bsmeding.nautobot_docker # This is my testing Ansible role from the symlink
+      vars:
+        nautobot__superuser_name: admin
+        nautobot__superuser_password: admin
+        nautobot__superuser_api_token: "myapitoken"
 ```
 
 ## 5. .gitignore Advice
