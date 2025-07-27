@@ -3,8 +3,8 @@ authors: [bsmeding]
 date: 2025-05-18
 title: Create development environment for Ansible roles
 summary: I develop my Ansible roles, synced to Github, locally and test locally before the get tagged for Ansible galaxy. this is how i can develop and test without galaxy upload
-tags: ["nautobot", "docker", "network automation", "cmdb", "ssot", "plugins", "apps"]
-toc: true
+tags: ["ansible", "role development", "ansible galaxy", "github action"]
+toc: false
 layout: single
 comments: true
 ---
