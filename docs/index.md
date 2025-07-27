@@ -24,9 +24,11 @@ Welcome to **NetDevOps.it**, a hub for network engineers and DevOps enthusiasts 
 
 What is NetDevOps? See the [What is NetDevOps page](netdevops.md).
 
-Looking for Single Sign-On (SSO) solutions? Visit the [SSO page](sso.md).
+Look a my favortie network automation tool Nautobot! Visit the [Nautobot SSoT page](nautobot_ssot.md).
 
 Interested in Docker images for automation? Check out the [Docker Images](docker_images.md) page.
+
+Or lookup my Ansible roles and collections for NetDevOps and DevOps! Check out the [Ansible Roles and Collections by Bart Smeding](ansible_roles_and_collections.md) page.
 
 Want to get started with automation? Explore our [step-by-step Ansible Tutorials](tutorials/ansible_tutorial_1_concepts.md) or browse the [Ansible Roles and Collections](ansible_roles_and_collections.md).
 
