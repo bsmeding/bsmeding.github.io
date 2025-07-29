@@ -9,6 +9,9 @@ summary: OpsMill is a modern network automation and orchestration platform for m
 
 [OpsMill](https://opsmill.com/) is a modern platform for **network automation** and **orchestration**. It provides a unified interface for managing, automating, and monitoring network infrastructure, supporting both traditional and cloud-native environments.
 
+![OpsMill Infrahub](https://opsmill.com/wp-content/uploads/2025/05/devices-1400x788.png)
+<!-- more -->
+
 ## Key Features
 - Unified network automation and orchestration
 - Source of truth for network inventory
