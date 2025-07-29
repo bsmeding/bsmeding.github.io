@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-Script to extract devices from a Nautobot site and generate a pyATS testbed YAML file.
+Script to extract devices from a Nautobot site/location and generate a pyATS testbed YAML file.
+
+Supports both Nautobot 1.x (site field) and Nautobot 2.x (locations of type 'site').
 
 Environment variables required:
 - NAUTOBOT_URL: Nautobot API base URL (e.g., https://nautobot.example.com/api/)
 - NAUTOBOT_TOKEN: Nautobot API token
-- NAUTOBOT_SITE: Name or slug of the site to extract devices from
+- NAUTOBOT_SITE: Name or slug of the site/location to extract devices from
 
 Usage:
   export NAUTOBOT_URL=https://nautobot.example.com/api/
@@ -31,21 +33,36 @@ HEADERS = {
     "Accept": "application/json",
 }
 
-# Fetch devices from the specified site
+def get_location_id(site_name):
+    # For Nautobot 2.x: get location with type 'site'
+    url = f"{NAUTOBOT_URL.rstrip('/')}/dcim/locations/?location_type=site&name={site_name}"
+    resp = requests.get(url, headers=HEADERS)
+    resp.raise_for_status()
+    results = resp.json().get("results", [])
+    if results:
+        return results[0]["id"]
+    return None
+
 def get_devices(site):
+    # Try Nautobot 2.x locations first
+    location_id = get_location_id(site)
+    if location_id:
+        url = f"{NAUTOBOT_URL.rstrip('/')}/dcim/devices/?location_id={location_id}&limit=1000"
+        resp = requests.get(url, headers=HEADERS)
+        resp.raise_for_status()
+        return resp.json().get("results", [])
+    # Fallback to Nautobot 1.x site field
     url = f"{NAUTOBOT_URL.rstrip('/')}/dcim/devices/?site={site}&limit=1000"
     resp = requests.get(url, headers=HEADERS)
     resp.raise_for_status()
     return resp.json().get("results", [])
 
-# Fetch primary IP for a device (if available)
 def get_primary_ip(device):
     ip = device.get("primary_ip4") or device.get("primary_ip")
     if ip and ip.get("address"):
         return ip["address"].split("/")[0]
     return None
 
-# Build pyATS testbed structure
 def build_testbed(devices):
     testbed = {"devices": {}}
     for dev in devices:
@@ -75,7 +92,7 @@ def build_testbed(devices):
 if __name__ == "__main__":
     devices = get_devices(NAUTOBOT_SITE)
     if not devices:
-        print(f"No devices found for site '{NAUTOBOT_SITE}'.", file=sys.stderr)
+        print(f"No devices found for site/location '{NAUTOBOT_SITE}'.", file=sys.stderr)
         sys.exit(1)
     testbed = build_testbed(devices)
     yaml.dump(testbed, sys.stdout, default_flow_style=False, sort_keys=False) 
