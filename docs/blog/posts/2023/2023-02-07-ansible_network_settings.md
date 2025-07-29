@@ -13,6 +13,7 @@ tags: ["ansible", "network-cli"]
 
 A quick guide to Ansible network settings and how to use them for network automation tasks.
 
+<!-- more -->
 ---
 
 ## Overview

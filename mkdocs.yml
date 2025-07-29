@@ -35,7 +35,26 @@ nav:
     - 'Nautobot Docker Apps': blog/posts/2025/2025-04-10-nautobot-docker-apps.md
     # - 'Nautobot Jobs': nautobot_jobs.md
     # - 'Nautobot Plugins': nautobot_plugins.md
-  - Tools: tools.md   
+  - Tools:
+    - Tools Index: tools.md
+    - Ansible: blog/posts/tools/ansible.md
+    - Docker: blog/posts/tools/docker.md
+    - NetBox: blog/posts/tools/netbox.md
+    - Nautobot: blog/posts/tools/nautobot.md
+    - OpsMill: blog/posts/tools/opsmill.md
+    - Jinja2: blog/posts/tools/jinja2.md
+    - Nornir: blog/posts/tools/nornir.md
+    - Terraform: blog/posts/tools/terraform.md
+    - SaltStack: blog/posts/tools/saltstack.md
+    - pyATS: blog/posts/tools/pyats.md
+    - Prometheus: blog/posts/tools/prometheus.md
+    - Grafana: blog/posts/tools/grafana.md
+    - InfluxDB: blog/posts/tools/influxdb.md
+    - Jenkins: blog/posts/tools/jenkins.md
+    - GitLab CI/CD: blog/posts/tools/gitlab-ci.md
+    - GitHub Actions: blog/posts/tools/github-actions.md
+    - CloudFormation: blog/posts/tools/cloudformation.md
+    - API: blog/posts/tools/api.md
   - Docker:
     - 'Docker images index': docker_images.md
   - AI:
