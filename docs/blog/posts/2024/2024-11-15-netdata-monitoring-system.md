@@ -4,14 +4,16 @@ toc: true
 date: 2024-11-15
 layout: single
 comments: false
-title: Netdata Monitoring System
+title: "Netdata Monitoring System: Real-Time, Free, and Easy"
 summary: Learn how to quickly set up and use Netdata, a free and open-source real-time monitoring system for your servers, containers, and applications.
 tags: ["netdata", "monitoring", "docker", "open-source", "linux"]
 ---
 
-# Netdata Monitoring System: Real-Time, Free, and Easy
+# Netdata Monitoring System - Real-Time, Free, and Easy
 
 Netdata is a **free, open-source, and lightweight monitoring solution** for servers, containers, and applications. It provides real-time insights into your system’s health, performance, and resource usage—all with beautiful, interactive dashboards. Whether you’re a home lab enthusiast or running enterprise infrastructure, Netdata is a fantastic tool to have in your monitoring arsenal.
+
+[netdata overview](images/tools/netdata/netdata_overview.png)
 
 <!-- more -->
 
@@ -52,15 +54,15 @@ bash <(curl -Ss https://my-netdata.io/kickstart.sh)
 
 ### 2. Docker Deployment
 
-Netdata is also available as a Docker container:
+Netdata is also available as a Docker container. **For best practice, mount all persistent data under `/opt/netdata/` on your host:**
 
 ```bash
 docker run -d \
   --name=netdata \
   -p 19999:19999 \
-  -v netdataconfig:/etc/netdata \
-  -v netdatalib:/var/lib/netdata \
-  -v netdatacache:/var/cache/netdata \
+  -v /opt/netdata/config:/etc/netdata \
+  -v /opt/netdata/lib:/var/lib/netdata \
+  -v /opt/netdata/cache:/var/cache/netdata \
   -v /etc/passwd:/host/etc/passwd:ro \
   -v /etc/group:/host/etc/group:ro \
   -v /proc:/host/proc:ro \
@@ -72,8 +74,11 @@ docker run -d \
   netdata/netdata
 ```
 
+- This setup keeps all Netdata configuration, state, and cache files organized under `/opt/netdata/` on your host.
 - Visit [http://localhost:19999](http://localhost:19999) after starting the container.
 - For more options, see the [Netdata Docker docs](https://learn.netdata.cloud/docs/agent/packaging/docker/).
+
+> **Coming soon:** I will publish an [Ansible role](/ansible/ansible_role_netdata_docker/) to automate Netdata deployment with Docker as part of my [automation resources](/ansible_roles_and_collections/). Stay tuned!
 
 ### 3. Other Installation Methods
 
@@ -90,10 +95,10 @@ Netdata works out of the box, but you can customize it for your needs.
 
 ### Main Config File
 
-- Location: `/etc/netdata/netdata.conf` (host) or `/etc/netdata/netdata.conf` (in container)
+- Location: `/opt/netdata/config/netdata.conf` (host) or `/etc/netdata/netdata.conf` (in container)
 - To edit:
   ```bash
-  sudo nano /etc/netdata/netdata.conf
+  sudo nano /opt/netdata/config/netdata.conf
   ```
 - Example: Change the default dashboard port
   ```ini
@@ -103,11 +108,58 @@ Netdata works out of the box, but you can customize it for your needs.
 
 ### Enable/Disable Plugins
 
-- Netdata auto-detects most services, but you can enable/disable plugins in `/etc/netdata/netdata.conf` or in the `python.d` and `go.d` plugin directories.
+- Netdata auto-detects most services, but you can enable/disable plugins in `/opt/netdata/config/netdata.conf` or in the `python.d` and `go.d` plugin directories under `/opt/netdata/config/`.
 - Example: Enable the Nginx plugin
   ```bash
-  sudo nano /etc/netdata/python.d/nginx.conf
+  sudo nano /opt/netdata/config/python.d/nginx.conf
   ```
+
+---
+
+## Monitoring Network Devices with SNMP and gRPC
+
+Netdata can monitor network devices such as switches, routers, and firewalls using standard protocols like **SNMP** (Simple Network Management Protocol) and **gRPC**. This allows you to visualize interface statistics, CPU/memory usage, and more from your network infrastructure alongside your servers and containers.
+
+### SNMP Monitoring
+
+- **SNMP** is widely supported by network devices for exposing metrics.
+- Netdata uses the `snmp` plugin to poll devices and display their data.
+- Typical use cases: switches, routers, firewalls, printers, UPS devices, etc.
+
+**Example SNMP configuration (`/opt/netdata/config/python.d/snmp.conf`):**
+
+```yaml
+switch1:
+  community: public
+  host: 192.168.1.10
+  version: 2c
+  modules:
+    - system
+    - interfaces
+```
+
+- After editing, restart Netdata: `sudo systemctl restart netdata` (or restart the container).
+- See [Netdata SNMP docs](https://learn.netdata.cloud/docs/agent/collectors/python.d.plugin/snmp/) for more details and module options.
+
+### gRPC Monitoring
+
+- **gRPC** is a modern, high-performance protocol used by some next-gen network devices and platforms.
+- Netdata supports gRPC for certain integrations (see [Netdata gRPC docs](https://learn.netdata.cloud/docs/agent/collectors/go.d.plugin/grpc/)).
+- Example use cases: cloud-native network appliances, SDN controllers, or custom telemetry exporters.
+
+**Example gRPC configuration (`/opt/netdata/config/go.d/grpc.conf`):**
+
+```yaml
+grpc_example:
+  address: 192.168.1.20:50051
+  metrics:
+    - cpu
+    - memory
+```
+
+- Adjust the address and metrics as needed for your device/platform.
+
+> For more on network device monitoring and automation, see my [network automation resources](/index/#what-youll-find-here) and [Ansible tutorials](/tutorials/).
 
 ---
 
@@ -117,6 +169,7 @@ Netdata works out of the box, but you can customize it for your needs.
 2. **Explore Metrics:** Click through the charts for CPU, memory, disk, network, containers, and more.
 3. **Set Up Alerts:** Netdata comes with built-in alerting. Configure notifications in `/etc/netdata/health_alarm_notify.conf`.
 4. **Add More Nodes:** Use [Netdata Cloud](https://app.netdata.cloud/) (free tier available) to monitor multiple systems from a single dashboard.
+   - **Note:** To use the Netdata Cloud dashboard, you need to create an online *space* (organization) in Netdata Cloud and link your nodes to it. This lets you manage and view all your systems in one place, invite team members, and access advanced features. [See the official guide](https://learn.netdata.cloud/docs/cloud/spaces/).
 
 ---
 
@@ -133,9 +186,9 @@ Netdata works out of the box, but you can customize it for your needs.
 
 *Coming soon!*
 
-- _[Insert screenshot: Netdata dashboard overview]_ 
-- _[Insert screenshot: Docker container metrics]_ 
-- _[Insert screenshot: Health alerts configuration]_ 
+- _[Insert screenshot - Netdata dashboard overview]_ 
+- _[Insert screenshot - Docker container metrics]_ 
+- _[Insert screenshot - Health alerts configuration]_ 
 
 ---
 
