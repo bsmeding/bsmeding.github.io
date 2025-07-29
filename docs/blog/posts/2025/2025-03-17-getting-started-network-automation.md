@@ -8,7 +8,7 @@ tags: ["network automation", "ansible", "getting started", "nocode", "tutorial"]
 
 # Getting Started with Network Automation
 
-Network automation is transforming the way we manage, configure, and monitor networks. Whether you work in enterprise IT, service provider environments, or data centers, automation can save you time, reduce errors, and make your network more reliable.
+Network automation is transforming how we manage and operate networks. Whether you're a beginner or looking to level up your skills, this post will help you get started with the basics, tools, and best practices for automating your network.
 
 <!-- more -->
 

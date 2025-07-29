@@ -9,9 +9,9 @@ summary: A step-by-step guide to setting up a full network automation developmen
 tags: ["ansible", "netdevops", "devnetops", "student", "course", "git", "gitea", "nginx", "awx", "lldap", "docker"]
 ---
 
-# Network Automation Development Setup
+# NetDevOps Dev Setup
 
-This guide helps you set up a complete network automation development environment using Docker containers for CMDB (Nautobot), Ansible AWX, LDAP server, Git server (Gitea), and Nginx reverse proxy. **Do not use in production!**
+Setting up a modern development environment for network automation can be challenging. In this post, I'll walk you through my NetDevOps dev setup, including tools, tips, and best practices.
 
 <!-- more -->
 

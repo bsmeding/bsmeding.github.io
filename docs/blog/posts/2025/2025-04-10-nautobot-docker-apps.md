@@ -9,10 +9,15 @@ layout: single
 comments: true
 ---
 
+# Nautobot Docker Apps
+
+Nautobot is a powerful network automation platform, and with Docker you can easily deploy Nautobot and its ecosystem of apps and plugins. In this post, I'll show you how to get started with Nautobot in Docker, explore some useful apps, and share tips for a smooth deployment.
+
+<!-- more -->
+
 # Nautobot Docker Images with Pre-Installed Apps
 
 Managing and extending Nautobot with plugins and apps can be challenging, especially for users who are not familiar with Docker, Docker builds, or Python package management. To make things easier, I maintain a set of Docker images based on the official Nautobot images, but with almost all major Nautobot apps pre-installed and ready to use.
-<!-- more -->
 
 ## 🚀 What Are These Images?
 - **Based on the official Nautobot images** (latest two major versions: 1.x and 2.x)

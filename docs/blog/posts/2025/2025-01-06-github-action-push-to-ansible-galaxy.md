@@ -13,11 +13,6 @@ comments: true
 
 Manually uploading your Ansible roles to [Ansible Galaxy](https://galaxy.ansible.com/) is tedious and error-prone. With GitHub Actions, you can automate this process so every new release is published automatically!
 
-This guide walks you through:
-- Setting up your Ansible Galaxy namespace
-- Creating and storing your Galaxy API key securely
-- Writing a GitHub Actions workflow to publish your role
-- Best practices for versioning and tagging
 <!-- more -->
 ---
 

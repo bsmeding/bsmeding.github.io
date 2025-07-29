@@ -11,7 +11,7 @@ tags: ["proxmox", "virtualisation"]
 
 # Setup Proxmox Cluster
 
-A quick guide to setting up a Proxmox cluster and troubleshooting corosync issues.
+Proxmox is a powerful open-source virtualization platform. In this post, I'll show you how to set up a basic Proxmox cluster for your home lab or small business.
 
 <!-- more -->
 
