@@ -1,5 +1,6 @@
 ---
 title: "APIs in Network Automation"
+date: 2023-11-10
 tags: ["api", "rest", "graphql", "automation", "integration"]
 summary: APIs (REST, GraphQL, etc.) are essential for integrating, automating, and managing modern network infrastructure.
 ---

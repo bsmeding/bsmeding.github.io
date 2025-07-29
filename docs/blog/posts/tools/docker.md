@@ -1,5 +1,6 @@
 ---
 title: "Docker"
+date: 2023-02-17
 tags: ["docker", "containers", "devops", "automation"]
 summary: Docker is a platform for building, running, and managing containers for consistent and portable environments.
 ---

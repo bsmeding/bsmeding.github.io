@@ -1,6 +1,7 @@
 ---
 title: "Nautobot"
 tags: ["nautobot", "network automation", "source of truth", "ssot", "cmdb"]
+date: 2024-04-11
 summary: Nautobot is an extensible open-source network automation platform and source of truth for modern infrastructure.
 ---
 

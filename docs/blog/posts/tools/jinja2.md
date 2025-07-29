@@ -1,6 +1,7 @@
 ---
 title: "Jinja2"
 tags: ["jinja2", "templating", "automation", "ansible"]
+date: 2024-02-18
 summary: Jinja2 is a powerful templating engine for Python, widely used in network automation for dynamic configuration generation.
 ---
 

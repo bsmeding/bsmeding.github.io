@@ -1,6 +1,7 @@
 ---
 title: "OpsMill"
 tags: ["opsmill", "network automation", "orchestration", "source of truth"]
+date: 2024-05-28
 summary: OpsMill is a modern network automation and orchestration platform for managing and automating network infrastructure.
 ---
 

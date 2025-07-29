@@ -1,6 +1,7 @@
 ---
 title: "NetBox"
 tags: ["netbox", "ipam", "dcim", "network automation", "source of truth"]
+date: 2023-07-19
 summary: NetBox is an open-source IPAM and DCIM tool for network automation and infrastructure management.
 ---
 
