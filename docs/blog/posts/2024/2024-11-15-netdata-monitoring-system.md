@@ -13,7 +13,7 @@ tags: ["netdata", "monitoring", "docker", "open-source", "linux"]
 
 Netdata is a **free, open-source, and lightweight monitoring solution** for servers, containers, and applications. It provides real-time insights into your system’s health, performance, and resource usage—all with beautiful, interactive dashboards. Whether you’re a home lab enthusiast or running enterprise infrastructure, Netdata is a fantastic tool to have in your monitoring arsenal.
 
-[netdata overview](images/tools/netdata/netdata_overview.png)
+![netdata overview](/images/tools/netdata/netdata_overview.png)
 
 <!-- more -->
 
