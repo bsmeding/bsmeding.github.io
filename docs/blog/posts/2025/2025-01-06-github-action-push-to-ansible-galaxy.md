@@ -18,7 +18,7 @@ This guide walks you through:
 - Creating and storing your Galaxy API key securely
 - Writing a GitHub Actions workflow to publish your role
 - Best practices for versioning and tagging
-
+<!-- more -->
 ---
 
 ## 1. Prerequisites

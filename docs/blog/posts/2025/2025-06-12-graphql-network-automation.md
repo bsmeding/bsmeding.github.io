@@ -8,10 +8,10 @@ layout: single
 comments: true
 ---
 
-# Supercharge Network Automation with GraphQL: One Query to Rule Them All
+# Supercharge Network Automation with GraphQL -> One Query to Rule Them All
 
 Network automation is evolving rapidly, and one of the most exciting developments is the adoption of **GraphQL** as a query language for APIs. Modern tools are embracing GraphQL, making it easier than ever to fetch exactly the data you need—no more chaining multiple REST API calls or wrestling with pagination. In this post, I'll show you how to leverage GraphQL for powerful, efficient [network automation](/index/#what-youll-find-here) workflows, with practical examples for platforms like [Nautobot](/blog/posts/tools/nautobot/), [OpsMill](/blog/posts/tools/opsmill/), and more.
-
+<!-- more -->
 ---
 
 ## Why GraphQL for Network Automation?
