@@ -8,6 +8,7 @@ summary: Jinja2 is a powerful templating engine for Python, widely used in netwo
 # Jinja2
 
 [Jinja2](https://jinja.palletsprojects.com/) is a fast, expressive, and extensible **templating engine** for Python. It is the default template language for [Ansible](/blog/posts/tools/ansible/) and is widely used for generating dynamic configurations, scripts, and documentation in network automation.
+<!-- more -->
 
 ## Key Features
 - Powerful template syntax (loops, conditionals, filters)

@@ -8,6 +8,7 @@ summary: Nautobot is an extensible open-source network automation platform and s
 # Nautobot
 
 [Nautobot](https://nautobot.com/) is an open-source, extensible platform for **network automation** and **source of truth (SSoT)**. It builds on the concepts of IPAM and DCIM, adding powerful automation, plugin, and integration capabilities for modern network operations.
+<!-- more -->
 
 ## Key Features
 - Source of truth for devices, IPs, circuits, and more

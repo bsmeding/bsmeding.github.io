@@ -9,6 +9,8 @@ summary: NetBox is an open-source IPAM and DCIM tool for network automation and 
 
 [NetBox](https://netbox.dev/) is a popular open-source tool for **IP Address Management (IPAM)** and **Data Center Infrastructure Management (DCIM)**. It serves as a "source of truth" for network automation, helping you document, visualize, and manage your network and data center assets.
 
+<!-- more -->
+
 ## Key Features
 - IP address management (IPv4/IPv6)
 - Rack and device inventory

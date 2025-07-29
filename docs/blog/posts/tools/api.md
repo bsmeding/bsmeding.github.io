@@ -8,6 +8,7 @@ summary: APIs (REST, GraphQL, etc.) are essential for integrating, automating, a
 # APIs in Network Automation
 
 APIs (Application Programming Interfaces) are the backbone of modern network automation and integration. They allow tools, scripts, and platforms to communicate, exchange data, and automate tasks across diverse systems.
+<!-- more -->
 
 ## Key Concepts
 - **REST APIs:** The most common API style, using HTTP verbs (GET, POST, etc.) and JSON data.
