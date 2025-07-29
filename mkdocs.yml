@@ -35,6 +35,7 @@ nav:
     - 'Nautobot Docker Apps': blog/posts/2025/2025-04-10-nautobot-docker-apps.md
     # - 'Nautobot Jobs': nautobot_jobs.md
     # - 'Nautobot Plugins': nautobot_plugins.md
+  - Tools: tools.md   
   - Docker:
     - 'Docker images index': docker_images.md
   - AI:
