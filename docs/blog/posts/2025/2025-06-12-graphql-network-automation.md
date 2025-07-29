@@ -1,7 +1,7 @@
 ---
 authors: [bsmeding]
 date: 2025-06-12
-title: Supercharge Network Automation with GraphQL: One Query to Rule Them All
+title: Supercharge Network Automation with GraphQL -> One Query to Rule Them All
 tags: ["graphql", "network automation", "api", "jinja2", "opsmill", "nautobot"]
 toc: true
 layout: single
