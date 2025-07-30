@@ -61,7 +61,8 @@ To test local, unstaged changes, I create symlinks from my development roles to 
 - Ansible expects roles in the format `namespace.rolename` (e.g., `bsmeding.nautobot_docker`) for Galaxy-style usage.
 - This matches how you’d reference roles in `requirements.yml` or in your playbooks.
 
-**NOTE** that the correct `meta/main.yml` is set with `role_name` and `namespace`!
+**NOTE** that the correct `meta/main.yml` is set with `role_name` when using roles!
+**NOTE** that the correct `galaxy.yml` is set in the root folder when using collections!
 
 ### Bash Script to Link Roles
 
@@ -70,37 +71,45 @@ Save this script as `link_dev_roles.sh` in your test project directory:
 ```bash
 #!/bin/bash
 
-SRC_DIR="$HOME/code/ansible_roles"  # path where roles are cloned
-DEST_DIR="./roles"
+SRC_DIR="$HOME/GitHub/ANSIBLE_ROLES_AND_COLLECTIONS"        # Folder with all your repos
+DEST_DIR="./roles"                          # Your test project's roles/ folder
+DEFAULT_NAMESPACE="bsmeding"
 mkdir -p "$DEST_DIR"
 
-for role_path in "$SRC_DIR"/ansible_role_*; do
+for role_path in "$SRC_DIR"/*; do
     [ -d "$role_path" ] || continue
 
-    META_FILE="$role_path/meta/main.yml"
-    if [ ! -f "$META_FILE" ]; then
-        echo "⚠️  No meta/main.yml in $role_path, skipping."
-        continue
-    fi
+    # Case 1: Collection (uses .galaxy.yml)
+    if [[ -f "$role_path/.galaxy.yml" ]]; then
+        namespace=$(grep '^namespace:' "$role_path/.galaxy.yml" | awk '{print $2}')
+        name=$(grep '^name:' "$role_path/.galaxy.yml" | awk '{print $2}')
 
-    # Extract namespace and role_name from meta
-    namespace=$(grep 'namespace:' "$META_FILE" | awk '{print $2}')
-    role_name=$(grep 'role_name:' "$META_FILE" | awk '{print $2}')
-
-    if [[ -z "$namespace" || -z "$role_name" ]]; then
-        echo "⚠️  Missing namespace or role_name in $META_FILE, skipping."
-        continue
-    fi
-
-    target="$DEST_DIR/${namespace}.${role_name}"
-
-    if [ ! -L "$target" ]; then
-        echo "🔗 Linking $target → $role_path"
-        ln -s "$role_path" "$target"
+    # Case 2: Regular Role (uses meta/main.yml)
+    elif [[ -f "$role_path/meta/main.yml" ]]; then
+        name=$(grep 'role_name:' "$role_path/meta/main.yml" | awk '{print $2}')
+        author=$(grep 'author:' "$role_path/meta/main.yml" | awk '{print $2}')
+        # fallback: get folder name if author is missing
+        namespace="${author:-$DEFAULT_NAMESPACE}"
     else
-        echo "✔️  Link exists: $target"
+        echo "⚠️  No metadata found in $role_path, skipping."
+        continue
+    fi
+
+    # Validate
+    if [[ -z "$namespace" || -z "$name" ]]; then
+        echo "⚠️  Skipping $role_path — missing name or namespace."
+        continue
+    fi
+
+    link_name="$DEST_DIR/${namespace}.${name}"
+    if [ ! -L "$link_name" ]; then
+        echo "🔗 Linking $link_name → $role_path"
+        ln -s "$role_path" "$link_name"
+    else
+        echo "✔️  Link exists: $link_name"
     fi
 done
+
 ```
 
 Make it executable:
