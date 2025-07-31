@@ -153,6 +153,7 @@ roles/
 - [All my Ansible roles on GitHub](https://github.com/bsmeding?tab=repositories&q=ansible_role&type=&language=&sort=)
 - [My Ansible Galaxy profile](https://galaxy.ansible.com/bsmeding)
 - [Automating Galaxy uploads with GitHub Actions](blog/posts/2025-01-06-github-action-push-to-ansible-galaxy)
+- [Code Quality: ansible-lint and yaml-lint](/blog/posts/2024/2024-09-12-ansible-lint-yaml-lint-ci-cd.md) - Essential tools for maintaining code quality
 
 ## 8. Feedback
 

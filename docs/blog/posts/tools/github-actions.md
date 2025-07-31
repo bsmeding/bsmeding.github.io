@@ -46,4 +46,5 @@ tags:
 
 ## Learn More
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Getting Started Guide](https://docs.github.com/en/actions/quickstart) 
+- [Getting Started Guide](https://docs.github.com/en/actions/quickstart)
+- [Code Quality with ansible-lint and yaml-lint](/blog/posts/2024/2024-09-12-ansible-lint-yaml-lint-ci-cd.md) - Implementing automated linting in GitHub Actions 

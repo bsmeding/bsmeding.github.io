@@ -49,4 +49,5 @@ tags:
 
 ## Learn More
 - [GitLab CI/CD Documentation](https://docs.gitlab.com/ee/ci/)
-- [Getting Started Guide](https://docs.gitlab.com/ee/ci/quick_start/) 
+- [Getting Started Guide](https://docs.gitlab.com/ee/ci/quick_start/)
+- [Code Quality with ansible-lint and yaml-lint](/blog/posts/2024/2024-09-12-ansible-lint-yaml-lint-ci-cd.md) - Implementing automated linting in GitLab CI/CD 

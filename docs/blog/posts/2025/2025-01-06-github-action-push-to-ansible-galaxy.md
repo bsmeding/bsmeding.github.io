@@ -138,6 +138,7 @@ jobs:
 - Keep your `meta/main.yml` up to date.
 - Test your role locally before tagging and pushing.
 - Use a `CHANGELOG.md` to track changes.
+- **Code Quality**: Implement automated linting with [ansible-lint and yaml-lint](/blog/posts/2024/2024-09-12-ansible-lint-yaml-lint-ci-cd.md) in your CI/CD pipeline.
 
 ---
 
