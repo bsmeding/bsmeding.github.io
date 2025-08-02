@@ -67,6 +67,7 @@ NetDevOps.it is more than just a blog — it's a comprehensive resource library 
 - **Examples** for Cisco IOS, Arista, Nexus, and other network platforms
 
 **Available Roles:**
+
 - [Ansible Role: GitLab Docker](ansible/ansible_role_gitlab_docker.md) - Deploy GitLab CE with Docker
 - [Ansible Role: AWX Docker](ansible/ansible_role_awx_docker.md) - Deploy AWX/Ansible Tower with Docker
 - [Ansible Role: Nautobot Docker](ansible/ansible_role_nautobot_docker.md) - Deploy Nautobot with Docker
@@ -75,6 +76,7 @@ NetDevOps.it is more than just a blog — it's a comprehensive resource library 
 - [Ansible Role: SWAG Docker](ansible/ansible_role_swag_docker.md) - Deploy SWAG (Secure Web Application Gateway)
 
 **Collections and Resources:**
+
 - [Ansible Roles and Collections Overview](ansible_roles_and_collections.md) - Complete guide to available automation resources
 
 ### 📚 **Step-by-Step Tutorials**
@@ -84,6 +86,7 @@ NetDevOps.it is more than just a blog — it's a comprehensive resource library 
 - **Infrastructure as Code** - managing network configurations with version control
 
 **Available Tutorials:**
+
 - [Ansible Tutorial 1: Concepts](tutorials/ansible_tutorial_1_concepts.md) - Introduction to Ansible basics
 - [Ansible Tutorial 2: Modules](tutorials/ansible_tutorial_2_modules.md) - Working with Ansible modules
 - [Ansible Tutorial 3: Variables and Facts](tutorials/ansible_tutorial_3_variables_facts.md) - Using variables and gathering facts
@@ -95,6 +98,7 @@ NetDevOps.it is more than just a blog — it's a comprehensive resource library 
 - [Enable WSL on Windows](tutorials/enable_wsl_on_windows.md) - Windows Subsystem for Linux setup
 
 **Tutorials Overview:**
+
 - [Tutorials Index](tutorials.md) - Complete list of available tutorials
 
 ### 🏗️ **Nautobot Integration**
@@ -131,11 +135,13 @@ NetDevOps.it is more than just a blog — it's a comprehensive resource library 
 - **Community insights** and collaboration opportunities
 
 **Latest Blog Posts:**
+
 - [Nautobot Docker Apps](blog/posts/2025/2025-04-10-nautobot-docker-apps.md) - Deploying applications with Nautobot
 - [Getting Started with Network Automation](blog/posts/2025/2025-03-17-getting-started-network-automation.md) - Beginner's guide to network automation
 - [Netdata Monitoring System](blog/posts/2024/2024-11-15-netdata-monitoring-system.md) - Real-time monitoring solution
 
 **Tool Reviews and Guides:**
+
 - [Ansible](blog/posts/tools/ansible.md) - Configuration management and automation
 - [Terraform](blog/posts/tools/terraform.md) - Infrastructure as Code
 - [OpenTofu](blog/posts/tools/opentofu.md) - Open source Terraform alternative
@@ -151,6 +157,7 @@ NetDevOps.it is more than just a blog — it's a comprehensive resource library 
 - [CloudFormation](blog/posts/tools/cloudformation.md) - AWS infrastructure as code
 
 **Blog Index:**
+
 - [Blog Overview](blog/index.md) - Complete blog archive
 
 ### 🎓 **Courses and Training**
@@ -160,6 +167,7 @@ NetDevOps.it is more than just a blog — it's a comprehensive resource library 
 - **Skill development** roadmaps
 
 **Available Courses:**
+
 - [Courses Overview](courses.md) - Available training programs
 - [Courses (Dutch)](courses_NL.md) - Training programs in Dutch
 
@@ -169,6 +177,7 @@ NetDevOps.it is more than just a blog — it's a comprehensive resource library 
 - **AI-powered tools** and platforms
 
 **AI Resources:**
+
 - [AI in Networking](ai/ai_in_networking.md) - Artificial Intelligence applications in network automation
 
 ---
