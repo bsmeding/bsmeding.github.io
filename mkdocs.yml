@@ -35,6 +35,23 @@ nav:
     - 'Nautobot Docker Apps': blog/posts/2025/2025-04-10-nautobot-docker-apps.md
     # - 'Nautobot Jobs': nautobot_jobs.md
     # - 'Nautobot Plugins': nautobot_plugins.md
+  - Docker:
+    - 'Docker images index': docker_images.md
+  - AI:
+    - 'AI in networking': ai/ai_in_networking.md
+  - Blog:
+    - blog/index.md  
+  - Tutorials:
+    - 'Tutorials': tutorials.md
+    - 'Ansible Tutorial 1: Concepts & Terminology': tutorials/ansible_tutorial_1_concepts.md
+    - 'Ansible Tutorial 2: Modules & Your First Playbook': tutorials/ansible_tutorial_2_modules.md
+    - 'Ansible Tutorial 3: Variables, Modules & Network Fact Gathering': tutorials/ansible_tutorial_3_variables_facts.md
+    - 'Ansible NAPALM': tutorials/ansible_cisco_napalm_diff.md
+    - 'Git basics': tutorials/git_basics.md
+    - 'Linux basics': tutorials/linux_basics.md
+    - 'Enable Winwows Subsystem for Linux': tutorials/enable_wsl_on_windows.md
+    - 'Vagrant Installation': tutorials/vagrant_install.md
+    - 'SSO: Introduction': sso.md
   - Tools:
     - Tools Index: tools.md
     - Ansible: blog/posts/tools/ansible.md
@@ -55,23 +72,7 @@ nav:
     - GitHub Actions: blog/posts/tools/github-actions.md
     - CloudFormation: blog/posts/tools/cloudformation.md
     - API: blog/posts/tools/api.md
-  - Docker:
-    - 'Docker images index': docker_images.md
-  - AI:
-    - 'AI in networking': ai/ai_in_networking.md
-  - Blog:
-    - blog/index.md  
-  - Tutorials:
-    - 'Tutorials': tutorials.md
-    - 'Ansible Tutorial 1: Concepts & Terminology': tutorials/ansible_tutorial_1_concepts.md
-    - 'Ansible Tutorial 2: Modules & Your First Playbook': tutorials/ansible_tutorial_2_modules.md
-    - 'Ansible Tutorial 3: Variables, Modules & Network Fact Gathering': tutorials/ansible_tutorial_3_variables_facts.md
-    - 'Ansible NAPALM': tutorials/ansible_cisco_napalm_diff.md
-    - 'Git basics': tutorials/git_basics.md
-    - 'Linux basics': tutorials/linux_basics.md
-    - 'Enable Winwows Subsystem for Linux': tutorials/enable_wsl_on_windows.md
-    - 'Vagrant Installation': tutorials/vagrant_install.md
-    - 'SSO: Introduction': sso.md
+  - YAML Validator: yaml-validator.md
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
