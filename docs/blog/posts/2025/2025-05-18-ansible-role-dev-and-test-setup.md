@@ -71,25 +71,23 @@ Save this script as `link_dev_roles.sh` in your test project directory:
 ```bash
 #!/bin/bash
 
-SRC_DIR="$HOME/GitHub/ANSIBLE_ROLES_AND_COLLECTIONS"        # Folder with all your repos
-DEST_DIR="./roles"                          # Your test project's roles/ folder
-DEFAULT_NAMESPACE="bsmeding"
+SRC_DIR="$HOME/code/ansible_roles"   # where roles/collections are cloned
+DEST_DIR="./roles"
 mkdir -p "$DEST_DIR"
 
 for role_path in "$SRC_DIR"/*; do
     [ -d "$role_path" ] || continue
 
-    # Case 1: Collection (uses .galaxy.yml)
+    # Case 1: Ansible collection (.galaxy.yml)
     if [[ -f "$role_path/.galaxy.yml" ]]; then
-        namespace=$(grep '^namespace:' "$role_path/.galaxy.yml" | awk '{print $2}')
-        name=$(grep '^name:' "$role_path/.galaxy.yml" | awk '{print $2}')
+        namespace=$(grep '^namespace:' "$role_path/.galaxy.yml" | awk '{print $2}' | tr -d '\r')
+        name=$(grep '^name:' "$role_path/.galaxy.yml" | awk '{print $2}' | tr -d '\r')
 
-    # Case 2: Regular Role (uses meta/main.yml)
+    # Case 2: Ansible role (meta/main.yml)
     elif [[ -f "$role_path/meta/main.yml" ]]; then
-        name=$(grep 'role_name:' "$role_path/meta/main.yml" | awk '{print $2}')
-        author=$(grep 'author:' "$role_path/meta/main.yml" | awk '{print $2}')
-        # fallback: get folder name if author is missing
-        namespace="${author:-$DEFAULT_NAMESPACE}"
+        name=$(grep 'role_name:' "$role_path/meta/main.yml" | awk '{print $2}' | tr -d '\r')
+        author=$(grep 'author:' "$role_path/meta/main.yml" | awk '{print $2}' | tr -d '\r')
+        namespace="${author:-$(basename "$role_path" | cut -d'-' -f3)}"
     else
         echo "⚠️  No metadata found in $role_path, skipping."
         continue
@@ -109,6 +107,7 @@ for role_path in "$SRC_DIR"/*; do
         echo "✔️  Link exists: $link_name"
     fi
 done
+
 
 ```
 
