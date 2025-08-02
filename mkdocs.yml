@@ -54,24 +54,24 @@ nav:
     - 'SSO: Introduction': sso.md
   - Tools:
     - Tools Index: tools.md
-    - Ansible: blog/ansible-introduction-getting-started/
-    - Docker: blog/docker/
-    - NetBox: blog/netbox/
-    - Nautobot: blog/nautobot/
-    - OpsMill: blog/opsmill/
-    - Jinja2: blog/jinja2/
-    - Nornir: blog/nornir-introduction-getting-started/
-    - Terraform: blog/terraform-introduction-getting-started/
-    - SaltStack: blog/saltstack-introduction-getting-started/
-    - pyATS: blog/pyats-introduction-getting-started/
-    - Prometheus: blog/prometheus-introduction-getting-started/
-    - Grafana: blog/grafana-introduction-getting-started/
-    - InfluxDB: blog/influxdb-introduction-getting-started/
-    - Jenkins: blog/jenkins-introduction-getting-started/
-    - GitLab CI/CD: blog/gitlab-ci-cd-introduction-getting-started/
-    - GitHub Actions: blog/github-actions-introduction-getting-started/
-    - CloudFormation: blog/aws-cloudformation-introduction-getting-started/
-    - API: blog/apis-in-network-automation/
+    - Ansible: blog/ansible-introduction--getting-started.html
+    - Docker: blog/docker.html
+    - NetBox: blog/netbox.html
+    - Nautobot: blog/nautobot.html
+    - OpsMill: blog/opsmill.html
+    - Jinja2: blog/jinja2.html
+    - Nornir: blog/nornir-introduction--getting-started.html
+    - Terraform: blog/terraform-introduction--getting-started.html
+    - SaltStack: blog/saltstack-introduction--getting-started.html
+    - pyATS: blog/pyats-introduction--getting-started.html
+    - Prometheus: blog/prometheus-introduction--getting-started.html
+    - Grafana: blog/grafana-introduction--getting-started.html
+    - InfluxDB: blog/influxdb-introduction--getting-started.html
+    - Jenkins: blog/jenkins-introduction--getting-started.html
+    - GitLab CI/CD: blog/gitlab-ci-cd-introduction--getting-started.html
+    - GitHub Actions: blog/github-actions-introduction--getting-started.html
+    - CloudFormation: blog/aws-cloudformation-introduction--getting-started.html
+    - API: blog/apis-in-network-automation.html
   - YAML Validator: yaml-validator.md
   - Courses:
     - 'Courses': courses.md
