@@ -116,6 +116,8 @@ extra:
     provider: google
     property: G-LF84C44PGC
 
+extra_javascript:
+  - js/giscus.js
 
 markdown_extensions:
   - admonition
