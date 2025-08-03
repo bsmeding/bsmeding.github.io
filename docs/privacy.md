@@ -135,7 +135,7 @@ We may update this privacy policy from time to time. We will notify you of any c
 
 If you have any questions about this privacy policy or our data practices, please contact us:
 
-- **Email**: [Contact information to be added]
+- **Email**: b@rtsmeding.nl
 - **Website**: https://netdevops.it
 - **GitHub**: https://github.com/bsmeding/bsmeding.github.io
 
