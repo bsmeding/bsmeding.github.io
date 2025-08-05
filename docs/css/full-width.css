@@ -1,0 +1,69 @@
+/* Full Width Content Styles for MkDocs Material Theme */
+
+/* Make main content area full width */
+.md-main__inner {
+    max-width: none !important;
+    padding: 0 !important;
+}
+
+/* Make content area full width */
+.md-content {
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 2rem !important;
+}
+
+/* Make content wrapper full width */
+.md-content__inner {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/* Adjust navigation for full width */
+.md-nav {
+    max-width: none !important;
+}
+
+/* Make tables full width */
+.md-typeset table {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Make code blocks full width */
+.md-typeset pre {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/* Make images full width */
+.md-typeset img {
+    max-width: 100% !important;
+    width: auto !important;
+}
+
+/* Adjust grid layout for full width */
+.md-grid {
+    max-width: none !important;
+}
+
+/* Make sidebars work with full width */
+.md-sidebar {
+    max-width: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 76.1875em) {
+    .md-content {
+        padding: 0 1rem !important;
+    }
+}
+
+/* Ensure proper spacing */
+.md-content__inner > *:first-child {
+    margin-top: 0 !important;
+}
+
+.md-content__inner > *:last-child {
+    margin-bottom: 0 !important;
+} 
