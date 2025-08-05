@@ -76,8 +76,8 @@ nav:
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
-  - About: about.md
-  - Contact: contact.md
+  - About: about-bart-smeding.md
+  - Privacy Policy: privacy.md
 
 theme:
   name: material
@@ -108,15 +108,6 @@ theme:
     - search.share
     - search.suggest
 
-extra:
-  social:
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/bartsmeding/
-  analytics:
-    provider: google
-    property: G-LF84C44PGC
-
-
 markdown_extensions:
   - admonition
   - attr_list
@@ -127,3 +118,21 @@ markdown_extensions:
       line_spans: __span
   - pymdownx.inlinehilite
   - pymdownx.superfences
+
+## EXTRA
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/bartsmeding/
+  analytics:
+    provider: google
+    property: G-LF84C44PGC
+
+extra_javascript:
+  - js/giscus.js
+  - https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js
+  - js/cookieconsent-init.js
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css
+
