@@ -12,24 +12,24 @@ Welcome to the NetDevOps Tools hub! Here you'll find an overview of the most imp
 
 ## Tools List
 
-- [Ansible](/blog/ansible-introduction--getting-started.html) — Powerful automation engine for configuration management and orchestration.
-- [Docker](/blog/docker.html) — Containerization platform for consistent, portable environments.
-- [NetBox](/blog/netbox.html) — IPAM and DCIM tool for network source of truth.
-- [Nautobot](/blog/nautobot.html) — Extensible network automation platform and source of truth.
-- [OpsMill](/blog/opsmill.html) — Modern network automation and orchestration platform.
-- [Jinja2](/blog/jinja2.html) — Templating engine for dynamic configuration generation.
-- [Nornir](/blog/nornir-introduction--getting-started.html) — Python automation framework for network engineers.
-- [Terraform](/blog/terraform-introduction--getting-started.html) — Infrastructure as Code for cloud and network resources.
-- [SaltStack](/blog/saltstack-introduction--getting-started.html) — Event-driven automation and configuration management.
-- [pyATS](/blog/pyats-introduction--getting-started.html) — Cisco's network testing and validation framework.
-- [Prometheus](/blog/prometheus-introduction--getting-started.html) — Monitoring and alerting toolkit.
-- [Grafana](/blog/grafana-introduction--getting-started.html) — Visualization and analytics platform for metrics.
-- [InfluxDB](/blog/influxdb-introduction--getting-started.html) — Time-series database for storing metrics.
-- [Jenkins](/blog/jenkins-introduction--getting-started.html) — Automation server for CI/CD pipelines.
-- [GitLab CI/CD](/blog/gitlab-ci-cd-introduction--getting-started.html) — Integrated CI/CD for GitLab projects.
-- [GitHub Actions](/blog/github-actions-introduction--getting-started.html) — CI/CD and automation for GitHub repositories.
-- [CloudFormation](/blog/aws-cloudformation-introduction--getting-started.html) — AWS Infrastructure as Code.
-- [API](/blog/apis-in-network-automation.html) — General concepts and best practices for working with APIs in automation.
+- [Ansible](blog/posts/tools/ansible.md) — Powerful automation engine for configuration management and orchestration.
+- [Docker](blog/posts/tools/docker.md) — Containerization platform for consistent, portable environments.
+- [NetBox](blog/posts/tools/netbox.md) — IPAM and DCIM tool for network source of truth.
+- [Nautobot](blog/posts/tools/nautobot.md) — Extensible network automation platform and source of truth.
+- [OpsMill](blog/posts/tools/opsmill.md) — Modern network automation and orchestration platform.
+- [Jinja2](blog/posts/tools/jinja2.md) — Templating engine for dynamic configuration generation.
+- [Nornir](blog/posts/tools/nornir.md) — Python automation framework for network engineers.
+- [Terraform](blog/posts/tools/terraform.md) — Infrastructure as Code for cloud and network resources.
+- [SaltStack](blog/posts/tools/saltstack.md) — Event-driven automation and configuration management.
+- [pyATS](blog/posts/tools/pyats.md) — Cisco's network testing and validation framework.
+- [Prometheus](blog/posts/tools/prometheus.md) — Monitoring and alerting toolkit.
+- [Grafana](blog/posts/tools/grafana.md) — Visualization and analytics platform for metrics.
+- [InfluxDB](blog/posts/tools/influxdb.md) — Time-series database for storing metrics.
+- [Jenkins](blog/posts/tools/jenkins.md) — Automation server for CI/CD pipelines.
+- [GitLab CI/CD](blog/posts/tools/gitlab-ci.md) — Integrated CI/CD for GitLab projects.
+- [GitHub Actions](blog/posts/tools/github-actions.md) — CI/CD and automation for GitHub repositories.
+- [CloudFormation](blog/posts/tools/cloudformation.md) — AWS Infrastructure as Code.
+- [API](blog/posts/tools/api.md) — General concepts and best practices for working with APIs in automation.
 
 ---
 

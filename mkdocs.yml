@@ -54,24 +54,24 @@ nav:
     - 'SSO: Introduction': sso.md
   - Tools:
     - 'Tools Index': tools.md
-    - 'Ansible': blog/ansible-introduction--getting-started.html
-    - 'Docker': blog/docker.html
-    - 'NetBox': blog/netbox.html
-    - 'Nautobot': blog/nautobot.html
-    - 'OpsMill': blog/opsmill.html
-    - 'Jinja2': blog/jinja2.html
-    - 'Nornir': blog/nornir-introduction--getting-started.html
-    - 'Terraform': blog/terraform-introduction--getting-started.html
-    - 'SaltStack': blog/saltstack-introduction--getting-started.html
-    - 'pyATS': blog/pyats-introduction--getting-started.html
-    - 'Prometheus': blog/prometheus-introduction--getting-started.html
-    - 'Grafana': blog/grafana-introduction--getting-started.html
-    - 'InfluxDB': blog/influxdb-introduction--getting-started.html
-    - 'Jenkins': blog/jenkins-introduction--getting-started.html
-    - 'GitLab CI/CD': blog/gitlab-ci-cd-introduction--getting-started.html
-    - 'GitHub Actions': blog/github-actions-introduction--getting-started.html
-    - 'CloudFormation': blog/aws-cloudformation-introduction--getting-started.html
-    - 'API': blog/apis-in-network-automation.html
+    - 'Ansible': blog/posts/tools/ansible.md
+    - 'Docker': blog/posts/tools/docker.md
+    - 'NetBox': blog/posts/tools/netbox.md
+    - 'Nautobot': blog/posts/tools/nautobot.md
+    - 'OpsMill': blog/posts/tools/opsmill.md
+    - 'Jinja2': blog/posts/tools/jinja2.md
+    - 'Nornir': blog/posts/tools/nornir.md
+    - 'Terraform': blog/posts/tools/terraform.md
+    - 'SaltStack': blog/posts/tools/saltstack.md
+    - 'pyATS': blog/posts/tools/pyats.md
+    - 'Prometheus': blog/posts/tools/prometheus.md
+    - 'Grafana': blog/posts/tools/grafana.md
+    - 'InfluxDB': blog/posts/tools/influxdb.md
+    - 'Jenkins': blog/posts/tools/jenkins.md
+    - 'GitLab CI/CD': blog/posts/tools/gitlab-ci.md
+    - 'GitHub Actions': blog/posts/tools/github-actions.md
+    - 'CloudFormation': blog/posts/tools/cloudformation.md
+    - 'API': blog/posts/tools/api.md
   - YAML Validator: yaml-validator.md
   - Courses:
     - 'Courses': courses.md
