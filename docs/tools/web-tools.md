@@ -177,17 +177,6 @@ A comprehensive collection of client-side developer tools designed for network a
 
 ---
 
-## 📈 Tool Statistics
-
-- **Total Tools**: 8
-- **Categories**: 5
-- **Algorithms**: 8 (Hash Generator)
-- **Color Formats**: 6 (Color Converter)
-- **Encoding Types**: 3 (URL Encoder)
-- **Hash Types**: 8 (Hash Generator)
-
----
-
 ## 🎓 Getting Started
 
 1. **Choose a Tool**: Browse the categories above
@@ -197,14 +186,6 @@ A comprehensive collection of client-side developer tools designed for network a
 
 ---
 
-## 🔗 Related Resources
-
-- **[Tools Index](tools.md)** - Overview of all NetDevOps tools
-- **[Ansible Tutorials](../tutorials/)** - Learn automation with Ansible
-- **[Docker Guides](../docker/)** - Containerization tutorials
-- **[Blog Posts](../blog/)** - Latest insights and tutorials
-
----
 
 <style>
 .tool-grid {
