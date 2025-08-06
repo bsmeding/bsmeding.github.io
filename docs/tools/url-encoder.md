@@ -50,6 +50,7 @@ A comprehensive URL encoding and decoding tool. Convert special characters to UR
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+console.log('URL encoder DOM loaded');
 const input = document.getElementById("url-input");
 const output = document.getElementById("url-output");
 const encodeBtn = document.getElementById("encode-btn");
@@ -58,6 +59,17 @@ const clearBtn = document.getElementById("clear-btn");
 const status = document.getElementById("status");
 const encodingInfo = document.getElementById("encoding-info");
 const encodingRadios = document.querySelectorAll('input[name="encoding"]');
+
+console.log('URL elements found:', {
+    input: !!input,
+    output: !!output,
+    encodeBtn: !!encodeBtn,
+    decodeBtn: !!decodeBtn,
+    clearBtn: !!clearBtn,
+    status: !!status,
+    encodingInfo: !!encodingInfo,
+    encodingRadios: encodingRadios.length
+});
 
 function updateStatus(message, type = "info") {
     status.textContent = message;

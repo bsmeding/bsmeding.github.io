@@ -69,6 +69,7 @@ A comprehensive hash generator supporting multiple algorithms. Generate cryptogr
 <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+console.log('Hash generator DOM loaded');
 const input = document.getElementById("hash-input");
 const algorithmSelect = document.getElementById("algorithm-select");
 const output = document.getElementById("hash-output");
@@ -81,6 +82,21 @@ const hashLength = document.getElementById("hash-length");
 const hashType = document.getElementById("hash-type");
 const compareInput = document.getElementById("compare-input");
 const comparisonResult = document.getElementById("comparison-result");
+
+console.log('Hash elements found:', {
+    input: !!input,
+    algorithmSelect: !!algorithmSelect,
+    output: !!output,
+    copyBtn: !!copyBtn,
+    generateBtn: !!generateBtn,
+    clearBtn: !!clearBtn,
+    uppercaseCheckbox: !!uppercaseCheckbox,
+    copyOnChangeCheckbox: !!copyOnChangeCheckbox,
+    hashLength: !!hashLength,
+    hashType: !!hashType,
+    compareInput: !!compareInput,
+    comparisonResult: !!comparisonResult
+});
 
 function generateHash(text, algorithm) {
     if (!text) return "";
@@ -254,6 +270,40 @@ updateHash();
     gap: 0.5rem;
     font-weight: normal;
     cursor: pointer;
+}
+
+.button-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.action-btn:not(.secondary) {
+    background-color: #007bff;
+    color: white;
+}
+
+.action-btn:not(.secondary):hover {
+    background-color: #0056b3;
+}
+
+.action-btn.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.action-btn.secondary:hover {
+    background-color: #545b62;
 }
 
 .hash-display {

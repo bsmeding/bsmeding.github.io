@@ -41,6 +41,7 @@ A real-time Base64 encoder and decoder. Convert text to Base64 and vice versa wi
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+console.log('Base64 converter DOM loaded');
 const input = document.getElementById("base64-input");
 const output = document.getElementById("base64-output");
 const encodeBtn = document.getElementById("encode-btn");
@@ -48,6 +49,16 @@ const decodeBtn = document.getElementById("decode-btn");
 const clearBtn = document.getElementById("clear-btn");
 const status = document.getElementById("status");
 const lengthInfo = document.getElementById("length-info");
+
+console.log('Elements found:', {
+    input: !!input,
+    output: !!output,
+    encodeBtn: !!encodeBtn,
+    decodeBtn: !!decodeBtn,
+    clearBtn: !!clearBtn,
+    status: !!status,
+    lengthInfo: !!lengthInfo
+});
 
 function updateStatus(message, type = "info") {
     status.textContent = message;
