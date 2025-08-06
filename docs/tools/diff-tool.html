@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Text Diff Tool</title></head>
+<body>
+<h2>Text Diff Tool</h2>
+<textarea id="text1" rows="10" cols="40" placeholder="Text A..."></textarea>
+<textarea id="text2" rows="10" cols="40" placeholder="Text B..."></textarea><br>
+<pre id="diff-output"></pre>
+<script src="https://cdn.jsdelivr.net/npm/diff@5.1.0/dist/diff.min.js"></script>
+<script>
+function updateDiff() {
+    let a = document.getElementById("text1").value;
+    let b = document.getElementById("text2").value;
+    let diff = Diff.diffWords(a, b);
+    let result = "";
+    diff.forEach(part => {
+        result += (part.added ? "[+]" : part.removed ? "[-]" : "[ ]") + part.value;
+    });
+    document.getElementById("diff-output").textContent = result;
+}
+document.getElementById("text1").addEventListener("input", updateDiff);
+document.getElementById("text2").addEventListener("input", updateDiff);
+</script>
+</body>
+</html>

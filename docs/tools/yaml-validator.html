@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>YAML Validator</title></head>
+<body>
+<h2>YAML Validator</h2>
+<textarea id="input" rows="20" cols="80" placeholder="Paste YAML here..."></textarea><br>
+<pre id="output"></pre>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<script>
+document.getElementById("input").addEventListener("input", function() {
+    const input = this.value;
+    try {
+        const parsed = jsyaml.load(input);
+        document.getElementById("output").textContent = JSON.stringify(parsed, null, 2);
+    } catch (e) {
+        document.getElementById("output").textContent = "Error: " + e.message;
+    }
+});
+</script>
+</body>
+</html>

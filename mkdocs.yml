@@ -72,7 +72,11 @@ nav:
     - 'GitHub Actions': blog/posts/tools/github-actions.md
     - 'CloudFormation': blog/posts/tools/cloudformation.md
     - 'API': blog/posts/tools/api.md
-  - YAML Validator: yaml-validator.md
+  - Web Tools:
+    - 'YAML Validator': tools/yaml-validator.html
+    - 'Regex Tester': tools/regex-tester.html
+    - 'JSON Validator': tools/json-validator.html
+    - 'Diff Tool': tools/diff-tool.html
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
