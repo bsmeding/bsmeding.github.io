@@ -264,6 +264,10 @@ updateLengthInfo();
 - **Length Information**: Track input and output character counts
 - **Responsive Design**: Works on all devices
 
+## Privacy & Security
+
+🔒 **100% Client-side**: All processing happens in your browser. No data is sent to any server or saved anywhere.
+
 ## Common Use Cases
 
 ### Configuration Files

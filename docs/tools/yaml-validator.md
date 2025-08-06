@@ -121,6 +121,10 @@ document.getElementById("yaml-input").addEventListener("input", function() {
 - **JSON Output**: See the parsed structure in JSON format
 - **Responsive Design**: Works on desktop and mobile devices
 
+## Privacy & Security
+
+🔒 **100% Client-side**: All processing happens in your browser. No data is sent to any server or saved anywhere.
+
 ## Common YAML Syntax
 
 ```yaml

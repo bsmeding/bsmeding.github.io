@@ -216,6 +216,10 @@ document.getElementById("text-input").addEventListener("input", updateRegex);
 - **Error Handling**: Clear error messages for invalid regex
 - **Responsive Design**: Works on all devices
 
+## Privacy & Security
+
+🔒 **100% Client-side**: All processing happens in your browser. No data is sent to any server or saved anywhere.
+
 ## Common Regex Patterns
 
 | Pattern | Description | Example |

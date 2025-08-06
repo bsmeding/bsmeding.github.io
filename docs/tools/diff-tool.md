@@ -176,6 +176,10 @@ document.getElementById("modified-text").addEventListener("input", updateDiff);
 - **Visual Indicators**: Green for additions, red for deletions
 - **Responsive Design**: Works on all devices
 
+## Privacy & Security
+
+🔒 **100% Client-side**: All processing happens in your browser. No data is sent to any server or saved anywhere.
+
 ## Use Cases
 
 ### Configuration Comparison

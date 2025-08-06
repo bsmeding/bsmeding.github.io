@@ -334,6 +334,10 @@ updateHash();
 - **Auto-copy**: Option to automatically copy hash to clipboard
 - **Case Options**: Toggle between lowercase and uppercase output
 
+## Privacy & Security
+
+🔒 **100% Client-side**: All processing happens in your browser. No data is sent to any server or saved anywhere.
+
 ## Hash Algorithms
 
 ### MD5 (Message Digest Algorithm 5)

@@ -120,6 +120,10 @@ document.getElementById("json-input").addEventListener("input", function() {
 - **Pretty Formatting**: Automatically format valid JSON
 - **Responsive Design**: Works on desktop and mobile devices
 
+## Privacy & Security
+
+🔒 **100% Client-side**: All processing happens in your browser. No data is sent to any server or saved anywhere.
+
 ## Common JSON Structure
 
 ```json
