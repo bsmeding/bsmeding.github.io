@@ -60,11 +60,9 @@ function updateLengthInfo() {
 }
 
 function isBase64(str) {
-    try {
-        return btoa(atob(str)) === str;
-    } catch (err) {
-        return false;
-    }
+    // Check if string looks like Base64
+    const base64Regex = /^[A-Za-z0-9+/]*={0,2}$/;
+    return base64Regex.test(str) && str.length % 4 === 0;
 }
 
 function encode() {
@@ -75,7 +73,8 @@ function encode() {
     }
     
     try {
-        const encoded = btoa(text);
+        // Handle Unicode characters properly
+        const encoded = btoa(unescape(encodeURIComponent(text)));
         output.value = encoded;
         updateStatus("Successfully encoded to Base64", "success");
         updateLengthInfo();
@@ -92,7 +91,8 @@ function decode() {
     }
     
     try {
-        const decoded = atob(text);
+        // Handle Unicode characters properly
+        const decoded = decodeURIComponent(escape(atob(text)));
         output.value = decoded;
         updateStatus("Successfully decoded from Base64", "success");
         updateLengthInfo();

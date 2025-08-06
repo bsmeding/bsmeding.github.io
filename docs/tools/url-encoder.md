@@ -160,10 +160,35 @@ function clear() {
     updateStatus("Ready", "info");
 }
 
+function autoDetect() {
+    const text = input.value.trim();
+    if (!text) {
+        output.value = "";
+        updateStatus("Ready", "info");
+        return;
+    }
+    
+    // Try to detect if it's already encoded
+    if (text.includes('%') && /%[0-9A-Fa-f]{2}/.test(text)) {
+        decode();
+    } else {
+        encode();
+    }
+}
+
 // Event listeners
 encodeBtn.addEventListener("click", encode);
 decodeBtn.addEventListener("click", decode);
 clearBtn.addEventListener("click", clear);
+
+input.addEventListener("input", () => {
+    if (input.value.trim()) {
+        autoDetect();
+    } else {
+        output.value = "";
+        updateStatus("Ready", "info");
+    }
+});
 
 encodingRadios.forEach(radio => {
     radio.addEventListener("change", updateEncodingInfo);
