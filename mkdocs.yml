@@ -73,15 +73,15 @@ nav:
     - 'CloudFormation': blog/posts/tools/cloudformation.md
     - 'API': blog/posts/tools/api.md
   - Web Tools:
-    - 'Web Tools Overview': tools/online-developer-tools.md
-    - 'YAML Validator': tools/yaml-validator.md
-    - 'Regex Tester': tools/regex-tester.md
-    - 'JSON Validator': tools/json-validator.md
-    - 'Diff Tool': tools/diff-tool.md
-    - 'Base64 Converter': tools/base64-converter.md
-    - 'URL Encoder/Decoder': tools/url-encoder.md
-    - 'Hash Generator': tools/hash-generator.md
-    - 'Color Converter': tools/color-converter.md
+    - 'Web Tools Overview': online-dev-tools/online-developer-tools.md
+    - 'YAML Validator': online-dev-tools/yaml-validator.md
+    - 'Regex Tester': online-dev-tools/regex-tester.md
+    - 'JSON Validator': online-dev-tools/json-validator.md
+    - 'Diff Tool': online-dev-tools/diff-tool.md
+    - 'Base64 Converter': online-dev-tools/base64-converter.md
+    - 'URL Encoder/Decoder': online-dev-tools/url-encoder.md
+    - 'Hash Generator': online-dev-tools/hash-generator.md
+    - 'Color Converter': online-dev-tools/color-converter.md
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
