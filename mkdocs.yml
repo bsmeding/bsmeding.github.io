@@ -73,7 +73,7 @@ nav:
     - 'CloudFormation': blog/posts/tools/cloudformation.md
     - 'API': blog/posts/tools/api.md
   - Web Tools:
-    - 'Web Tools Overview': online-dev-tools/online-developer-tools.md
+    - 'Web Tools Overview': online-dev-tools/index.md
     - 'YAML Validator': online-dev-tools/yaml-validator.md
     - 'Regex Tester': online-dev-tools/regex-tester.md
     - 'JSON Validator': online-dev-tools/json-validator.md

@@ -27,7 +27,7 @@ A comprehensive collection of client-side developer tools designed for network a
             <span class="feature">Syntax highlighting</span>
             <span class="feature">JSON output</span>
         </div>
-        <a href="yaml-validator" class="tool-link">Open Tool →</a>
+        <a href="/online-dev-tools/yaml-validator/" class="tool-link">Open Tool →</a>
     </div>
 
     <div class="tool-card">
@@ -38,7 +38,7 @@ A comprehensive collection of client-side developer tools designed for network a
             <span class="feature">Pretty formatting</span>
             <span class="feature">Error handling</span>
         </div>
-        <a href="json-validator" class="tool-link">Open Tool →</a>
+        <a href="/online-dev-tools/json-validator/" class="tool-link">Open Tool →</a>
     </div>
 
     <div class="tool-card">
@@ -49,7 +49,7 @@ A comprehensive collection of client-side developer tools designed for network a
             <span class="feature">Visual indicators</span>
             <span class="feature">Real-time comparison</span>
         </div>
-        <a href="diff-tool" class="tool-link">Open Tool →</a>
+        <a href="/online-dev-tools/diff-tool/" class="tool-link">Open Tool →</a>
     </div>
 </div>
 
@@ -64,7 +64,7 @@ A comprehensive collection of client-side developer tools designed for network a
             <span class="feature">Auto-detection</span>
             <span class="feature">Real-time conversion</span>
         </div>
-        <a href="base64-converter" class="tool-link">Open Tool →</a>
+        <a href="/online-dev-tools/base64-converter/" class="tool-link">Open Tool →</a>
     </div>
 
     <div class="tool-card">
@@ -75,7 +75,7 @@ A comprehensive collection of client-side developer tools designed for network a
             <span class="feature">Auto-detection</span>
             <span class="feature">Real-time processing</span>
         </div>
-        <a href="url-encoder" class="tool-link">Open Tool →</a>
+        <a href="/online-dev-tools/url-encoder/" class="tool-link">Open Tool →</a>
     </div>
 
     <div class="tool-card">
@@ -86,7 +86,7 @@ A comprehensive collection of client-side developer tools designed for network a
             <span class="feature">Hash comparison</span>
             <span class="feature">Auto-copy option</span>
         </div>
-        <a href="hash-generator" class="tool-link">Open Tool →</a>
+        <a href="/online-dev-tools/hash-generator/" class="tool-link">Open Tool →</a>
     </div>
 </div>
 
@@ -101,7 +101,7 @@ A comprehensive collection of client-side developer tools designed for network a
             <span class="feature">Match details</span>
             <span class="feature">Common patterns</span>
         </div>
-        <a href="regex-tester" class="tool-link">Open Tool →</a>
+        <a href="/online-dev-tools/regex-tester/" class="tool-link">Open Tool →</a>
     </div>
 
     <div class="tool-card">
@@ -112,7 +112,7 @@ A comprehensive collection of client-side developer tools designed for network a
             <span class="feature">Color picker</span>
             <span class="feature">Accessibility info</span>
         </div>
-        <a href="color-converter" class="tool-link">Open Tool →</a>
+        <a href="/online-dev-tools/color-converter/" class="tool-link">Open Tool →</a>
     </div>
 </div>
 
