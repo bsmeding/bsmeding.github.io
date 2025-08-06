@@ -77,6 +77,10 @@ nav:
     - 'Regex Tester': tools/regex-tester.md
     - 'JSON Validator': tools/json-validator.md
     - 'Diff Tool': tools/diff-tool.md
+    - 'Base64 Converter': tools/base64-converter.md
+    - 'URL Encoder/Decoder': tools/url-encoder.md
+    - 'Hash Generator': tools/hash-generator.md
+    - 'Color Converter': tools/color-converter.md
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
