@@ -49,6 +49,7 @@ A comprehensive URL encoding and decoding tool. Convert special characters to UR
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
 const input = document.getElementById("url-input");
 const output = document.getElementById("url-output");
 const encodeBtn = document.getElementById("encode-btn");
@@ -196,6 +197,7 @@ encodingRadios.forEach(radio => {
 
 // Initial setup
 updateEncodingInfo();
+});
 </script>
 
 <style>

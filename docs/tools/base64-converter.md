@@ -40,6 +40,7 @@ A real-time Base64 encoder and decoder. Convert text to Base64 and vice versa wi
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
 const input = document.getElementById("base64-input");
 const output = document.getElementById("base64-output");
 const encodeBtn = document.getElementById("encode-btn");
@@ -138,6 +139,7 @@ input.addEventListener("input", () => {
 
 // Initial setup
 updateLengthInfo();
+});
 </script>
 
 <style>

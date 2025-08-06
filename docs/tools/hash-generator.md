@@ -39,6 +39,11 @@ A comprehensive hash generator supporting multiple algorithms. Generate cryptogr
             <label><input type="checkbox" id="uppercase"> Uppercase</label>
             <label><input type="checkbox" id="copy-on-change"> Auto-copy to clipboard</label>
         </div>
+        
+        <div class="button-group">
+            <button id="generate-btn" class="action-btn">Generate Hash</button>
+            <button id="clear-btn" class="action-btn secondary">Clear</button>
+        </div>
     </div>
     
     <div class="output-section">
