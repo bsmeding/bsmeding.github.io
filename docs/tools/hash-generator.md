@@ -68,10 +68,13 @@ A comprehensive hash generator supporting multiple algorithms. Generate cryptogr
 
 <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', function() {
 const input = document.getElementById("hash-input");
 const algorithmSelect = document.getElementById("algorithm-select");
 const output = document.getElementById("hash-output");
 const copyBtn = document.getElementById("copy-btn");
+const generateBtn = document.getElementById("generate-btn");
+const clearBtn = document.getElementById("clear-btn");
 const uppercaseCheckbox = document.getElementById("uppercase");
 const copyOnChangeCheckbox = document.getElementById("copy-on-change");
 const hashLength = document.getElementById("hash-length");
@@ -174,11 +177,27 @@ function updateComparison() {
 input.addEventListener("input", updateHash);
 algorithmSelect.addEventListener("change", updateHash);
 uppercaseCheckbox.addEventListener("change", updateHash);
+// Event listeners
+generateBtn.addEventListener("click", updateHash);
+clearBtn.addEventListener("click", () => {
+    input.value = "";
+    output.value = "";
+    hashLength.textContent = "";
+    hashType.textContent = "";
+    comparisonResult.textContent = "";
+    comparisonResult.className = "comparison-result";
+});
 copyBtn.addEventListener("click", () => copyToClipboard(output.value));
 compareInput.addEventListener("input", updateComparison);
 
+// Real-time updates
+input.addEventListener("input", updateHash);
+algorithmSelect.addEventListener("change", updateHash);
+uppercaseCheckbox.addEventListener("change", updateHash);
+
 // Initial setup
 updateHash();
+});
 </script>
 
 <style>
