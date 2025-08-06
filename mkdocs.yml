@@ -73,10 +73,10 @@ nav:
     - 'CloudFormation': blog/posts/tools/cloudformation.md
     - 'API': blog/posts/tools/api.md
   - Web Tools:
-    - 'YAML Validator': tools/yaml-validator.html
-    - 'Regex Tester': tools/regex-tester.html
-    - 'JSON Validator': tools/json-validator.html
-    - 'Diff Tool': tools/diff-tool.html
+    - 'YAML Validator': tools/yaml-validator.md
+    - 'Regex Tester': tools/regex-tester.md
+    - 'JSON Validator': tools/json-validator.md
+    - 'Diff Tool': tools/diff-tool.md
   - Courses:
     - 'Courses': courses.md
     - 'Courses Dutch': courses_NL.md
