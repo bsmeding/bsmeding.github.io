@@ -7,7 +7,7 @@ summary: NetPicker.io is a modern network discovery and inventory management pla
 
 # NetPicker.io
 
-![NetPicker.io Logo](https://netpicker.io/assets/images/logo.png){: style="max-width: 300px; display: block; margin: 0 auto;"}
+![NetPicker.io Logo](https://netpicker.io/assets/images/logo.png?w=300&h=auto){: style="max-width: 300px; display: block; margin: 0 auto;"}
 
 [NetPicker.io](https://netpicker.io/) is a **network discovery and inventory management platform** designed specifically for network automation and NetDevOps workflows. It provides automated network device discovery, configuration collection, and inventory management to support modern network operations.
 <!-- more -->

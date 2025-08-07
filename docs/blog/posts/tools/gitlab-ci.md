@@ -12,7 +12,7 @@ tags:
 
 # GitLab CI/CD: Introduction & Getting Started
 
-![GitLab CI/CD Logo](https://about.gitlab.com/images/press/logo/svg/gitlab-icon-rgb.svg){: style="max-width: 300px; display: block; margin: 0 auto;"}
+![GitLab CI/CD Logo](https://about.gitlab.com/images/press/logo/png/gitlab-icon-rgb.png){: style="max-width: 300px; display: block; margin: 0 auto;"}
 
 **GitLab CI/CD** is a built-in continuous integration and delivery system in GitLab, enabling you to automate builds, tests, and deployments directly from your Git repository.
 <!-- more -->

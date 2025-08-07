@@ -12,7 +12,7 @@ tags:
 
 # Ansible: Introduction & Getting Started
 
-![Ansible Logo](https://www.ansible.com/hubfs/2016_Images/Assets/Ansible-Mark-Large-RGB-Mango.png){: style="max-width: 300px; display: block; margin: 0 auto;"}
+![Ansible Logo](https://www.ansible.com/hubfs/2016_Images/Assets/Ansible-Mark-Large-RGB-Mango.png?width=300&height=auto){: style="max-width: 300px; display: block; margin: 0 auto;"}
 
 **Ansible** is an open-source automation tool for configuration management, application deployment, and task automation. It uses simple YAML-based playbooks and requires no agent on managed nodes.
 <!-- more -->

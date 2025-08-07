@@ -12,7 +12,7 @@ tags:
 
 # Terraform: Introduction & Getting Started
 
-![Terraform Logo](https://www.terraform.io/hashicorp_0.png){: style="max-width: 300px; display: block; margin: 0 auto;"}
+![Terraform Logo](https://www.terraform.io/assets/images/logo-hashicorp.svg){: style="max-width: 300px; display: block; margin: 0 auto;"}
 
 **Terraform** is an open-source infrastructure as code (IaC) tool by HashiCorp for provisioning and managing cloud and on-premises resources declaratively.
 <!-- more -->

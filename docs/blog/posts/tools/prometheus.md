@@ -12,7 +12,7 @@ tags:
 
 # Prometheus: Introduction & Getting Started
 
-![Prometheus Logo](https://prometheus.io/assets/prometheus_logo_grey.svg){: style="max-width: 300px; display: block; margin: 0 auto;"}
+![Prometheus Logo](https://prometheus.io/assets/prometheus_logo_grey.png){: style="max-width: 300px; display: block; margin: 0 auto;"}
 
 **Prometheus** is an open-source monitoring and alerting toolkit designed for reliability and scalability. It is widely used for collecting metrics and powering observability in cloud-native environments.
 

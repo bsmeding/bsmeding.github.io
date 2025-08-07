@@ -12,7 +12,7 @@ tags:
 
 # Jenkins: Introduction & Getting Started
 
-![Jenkins Logo](https://www.jenkins.io/images/logos/jenkins/jenkins.png){: style="max-width: 300px; display: block; margin: 0 auto;"}
+![Jenkins Logo](https://www.jenkins.io/images/logos/jenkins/jenkins.png?w=300&h=auto){: style="max-width: 300px; display: block; margin: 0 auto;"}
 
 **Jenkins** is an open-source automation server widely used for building, testing, and deploying software through continuous integration and continuous delivery (CI/CD) pipelines.
 <!-- more -->
