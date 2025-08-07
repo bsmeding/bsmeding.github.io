@@ -42,6 +42,15 @@
     width: auto !important;
 }
 
+/* Tool images - override full width for specific sizing */
+.md-typeset img.tool-image {
+    max-width: 200px !important;
+    width: 200px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
 /* Adjust grid layout for full width */
 .md-grid {
     max-width: none !important;

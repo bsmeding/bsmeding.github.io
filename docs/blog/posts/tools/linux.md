@@ -12,7 +12,7 @@ tags:
 
 # Linux Basics for Network Automation
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/300px-Tux.svg.png" alt="Linux Logo" width="200" style="display: block; margin: 0 auto;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/300px-Tux.svg.png" alt="Linux Logo" class="tool-image">
 
 **Linux** is the foundation of most network automation tools. Understanding basic Linux commands and concepts is essential for anyone starting with network automation.
 

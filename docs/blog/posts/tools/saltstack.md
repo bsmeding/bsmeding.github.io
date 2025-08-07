@@ -12,7 +12,7 @@ tags:
 
 # SaltStack: Introduction & Getting Started
 
-<img src="https://docs.saltproject.io/salt/user-guide/en/latest/_images/features-of-salt.png" alt="SaltStack Logo" width="200" style="display: block; margin: 0 auto;">
+<img src="https://docs.saltproject.io/salt/user-guide/en/latest/_images/features-of-salt.png" alt="SaltStack Logo" class="tool-image">
 
 **SaltStack** (Salt) is an open-source automation and configuration management tool designed for fast, scalable, and secure infrastructure automation.
 <!-- more -->

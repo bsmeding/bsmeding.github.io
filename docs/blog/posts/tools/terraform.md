@@ -12,7 +12,7 @@ tags:
 
 # Terraform: Introduction & Getting Started
 
-<img src="https://web-unified-docs-hashicorp.vercel.app/api/assets/terraform/latest/img/docs/intro-terraform-workflow.png" alt="Terraform Logo" width="200" style="display: block; margin: 0 auto;">
+<img src="https://web-unified-docs-hashicorp.vercel.app/api/assets/terraform/latest/img/docs/intro-terraform-workflow.png" alt="Terraform Logo" class="tool-image">
 
 **Terraform** is an open-source infrastructure as code (IaC) tool by HashiCorp for provisioning and managing cloud and on-premises resources declaratively.
 <!-- more -->

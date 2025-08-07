@@ -13,7 +13,7 @@ tags:
 
 # Visual Studio Code for Network Automation
 
-<img src="https://code.visualstudio.com/assets/docs/getstarted/userinterface/hero.png" alt="VS Code Logo" width="200" style="display: block; margin: 0 auto;">
+<img src="https://code.visualstudio.com/assets/docs/getstarted/userinterface/hero.png" alt="VS Code Logo" class="tool-image">
 
 **Visual Studio Code (VS Code)** is a powerful, free code editor that's perfect for network automation development. With the right extensions and configuration, it becomes an excellent IDE for Ansible, Python, and network automation workflows.
 

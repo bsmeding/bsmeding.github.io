@@ -7,7 +7,7 @@ summary: ContainerLab is a powerful tool for creating and managing container-bas
 
 # ContainerLab
 
-<img src="https://camo.githubusercontent.com/223ecd49b5a869d166bd6b86752960600ccb5fb10b8b5bc278e51ba06550690e/68747470733a2f2f6769746c61622e636f6d2f72646f64696e2f706963732f2d2f77696b69732f75706c6f6164732f30316663646332313265653163376465373065663564326138643130393034342f696d6167652e706e67" alt="ContainerLab Logo" width="200" style="display: block; margin: 0 auto;">
+<img src="https://camo.githubusercontent.com/223ecd49b5a869d166bd6b86752960600ccb5fb10b8b5bc278e51ba06550690e/68747470733a2f2f6769746c61622e636f6d2f72646f64696e2f706963732f2d2f77696b69732f75706c6f6164732f30316663646332313265653163376465373065663564326138643130393034342f696d6167652e706e67" alt="ContainerLab Logo" class="tool-image">
 
 [ContainerLab](https://containerlab.dev/) is a **container-based network lab orchestrator** that allows you to create and manage network topologies using containerized network operating systems. It's perfect for network automation testing, learning, and development without the overhead of traditional virtualization.
 <!-- more -->

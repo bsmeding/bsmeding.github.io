@@ -7,7 +7,7 @@ summary: SlurpIT.io is a network configuration management and orchestration plat
 
 # SlurpIT.io
 
-<img src="https://slurpit.io/wp-content/uploads/2025/05/slurpit_dashboard_large.jpg" alt="SlurpIT.io Logo" width="200" style="display: block; margin: 0 auto;">
+<img src="https://slurpit.io/wp-content/uploads/2025/05/slurpit_dashboard_large.jpg" alt="SlurpIT.io Logo" class="tool-image">
 
 [SlurpIT.io](https://slurpit.io/) is a **network configuration management and orchestration platform** designed to simplify network automation through intelligent API management, workflow automation, and configuration orchestration. It provides a unified interface for managing multi-vendor network environments.
 <!-- more -->

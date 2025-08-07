@@ -7,7 +7,7 @@ summary: Docker is a platform for building, running, and managing containers for
 
 # Docker
 
-<img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png?w=300&h=auto" alt="Docker Logo" width="200" style="display: block; margin: 0 auto;">
+<img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png?w=300&h=auto" alt="Docker Logo" class="tool-image">
 
 [Docker](https://www.docker.com/) is the leading platform for **containerization**—packaging applications and their dependencies into portable, consistent units. Docker is widely used in DevOps, automation, and cloud-native workflows.
 <!-- more -->

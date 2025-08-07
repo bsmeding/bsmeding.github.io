@@ -13,7 +13,7 @@ tags:
 
 # AWS CloudFormation: Introduction & Getting Started
 
-<img src="https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2021/09/16/Figure2.png" alt="AWS CloudFormation Logo" width="200" style="display: block; margin: 0 auto;">
+<img src="https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2021/09/16/Figure2.png" alt="AWS CloudFormation Logo" class="tool-image">
 
 **AWS CloudFormation** is an infrastructure as code (IaC) service that enables you to define and provision AWS resources using templates written in YAML or JSON.
 <!-- more -->

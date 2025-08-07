@@ -13,7 +13,7 @@ tags:
 
 # Grafana: Introduction & Getting Started
 
-<img src="https://grafana.com/static/assets/img/blog/advanced-network-monitoring-snmp-grafana-dashboard.png" alt="Grafana Logo" width="200" style="display: block; margin: 0 auto;">
+<img src="https://grafana.com/static/assets/img/blog/advanced-network-monitoring-snmp-grafana-dashboard.png" alt="Grafana Logo" class="tool-image">
 
 **Grafana** is an open-source analytics and monitoring platform for visualizing time-series data. It is widely used to create dashboards and alerts from data sources like Prometheus, InfluxDB, and more.
 <!-- more -->

@@ -12,7 +12,7 @@ tags:
 
 # Ansible: Introduction & Getting Started
 
-<img src="https://docs.ansible.com/ansible-tower/3.4.1/html/userguide/_images/jobs-show-job-std-output-hover.png" alt="Ansible AWX (former Tower/AAP)" width="200" style="display: block; margin: 0 auto;">
+<img src="https://docs.ansible.com/ansible-tower/3.4.1/html/userguide/_images/jobs-show-job-std-output-hover.png" alt="Ansible AWX (former Tower/AAP)" class="tool-image">
 
 **Ansible** is an open-source automation tool for configuration management, application deployment, and task automation. It uses simple YAML-based playbooks and requires no agent on managed nodes.
 <!-- more -->
