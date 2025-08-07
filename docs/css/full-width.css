@@ -44,8 +44,8 @@
 
 /* Tool images - override full width for specific sizing */
 .md-typeset img.tool-image {
-    max-width: 200px !important;
-    width: 200px !important;
+    max-width: 300px !important;
+    width: 300px !important;
     height: auto !important;
     display: block !important;
     margin: 0 auto !important;
