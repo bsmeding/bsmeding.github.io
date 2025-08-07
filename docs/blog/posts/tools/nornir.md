@@ -12,7 +12,7 @@ tags:
 
 # Nornir: Introduction & Getting Started
 
-![Nornir Logo](https://nornir.readthedocs.io/en/latest/_images/nornir_logo_02.jpg){: style="max-width: 300px; display: block; margin: 0 auto;"}
+<img src="https://nornir.readthedocs.io/en/latest/_images/nornir_logo_02.jpg" alt="Nornir Logo" width="200" style="display: block; margin: 0 auto;">
 
 **Nornir** is a pure Python automation framework for network engineers. It provides inventory management, task execution, and plugin support for network automation workflows.
 <!-- more -->

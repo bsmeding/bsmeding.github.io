@@ -13,7 +13,7 @@ tags:
 
 # GitHub Actions: Introduction & Getting Started
 
-![GitHub Actions Logo](https://docs.github.com/assets/cb-345/images/social-cards/actions.png){: style="max-width: 300px; display: block; margin: 0 auto;"}
+<img src="https://docs.github.com/assets/cb-345/images/social-cards/actions.png" alt="GitHub Actions Logo" width="200" style="display: block; margin: 0 auto;">
 
 **GitHub Actions** is a CI/CD and automation platform built into GitHub, allowing you to automate workflows for building, testing, and deploying code.
 <!-- more -->

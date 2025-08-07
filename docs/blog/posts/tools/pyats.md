@@ -13,7 +13,7 @@ tags:
 
 # pyATS: Introduction & Getting Started
 
-![pyATS Logo](https://pubhub.devnetcloud.com/media/pyats-genie-docs/docs/imgs/pyats.png#developer.cisco.com){: style="max-width: 300px; display: block; margin: 0 auto;"}
+<img src="https://pubhub.devnetcloud.com/media/pyats-genie-docs/docs/imgs/pyats.png#developer.cisco.com" alt="pyATS Logo" width="200" style="display: block; margin: 0 auto;">
 
 **pyATS** (Python Automated Test System) is an open-source network testing and validation framework developed by Cisco. It enables engineers to automate network testing, validation, and verification tasks.
 <!-- more -->
