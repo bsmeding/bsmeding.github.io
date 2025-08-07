@@ -36,16 +36,21 @@
     width: 100% !important;
 }
 
-/* Make images full width */
+/* Make images larger and more prominent */
 .md-typeset img {
     max-width: 100% !important;
     width: auto !important;
+    height: auto !important;
+    display: block !important;
+    margin: 1rem auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Tool images - override full width for specific sizing */
+/* Tool images - keep specific sizing for tool images */
 .md-typeset img.tool-image {
-    max-width: 300px !important;
-    width: 300px !important;
+    max-width: 400px !important;
+    width: 400px !important;
     height: auto !important;
     display: block !important;
     margin: 0 auto !important;
