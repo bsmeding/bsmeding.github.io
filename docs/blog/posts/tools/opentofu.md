@@ -12,7 +12,7 @@ tags:
 
 # OpenTofu: Introduction & Getting Started
 
-![OpenTofu Logo](https://opentofu.org/images/logo.png?w=300&h=auto){: style="max-width: 300px; display: block; margin: 0 auto;"}
+![OpenTofu Logo](https://opentofu.org/img/blog/opentofu-1-10-0.png){: style="max-width: 300px; display: block; margin: 0 auto;"}
 
 **OpenTofu** is an open-source infrastructure as code (IaC) tool, forked from Terraform, designed to provision and manage cloud and on-premises resources declaratively.
 <!-- more -->

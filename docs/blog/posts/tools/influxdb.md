@@ -12,7 +12,7 @@ tags:
 
 # InfluxDB: Introduction & Getting Started
 
-![InfluxDB Logo](https://www.influxdata.com/wp-content/uploads/2021/05/InfluxDB-logo.png?w=300&h=auto){: style="max-width: 300px; display: block; margin: 0 auto;"}
+![InfluxDB Logo](https://images.ctfassets.net/o7xu9whrs0u9/207228850e364a9b84583e8e059d883e/a06ce1349a47f9bb7bac62848bbd4a57/pasted_image_0.png){: style="max-width: 300px; display: block; margin: 0 auto;"}
 
 **InfluxDB** is an open-source time-series database designed for storing and analyzing high volumes of time-stamped data, such as metrics and events.
 <!-- more -->
