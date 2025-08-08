@@ -31,7 +31,7 @@ nav:
     - 'bsmeding.gitlab_ce_docker': ansible/ansible_role_gitlab_docker.md
     - 'bsmeding.swag_docker': ansible/ansible_role_swag_docker.md
   - Nautobot:
-    - 'Nautobot SSoT': nautobot_ssot.md
+    - 'Nautobot the ultimate network CMDB': nautobot_the_ultimate_network_cmdb.md
     - 'Nautobot Docker Apps': blog/posts/2025/2025-04-10-nautobot-docker-apps.md
     # - 'Nautobot Jobs': nautobot_jobs.md
     # - 'Nautobot Plugins': nautobot_plugins.md

@@ -1,5 +1,5 @@
 ---
-title: Nautobot as SSoT/CMDB for Network Automation
+title: Nautobot for SSoT CMDB for Network Automation
 tags:
   - nautobot
   - ssot
