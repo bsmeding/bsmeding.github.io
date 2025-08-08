@@ -49,8 +49,8 @@
 
 /* Tool images - keep specific sizing for tool images */
 .md-typeset img.tool-image {
-    max-width: 400px !important;
-    width: 400px !important;
+    max-width: 600px !important;
+    width: 600px !important;
     height: auto !important;
     display: block !important;
     margin: 0 auto !important;
