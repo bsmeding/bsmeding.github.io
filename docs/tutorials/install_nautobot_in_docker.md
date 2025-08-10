@@ -242,6 +242,20 @@ Navigate to `http://your_domain.com` or `http://localhost:8080` to access your N
 
 ## Method 2: Ansible Deployment
 
+This method uses Ansible to automate the deployment of Nautobot with Docker. It's ideal for repeatable, scalable, and production-grade installations.
+
+**Prerequisites:**
+- Ansible installed on your control machine (`pip install ansible`)
+- SSH access to your target server(s)
+- The Ansible roles `bsmeding.docker` and `bsmeding.nautobot_docker` (see below)
+- Your target server(s) should be accessible via SSH and have Python installed
+
+**Install the required Ansible roles from Ansible Galaxy:**
+
+```bash
+ansible-galaxy role install bsmeding.docker bsmeding.nautobot_docker
+```
+
 ### Step 1: Clone the Ansible Role
 
 ```bash
