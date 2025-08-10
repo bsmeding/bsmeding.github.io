@@ -6,11 +6,14 @@ tags: ["network automation", "firewalls", "wireless", "golden config", "nautobot
 toc: true
 layout: single
 comments: true
+draft: true
 ---
 
 # Nautobot in Action – Part 9: Advanced Firewall and Wireless Management
 
 Welcome to Part 9 of our Nautobot Zero to Hero series! In this installment, we'll explore advanced firewall and wireless management capabilities within Nautobot, focusing on security policies, wireless network management, and integration with enterprise security frameworks.
+
+<!-- more -->
 
 ## Prerequisites
 

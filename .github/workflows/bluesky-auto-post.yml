@@ -30,6 +30,10 @@ jobs:
         run: |
           pip install atproto requests python-dateutil pyyaml
 
+      - name: Manage draft status for scheduled posts
+        run: |
+          python .github/scripts/manage_draft_status.py
+
       - name: Check for newly published posts and post to Bluesky
         env:
           BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}

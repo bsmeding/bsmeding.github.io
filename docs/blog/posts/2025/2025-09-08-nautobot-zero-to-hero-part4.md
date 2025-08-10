@@ -6,6 +6,7 @@ tags: ["network automation", "remediation", "compliance", "nautobot", "configura
 toc: true
 layout: single
 comments: true
+draft: true
 ---
 
 # Nautobot in Action – Part 4

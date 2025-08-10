@@ -6,11 +6,14 @@ tags: ["network automation", "firewalls", "wireless", "golden config", "nautobot
 toc: true
 layout: single
 comments: true
+draft: true
 ---
 
 # Nautobot in Action – Part 10: Advanced Automation and Production Deployment
 
 Welcome to the final installment of our Nautobot Zero to Hero series! In this concluding part, we'll explore advanced automation techniques, API integrations, monitoring, and best practices for production deployment. We'll bring together all the concepts from previous parts and create a comprehensive, enterprise-ready Nautobot solution.
+
+<!-- more -->
 
 ## Prerequisites
 

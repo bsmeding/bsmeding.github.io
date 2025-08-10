@@ -6,6 +6,7 @@ tags: ["network automation", "golden config", "compliance", "nautobot", "configu
 toc: true
 layout: single
 comments: true
+draft: true
 ---
 
 # Nautobot in Action – Part 3
