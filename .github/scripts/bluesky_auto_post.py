@@ -69,23 +69,35 @@ def format_bluesky_post(title, summary, url, tags):
     max_length = 300
     
     # Create the post content
-    post_content = f"📝 {title}\n\n"
+    post_content = f"New blog post online!: {title}\n\n"
     
     if summary:
+        # Truncate summary if too long
+        max_summary_length = max_length - len(post_content) - len(url) - 20  # Reserve space for tags and URL
+        if len(summary) > max_summary_length:
+            summary = summary[:max_summary_length-3] + "..."
         post_content += f"{summary}\n\n"
     
-    # Add tags if there's space
-    if tags and len(post_content) < max_length - 50:
-        tag_text = " ".join([f"#{tag.replace('-', '')}" for tag in tags[:3]])
-        if len(post_content + f"\n{tag_text}\n\n") <= max_length - len(url) - 5:
+    # Add tags if there's space (limit to 3 tags)
+    if tags and len(post_content) < max_length - len(url) - 30:
+        tag_text = " ".join([f"#{tag.replace('-', '').replace(' ', '')}" for tag in tags[:3]])
+        if len(post_content + f"{tag_text}\n\n") <= max_length - len(url) - 5:
             post_content += f"{tag_text}\n\n"
     
-    # Add URL at the end (Bluesky auto-detects URLs better this way)
-    post_content += url
+    # Add URL on its own line for better clickability
+    post_content += f"{url}"
     
     # Truncate if too long
     if len(post_content) > max_length:
-        post_content = post_content[:max_length-3] + "..."
+        # Try to truncate summary first
+        if summary and len(summary) > 20:
+            # Calculate how much to truncate
+            excess = len(post_content) - max_length
+            new_summary = summary[:-excess-3] + "..."
+            post_content = f"New blog post online!: {title}\n\n{new_summary}\n\n{url}"
+        else:
+            # If no summary or can't truncate further, truncate title
+            post_content = post_content[:max_length-3] + "..."
     
     return post_content
 
@@ -165,8 +177,11 @@ def main():
         
         # Check if it's published today or in the past and not already posted
         if post_date <= today:
-            post_id = str(md_file)
+            # Use a more unique post ID that includes the date and filename
+            post_id = f"{post_date}_{md_file.name}"
             print(f"  🔍 Checking post ID: {post_id}")
+            
+            # Check if this post is already in the log
             if post_id not in posted_log:
                 # Check if it's not a draft
                 if not front_matter.get('draft', False):
@@ -179,7 +194,7 @@ def main():
                 else:
                     print(f"  📝 Draft post (skipping)")
             else:
-                print(f"  ⏭️ Already posted")
+                print(f"  ⏭️ Already posted on {posted_log[post_id].get('posted_at', 'unknown date')}")
         else:
             print(f"  ⏳ Future post (will be published on {post_date})")
     
@@ -204,7 +219,7 @@ def main():
         
         # Post to Bluesky
         if post_to_bluesky(bluesky_content):
-            # Mark as posted
+            # Mark as posted with current timestamp
             posted_log[post['post_id']] = {
                 'posted_at': datetime.now(timezone.utc).isoformat(),
                 'title': title,
