@@ -109,6 +109,7 @@ def main():
     
     # Get today's date
     today = datetime.now(timezone.utc).date()
+    print(f"📅 Today's date: {today}")
     
     # Find all markdown files in the blog posts directory
     blog_dir = Path(BLOG_POSTS_DIR)
@@ -117,6 +118,7 @@ def main():
         return
     
     new_posts = []
+    found_posts = 0
     
     for md_file in blog_dir.rglob("*.md"):
         # Skip the log file itself
@@ -132,6 +134,8 @@ def main():
         if 'date' not in front_matter:
             continue
         
+        found_posts += 1
+        
         # Parse the date
         try:
             if isinstance(front_matter['date'], str):
@@ -141,8 +145,11 @@ def main():
         except (ValueError, AttributeError):
             continue
         
-        # Check if it's published today and not already posted
-        if post_date == today:
+        title = front_matter.get('title', 'Untitled')
+        print(f"📄 Found post: {title} (date: {post_date}, draft: {front_matter.get('draft', False)})")
+        
+        # Check if it's published today or in the past and not already posted
+        if post_date <= today:
             post_id = str(md_file)
             if post_id not in posted_log:
                 new_posts.append({
@@ -150,6 +157,13 @@ def main():
                     'front_matter': front_matter,
                     'post_id': post_id
                 })
+                print(f"  ✅ Added to posting queue")
+            else:
+                print(f"  ⏭️ Already posted")
+        else:
+            print(f"  ⏳ Future post (will be published on {post_date})")
+    
+    print(f"📊 Summary: Found {found_posts} posts, {len(new_posts)} ready to post")
     
     if not new_posts:
         print("✅ No new posts to publish today")
