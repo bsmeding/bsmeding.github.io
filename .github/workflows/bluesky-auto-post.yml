@@ -36,3 +36,4 @@ jobs:
           BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
         run: |
           python .github/scripts/bluesky_auto_post.py
+# Trigger Bluesky workflow
