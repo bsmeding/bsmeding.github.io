@@ -125,9 +125,12 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
     # Add tags if there's space (limit to 3 tags)
     if tags:
         tag_text = " ".join([f"#{tag.replace('-', '').replace(' ', '')}" for tag in tags[:3]])
-        # Check if we have space for tags
-        current_text = tb.text
-        if len(current_text + f"{tag_text}\n\n") <= max_length - len(url) - 5:
+        # Check if we have space for tags by building a temporary text
+        temp_text = f"New blog post online!: {title}\n\n"
+        if summary:
+            temp_text += f"{summary}\n\n"
+        temp_text += f"{tag_text}\n\n{url}"
+        if len(temp_text) <= max_length - 5:
             tb.text(f"{tag_text}\n\n")
     
     # Add the URL as a clickable link
