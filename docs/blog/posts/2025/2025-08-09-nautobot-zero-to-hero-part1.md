@@ -1,4 +1,13 @@
-c
+---
+authors: [bsmeding]
+date: 2025-08-09
+title: Nautobot in Action – Part 1
+tags: ["network automation", "device onboarding", "nautobot", "discovery"]
+toc: true
+layout: single
+comments: true
+---
+
 # Nautobot in Action – Part 1
 ## Nautobot as Your Single Source of Truth (SSoT)
 *From zero to a Git-integrated Nautobot environment.*
