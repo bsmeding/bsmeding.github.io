@@ -52,7 +52,7 @@ This series takes you from a basic Nautobot installation to a fully automated ne
 **Estimated Time:** ~2 hours
 
 ### 2. **Part 2 – Onboarding Brownfield Devices with the Device Onboarding App**
-*[Draft Available: [Part 2 - Device Onboarding (Draft)](/blog/posts/2025/2025-08-16-nautobot-zero-to-hero-part2-draft/)]*
+*Coming Soon*
 
 - Install and configure Device Onboarding app
 - Discover existing devices
@@ -62,7 +62,7 @@ This series takes you from a basic Nautobot installation to a fully automated ne
 **Estimated Time:** ~1.5 hours
 
 ### 3. **Part 3 – Golden Config for Intended Configs & Compliance**
-*[Draft Available: [Part 3 - Golden Config (Draft)](/blog/posts/2025/2025-08-23-nautobot-zero-to-hero-part3-draft/)]*
+*Coming Soon*
 
 - Install Golden Config plugin
 - Configure backup jobs

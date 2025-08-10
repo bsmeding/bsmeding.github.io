@@ -1,12 +1,11 @@
 ---
 authors: [bsmeding]
-date: 2025-08-09
+date: 2025-08-18
 title: Nautobot in Action – Part 1
 tags: ["network automation", "device onboarding", "nautobot", "discovery"]
 toc: true
 layout: single
 comments: true
-draft: true
 ---
 
 # Nautobot in Action – Part 1
@@ -56,9 +55,10 @@ We’ll:
 ---
 
 ## 2. Prerequisites
-- Containerlab lab from the separate setup blog.
+- [Containerlab lab setup](/blog/posts/2025/2025-02-04-building-reusable-network-automation-lab-with-containerlab/)
+- [Install Nautobot development environment (Docker, Docker Compose, Nautobot)](/tutorials/install_nautobot_development_in_docker)
 - GitHub or GitLab repository (private if external).
-- Docker & Docker Compose installed.
+- Docker & Docker Compose installed (see Install Nautobot development environment or use Ansible role [bsmeding.docker](/ansible/ansible_role_docker/)).
 
 ---
 

@@ -1,0 +1,31 @@
+name: Post to Bluesky on Deploy
+
+on:
+  workflow_run:
+    workflows: ["ci"]  # Trigger when the main deployment workflow completes
+    types:
+      - completed
+
+jobs:
+  post-to-bluesky:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install atproto requests python-dateutil
+
+      - name: Post new blog posts to Bluesky
+        env:
+          BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
+          BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
+        run: |
+          python .github/scripts/bluesky_auto_post.py
