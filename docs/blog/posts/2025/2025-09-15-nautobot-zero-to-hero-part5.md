@@ -6,7 +6,6 @@ tags: ["network automation", "event-driven", "job hooks", "nautobot", "real-time
 toc: true
 layout: single
 comments: true
-draft: true
 ---
 
 # Nautobot in Action – Part 5

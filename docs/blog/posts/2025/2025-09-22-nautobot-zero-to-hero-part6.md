@@ -6,7 +6,6 @@ tags: ["network automation", "ztp", "deployment", "site validation", "nautobot",
 toc: true
 layout: single
 comments: true
-draft: true
 ---
 
 # Nautobot in Action – Part 6

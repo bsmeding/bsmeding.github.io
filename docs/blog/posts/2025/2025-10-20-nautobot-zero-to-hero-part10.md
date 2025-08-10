@@ -6,7 +6,6 @@ tags: ["network automation", "firewalls", "wireless", "golden config", "nautobot
 toc: true
 layout: single
 comments: true
-draft: true
 ---
 
 # Nautobot in Action – Part 10: Advanced Automation and Production Deployment

@@ -6,7 +6,6 @@ tags: ["network automation", "api", "integrations", "infoblox", "ise", "nautobot
 toc: true
 layout: single
 comments: true
-draft: true
 ---
 
 # Nautobot in Action – Part 7

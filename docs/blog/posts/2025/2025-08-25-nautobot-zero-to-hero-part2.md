@@ -6,7 +6,6 @@ tags: ["network automation", "device onboarding", "nautobot", "discovery"]
 toc: true
 layout: single
 comments: true
-draft: true
 ---
 
 # Nautobot in Action – Part 2

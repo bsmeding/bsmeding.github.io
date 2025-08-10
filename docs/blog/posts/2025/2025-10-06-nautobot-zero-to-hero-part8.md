@@ -6,7 +6,6 @@ tags: ["network automation", "gitops", "change management", "nautobot", "ci/cd"]
 toc: true
 layout: single
 comments: true
-draft: true
 ---
 
 # Nautobot in Action – Part 8
