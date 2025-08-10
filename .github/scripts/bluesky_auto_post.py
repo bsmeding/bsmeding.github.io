@@ -10,7 +10,8 @@ import yaml
 import requests
 from datetime import datetime, timezone
 from pathlib import Path
-from atproto import Client
+from atproto import Client, models
+from atproto_client.utils.text_builder import TextBuilder
 import json
 
 # Configuration
@@ -64,7 +65,7 @@ def get_post_url(file_path):
     return url
 
 def format_bluesky_post(title, summary, url, tags):
-    """Format a blog post for Bluesky."""
+    """Format a blog post for Bluesky with proper link facets."""
     # Bluesky has a 300 character limit
     max_length = 300
     
@@ -101,8 +102,65 @@ def format_bluesky_post(title, summary, url, tags):
     
     return post_content
 
-def post_to_bluesky(content):
-    """Post content to Bluesky using the atproto library."""
+def create_bluesky_post_with_facets(title, summary, url, tags):
+    """Create a Bluesky post with proper link facets for clickable URLs."""
+    # Bluesky has a 300 character limit
+    max_length = 300
+    
+    # Build the text content
+    tb = TextBuilder()
+    
+    # Add title
+    tb.text(f"New blog post online!: {title}\n\n")
+    
+    # Add summary if available
+    if summary:
+        # Truncate summary if too long
+        current_length = len(f"New blog post online!: {title}\n\n")
+        max_summary_length = max_length - current_length - len(url) - 20  # Reserve space for tags and URL
+        if len(summary) > max_summary_length:
+            summary = summary[:max_summary_length-3] + "..."
+        tb.text(f"{summary}\n\n")
+    
+    # Add tags if there's space (limit to 3 tags)
+    if tags:
+        tag_text = " ".join([f"#{tag.replace('-', '').replace(' ', '')}" for tag in tags[:3]])
+        # Check if we have space for tags
+        current_text = tb.text
+        if len(current_text + f"{tag_text}\n\n") <= max_length - len(url) - 5:
+            tb.text(f"{tag_text}\n\n")
+    
+    # Add the URL as a clickable link
+    tb.link(url, url)
+    
+    # Build the post text and facets
+    post_text, post_facets = tb.build()
+    
+    # Truncate if too long
+    if len(post_text) > max_length:
+        # Rebuild with shorter content
+        tb = TextBuilder()
+        tb.text(f"New blog post online!: {title}\n\n")
+        
+        if summary and len(summary) > 20:
+            # Calculate how much to truncate
+            excess = len(post_text) - max_length
+            new_summary = summary[:-excess-3] + "..."
+            tb.text(f"{new_summary}\n\n")
+        
+        tb.link(url, url)
+        post_text, post_facets = tb.build()
+        
+        # Final truncation if still too long
+        if len(post_text) > max_length:
+            post_text = post_text[:max_length-3] + "..."
+            # Remove facets that might be cut off
+            post_facets = []
+    
+    return post_text, post_facets
+
+def post_to_bluesky(content, facets=None):
+    """Post content to Bluesky using the atproto library with optional facets."""
     identifier = os.environ.get('BLUESKY_IDENTIFIER')
     password = os.environ.get('BLUESKY_PASSWORD')
     
@@ -111,6 +169,8 @@ def post_to_bluesky(content):
         print("🔍 Would post this content:")
         print("---")
         print(content)
+        if facets:
+            print(f"With facets: {facets}")
         print("---")
         return False
     
@@ -118,9 +178,25 @@ def post_to_bluesky(content):
         client = Client()
         client.login(identifier, password)
         
-        # Post to Bluesky
-        response = client.send_post(text=content)
-        print(f"✅ Posted to Bluesky: {response.uri}")
+        if facets:
+            # Post with facets for clickable links
+            response = client.com.atproto.repo.create_record(
+                models.ComAtprotoRepoCreateRecord.Data(
+                    repo=client.me.did,
+                    collection=models.ids.AppBskyFeedPost,
+                    record=models.AppBskyFeedPost.Main(
+                        text=content,
+                        facets=facets,
+                        created_at=client.get_current_time_iso(),
+                    ),
+                )
+            )
+            print(f"✅ Posted to Bluesky with facets: {response.uri}")
+        else:
+            # Fallback to simple post
+            response = client.send_post(text=content)
+            print(f"✅ Posted to Bluesky: {response.uri}")
+        
         return True
         
     except Exception as e:
@@ -214,11 +290,11 @@ def main():
         
         print(f"  - {title}")
         
-        # Format the post for Bluesky
-        bluesky_content = format_bluesky_post(title, summary, url, tags)
+        # Format the post for Bluesky with facets for clickable links
+        bluesky_content, facets = create_bluesky_post_with_facets(title, summary, url, tags)
         
         # Post to Bluesky
-        if post_to_bluesky(bluesky_content):
+        if post_to_bluesky(bluesky_content, facets):
             # Mark as posted with current timestamp
             posted_log[post['post_id']] = {
                 'posted_at': datetime.now(timezone.utc).isoformat(),

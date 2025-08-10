@@ -1,221 +1,221 @@
 {
   "docs/blog/posts/2022/2022-11-15-introduction-to-netdevops-principles.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2022-11-15T10:00:00+00:00",
     "title": "Introduction to NetDevOps: Bridging Network Operations and Development",
     "url": "https://netdevops.it/blog/posts/2022/2022-11-15-introduction-to-netdevops-principles"
   },
   "docs/blog/posts/2023/2023-02-07-ansible_network_settings.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2023-02-07T10:00:00+00:00",
     "title": "Ansible - Network Settings",
     "url": "https://netdevops.it/blog/posts/2023/2023-02-07-ansible_network_settings"
   },
   "docs/blog/posts/2023/2023-03-20-getting-started-with-ansible-network-automation.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2023-03-20T10:00:00+00:00",
     "title": "Getting Started with Ansible Network Automation: A Practical Guide",
     "url": "https://netdevops.it/blog/posts/2023/2023-03-20-getting-started-with-ansible-network-automation"
   },
   "docs/blog/posts/2023/2023-05-19-setup-proxmox-cluster.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2023-05-19T10:00:00+00:00",
     "title": "Setup Proxmox Cluster",
     "url": "https://netdevops.it/blog/posts/2023/2023-05-19-setup-proxmox-cluster"
   },
   "docs/blog/posts/2023/2023-07-12-terraform-network-infrastructure-as-code.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2023-07-12T10:00:00+00:00",
     "title": "Terraform for Network Infrastructure as Code: A Complete Guide",
     "url": "https://netdevops.it/blog/posts/2023/2023-07-12-terraform-network-infrastructure-as-code"
   },
   "docs/blog/posts/2023/2023-09-08-monitoring-networks-with-prometheus-grafana.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2023-09-08T10:00:00+00:00",
     "title": "Monitoring Networks with Prometheus and Grafana: A Complete Guide",
     "url": "https://netdevops.it/blog/posts/2023/2023-09-08-monitoring-networks-with-prometheus-grafana"
   },
+  "docs/blog/posts/2023/2023-09-25-netdevops-dev-setup.md": {
+    "posted_at": "2023-09-25T10:00:00+00:00",
+    "title": "Network Automation Development Setup",
+    "url": "https://netdevops.it/blog/posts/2023/2023-09-25-netdevops-dev-setup"
+  },
   "docs/blog/posts/2024/2024-01-15-ai-agents-network-automation.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-01-15T10:00:00+00:00",
     "title": "AI Agents in Network Automation: The Future of Intelligent Networking",
     "url": "https://netdevops.it/blog/posts/2024/2024-01-15-ai-agents-network-automation"
   },
   "docs/blog/posts/2024/2024-03-10-ci-cd-pipelines-network-automation.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-03-10T10:00:00+00:00",
     "title": "CI/CD Pipelines for Network Automation: Building Reliable Deployment Workflows",
     "url": "https://netdevops.it/blog/posts/2024/2024-03-10-ci-cd-pipelines-network-automation"
   },
   "docs/blog/posts/2024/2024-05-20-nautobot-network-automation-platform.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-05-20T10:00:00+00:00",
     "title": "Nautobot: The Ultimate Network Automation Platform for NetDevOps",
     "url": "https://netdevops.it/blog/posts/2024/2024-05-20-nautobot-network-automation-platform"
   },
   "docs/blog/posts/2024/2024-09-12-ansible-lint-yaml-lint-ci-cd.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-09-12T10:00:00+00:00",
     "title": "Automate Code Quality: ansible-lint, yaml-lint, and CI/CD Integration",
     "url": "https://netdevops.it/blog/posts/2024/2024-09-12-ansible-lint-yaml-lint-ci-cd"
   },
   "docs/blog/posts/2024/2024-11-15-netdata-monitoring-system.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-11-15T10:00:00+00:00",
     "title": "Netdata Monitoring System: Real-Time, Free, and Easy",
     "url": "https://netdevops.it/blog/posts/2024/2024-11-15-netdata-monitoring-system"
   },
   "docs/blog/posts/2025/2025-01-06-github-action-push-to-ansible-galaxy.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-01-06T10:00:00+00:00",
     "title": "Automatically push Ansible role to Ansible Galaxy with GitHub Actions",
     "url": "https://netdevops.it/blog/posts/2025/2025-01-06-github-action-push-to-ansible-galaxy"
   },
   "docs/blog/posts/2025/2025-03-17-getting-started-with-network-automation-the-complete-guide.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-03-17T10:00:00+00:00",
     "title": "Getting Started with Network Automation, the complete guide!",
     "url": "https://netdevops.it/blog/posts/2025/2025-03-17-getting-started-with-network-automation-the-complete-guide"
   },
   "docs/blog/posts/2025/2025-04-10-nautobot-docker-apps.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-04-10T10:00:00+00:00",
     "title": "Nautobot Docker Images with Pre-Installed Apps",
     "url": "https://netdevops.it/blog/posts/2025/2025-04-10-nautobot-docker-apps"
   },
   "docs/blog/posts/2025/2025-04-12-pyats-testing-tutorial.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-04-12T10:00:00+00:00",
     "title": "pyATS Testing Tutorial",
     "url": "https://netdevops.it/blog/posts/2025/2025-04-12-pyats-testing-tutorial"
   },
   "docs/blog/posts/2025/2025-05-18-ansible-role-dev-and-test-setup.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-05-18T10:00:00+00:00",
     "title": "Create development environment for Ansible roles",
     "url": "https://netdevops.it/blog/posts/2025/2025-05-18-ansible-role-dev-and-test-setup"
   },
   "docs/blog/posts/2025/2025-05-23-uv-package-manager-replacing-venv.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-05-23T10:00:00+00:00",
     "title": "UV Package Manager: The Modern Alternative to Python Virtual Environments",
     "url": "https://netdevops.it/blog/posts/2025/2025-05-23-uv-package-manager-replacing-venv"
   },
   "docs/blog/posts/2025/2025-06-12-graphql-network-automation.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-06-12T10:00:00+00:00",
     "title": "Supercharge Network Automation with GraphQL -> One Query to Rule Them All",
     "url": "https://netdevops.it/blog/posts/2025/2025-06-12-graphql-network-automation"
   },
   "docs/blog/posts/2025/2025-08-02-nautobot-zero-to-hero-landings-page.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-08-02T10:00:00+00:00",
     "title": "Nautobot in Action – Global Series Index",
     "url": "https://netdevops.it/blog/posts/2025/2025-08-02-nautobot-zero-to-hero-landings-page"
   },
   "docs/blog/posts/2025/2025-08-10-building-reusable-network-automation-lab-with-containerlab.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-08-10T10:00:00+00:00",
     "title": "Building a Reusable Network Automation Lab with Containerlab",
     "url": "https://netdevops.it/blog/posts/2025/2025-08-10-building-reusable-network-automation-lab-with-containerlab"
   },
-  "docs/blog/posts/tools/ansible.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Ansible Introduction & Getting Started",
-    "url": "https://netdevops.it/blog/posts/tools/ansible"
-  },
   "docs/blog/posts/tools/api.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2023-11-10T10:00:00+00:00",
     "title": "APIs in Network Automation",
     "url": "https://netdevops.it/blog/posts/tools/api"
   },
   "docs/blog/posts/tools/cloudformation.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-10-13T10:00:00+00:00",
     "title": "AWS CloudFormation Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/cloudformation"
   },
   "docs/blog/posts/tools/containerlab.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-06-11T10:00:00+00:00",
     "title": "ContainerLab",
     "url": "https://netdevops.it/blog/posts/tools/containerlab"
   },
   "docs/blog/posts/tools/docker.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2023-02-17T10:00:00+00:00",
     "title": "Docker",
     "url": "https://netdevops.it/blog/posts/tools/docker"
   },
   "docs/blog/posts/tools/github-actions.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-09-15T10:00:00+00:00",
     "title": "GitHub Actions Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/github-actions"
   },
   "docs/blog/posts/tools/gitlab-ci.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-09-08T10:00:00+00:00",
     "title": "GitLab CI/CD Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/gitlab-ci"
   },
   "docs/blog/posts/tools/grafana.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-10-27T10:00:00+00:00",
     "title": "Grafana Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/grafana"
   },
   "docs/blog/posts/tools/influxdb.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-11-03T10:00:00+00:00",
     "title": "InfluxDB Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/influxdb"
   },
   "docs/blog/posts/tools/jenkins.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-09-01T10:00:00+00:00",
     "title": "Jenkins Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/jenkins"
   },
   "docs/blog/posts/tools/jinja2.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-02-18T10:00:00+00:00",
     "title": "Jinja2",
     "url": "https://netdevops.it/blog/posts/tools/jinja2"
   },
   "docs/blog/posts/tools/linux.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-08-10T10:00:00+00:00",
     "title": "Linux Basics for Network Automation",
     "url": "https://netdevops.it/blog/posts/tools/linux"
   },
   "docs/blog/posts/tools/nautobot.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-04-11T10:00:00+00:00",
     "title": "Nautobot",
     "url": "https://netdevops.it/blog/posts/tools/nautobot"
   },
   "docs/blog/posts/tools/netbox.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2023-07-19T10:00:00+00:00",
     "title": "NetBox",
     "url": "https://netdevops.it/blog/posts/tools/netbox"
   },
   "docs/blog/posts/tools/netpicker.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-01-15T10:00:00+00:00",
     "title": "NetPicker.io",
     "url": "https://netdevops.it/blog/posts/tools/netpicker"
   },
   "docs/blog/posts/tools/nornir.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-08-24T10:00:00+00:00",
     "title": "Nornir Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/nornir"
   },
   "docs/blog/posts/tools/opentofu.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-09-29T10:00:00+00:00",
     "title": "OpenTofu Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/opentofu"
   },
   "docs/blog/posts/tools/opsmill.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-05-28T10:00:00+00:00",
     "title": "OpsMill",
     "url": "https://netdevops.it/blog/posts/tools/opsmill"
   },
   "docs/blog/posts/tools/prometheus.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-10-20T10:00:00+00:00",
     "title": "Prometheus Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/prometheus"
   },
   "docs/blog/posts/tools/pyats.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-09-22T10:00:00+00:00",
     "title": "pyATS Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/pyats"
   },
   "docs/blog/posts/tools/saltstack.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-08-17T10:00:00+00:00",
     "title": "SaltStack Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/saltstack"
   },
   "docs/blog/posts/tools/slurpit.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2025-02-20T10:00:00+00:00",
     "title": "SlurpIT.io",
     "url": "https://netdevops.it/blog/posts/tools/slurpit"
   },
   "docs/blog/posts/tools/terraform.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-10-06T10:00:00+00:00",
     "title": "Terraform Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/terraform"
   },
   "docs/blog/posts/tools/visual-studio-code.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
+    "posted_at": "2024-08-10T10:00:00+00:00",
     "title": "Visual Studio Code for Network Automation",
     "url": "https://netdevops.it/blog/posts/tools/visual-studio-code"
   }
