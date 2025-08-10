@@ -210,13 +210,13 @@ def main():
                 'title': title,
                 'url': url
             }
+            # Save the log immediately after each successful post
+            save_posted_log(posted_log)
+            print(f"  ✅ Posted and logged: {title}")
         else:
             print(f"  ❌ Failed to post: {title}")
     
-    # Save the updated log
-    save_posted_log(posted_log)
-    print("✅ Posted log updated")
+    print("✅ All posts processed")
 
 if __name__ == "__main__":
     main()
-# Test improved URL formatting
