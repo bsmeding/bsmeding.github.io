@@ -85,6 +85,10 @@ def post_to_bluesky(content):
     
     if not identifier or not password:
         print("❌ Bluesky credentials not found in environment variables")
+        print("🔍 Would post this content:")
+        print("---")
+        print(content)
+        print("---")
         return False
     
     try:
@@ -141,7 +145,7 @@ def main():
             if isinstance(front_matter['date'], str):
                 post_date = datetime.fromisoformat(front_matter['date'].replace('Z', '+00:00')).date()
             else:
-                post_date = front_matter['date'].date()
+                post_date = front_matter['date']
         except (ValueError, AttributeError):
             continue
         
@@ -151,13 +155,18 @@ def main():
         # Check if it's published today or in the past and not already posted
         if post_date <= today:
             post_id = str(md_file)
+            print(f"  🔍 Checking post ID: {post_id}")
             if post_id not in posted_log:
-                new_posts.append({
-                    'file': md_file,
-                    'front_matter': front_matter,
-                    'post_id': post_id
-                })
-                print(f"  ✅ Added to posting queue")
+                # Check if it's not a draft
+                if not front_matter.get('draft', False):
+                    new_posts.append({
+                        'file': md_file,
+                        'front_matter': front_matter,
+                        'post_id': post_id
+                    })
+                    print(f"  ✅ Added to posting queue")
+                else:
+                    print(f"  📝 Draft post (skipping)")
             else:
                 print(f"  ⏭️ Already posted")
         else:
