@@ -1,0 +1,70 @@
+name: Preview Site
+
+on:
+  push:
+    branches:
+      - preview
+  pull_request:
+    branches:
+      - main
+      - preview
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Build site
+      run: |
+        mkdocs build --site-dir ./site
+        
+    - name: Deploy to GitHub Pages (Preview)
+      if: github.ref == 'refs/heads/preview'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site
+        destination_dir: preview
+        force_orphan: true
+        
+    - name: Deploy to GitHub Pages (PR Preview)
+      if: github.event_name == 'pull_request'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site
+        destination_dir: pr-${{ github.event.number }}
+        force_orphan: true
+        
+    - name: Comment PR with preview URL
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `🚀 **Preview available!**\n\nYour changes are now live at:\nhttps://${context.repo.owner}.github.io/${context.repo.repo}/pr-${context.issue.number}/\n\nThis preview will be automatically updated with each push to this PR.`
+          })
