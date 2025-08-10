@@ -99,11 +99,6 @@
     "title": "Nautobot in Action – Global Series Index",
     "url": "https://netdevops.it/blog/posts/2025/2025-08-02-nautobot-zero-to-hero-landings-page"
   },
-  "docs/blog/posts/2025/2025-08-10-building-reusable-network-automation-lab-with-containerlab.md": {
-    "posted_at": "2025-08-10T10:00:00+00:00",
-    "title": "Building a Reusable Network Automation Lab with Containerlab",
-    "url": "https://netdevops.it/blog/posts/2025/2025-08-10-building-reusable-network-automation-lab-with-containerlab"
-  },
   "docs/blog/posts/tools/api.md": {
     "posted_at": "2023-11-10T10:00:00+00:00",
     "title": "APIs in Network Automation",
