@@ -51,7 +51,12 @@ def get_post_url(file_path):
     """Generate the URL for a blog post."""
     # Remove docs/ prefix and .md suffix
     relative_path = str(file_path).replace('docs/', '').replace('.md', '')
-    return f"{SITE_URL}/{relative_path}"
+    # Ensure proper URL formatting
+    url = f"{SITE_URL}/{relative_path}"
+    # Fix double slashes in path (but preserve protocol)
+    if '//' in url[8:]:  # After https://
+        url = url[:8] + url[8:].replace('//', '/')
+    return url
 
 def format_bluesky_post(title, summary, url, tags):
     """Format a blog post for Bluesky."""
@@ -64,13 +69,14 @@ def format_bluesky_post(title, summary, url, tags):
     if summary:
         post_content += f"{summary}\n\n"
     
-    post_content += f"🔗 {url}"
-    
     # Add tags if there's space
-    if tags and len(post_content) < max_length - 20:
+    if tags and len(post_content) < max_length - 50:
         tag_text = " ".join([f"#{tag.replace('-', '')}" for tag in tags[:3]])
-        if len(post_content + f"\n\n{tag_text}") <= max_length:
-            post_content += f"\n\n{tag_text}"
+        if len(post_content + f"\n{tag_text}\n\n") <= max_length - len(url) - 5:
+            post_content += f"{tag_text}\n\n"
+    
+    # Add URL at the end (Bluesky auto-detects URLs better this way)
+    post_content += url
     
     # Truncate if too long
     if len(post_content) > max_length:
@@ -208,3 +214,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# Test improved URL formatting
