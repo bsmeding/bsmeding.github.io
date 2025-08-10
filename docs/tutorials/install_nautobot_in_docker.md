@@ -270,8 +270,9 @@ Create a `deploy_nautobot.yml` playbook:
 
 ```yaml
 ---
-- name: Deploy Nautobot with Docker
+- name: Install Nautobot
   hosts: nautobot_servers
+  gather_facts: true
   become: yes
   vars:
     nautobot_version: "latest"
@@ -300,6 +301,12 @@ Create a `deploy_nautobot.yml` playbook:
     docker_compose_version: "2.20.0"
     nautobot_port: 8080
     
-  roles:
-    - ansible_role_nautobot_docker
+  tasks:
+    - name: Check if Docker is installed
+      include_role:
+        name: bsmeding.docker
+
+    - name: Check if Nautobot is installed
+      include_role:
+        name: bsmeding.nautobot_docker
 ```
