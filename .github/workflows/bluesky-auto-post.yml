@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install atproto requests python-dateutil
+          pip install atproto requests python-dateutil pyyaml
 
       - name: Check for newly published posts and post to Bluesky
         env:

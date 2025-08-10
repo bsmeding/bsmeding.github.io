@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install atproto requests python-dateutil
+          pip install atproto requests python-dateutil pyyaml
 
       - name: Post new blog posts to Bluesky
         env:
