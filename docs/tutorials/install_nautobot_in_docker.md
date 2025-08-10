@@ -5,6 +5,11 @@ This tutorial provides two methods for deploying a production-ready Nautobot ins
 1. **Docker Compose** - Simple deployment with a single configuration file
 2. **Ansible** - Automated deployment with infrastructure as code
 
+## Navigation
+
+- [Install Nautobot in Docker](install_nautobot_in_docker.html) (current)
+- [Install Nautobot Development Environment in Docker](install_nautobot_development_in_docker.html)
+
 ## Prerequisites
 
 - Docker and Docker Compose installed
