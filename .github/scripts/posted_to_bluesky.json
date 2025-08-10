@@ -164,11 +164,6 @@
     "title": "AWS CloudFormation Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/cloudformation"
   },
-  "docs/blog/posts/tools/containerlab.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "ContainerLab",
-    "url": "https://netdevops.it/blog/posts/tools/containerlab"
-  },
   "docs/blog/posts/tools/docker.md": {
     "posted_at": "2025-08-10T00:00:00+00:00",
     "title": "Docker",

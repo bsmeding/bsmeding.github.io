@@ -11,6 +11,7 @@ plugins:
       blog_toc: true
       pagination_per_page: 4
       future: false             # Disable future posts
+      filter: "date <= now()"   # Only show posts with dates <= today
   - tags:
       tags_file: tags.md
   - search:

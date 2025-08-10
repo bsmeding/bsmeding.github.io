@@ -41,7 +41,7 @@ This series takes you from a basic Nautobot installation to a fully automated ne
 ## Core Series
 
 ### 1. **Part 1 – Nautobot as Your Single Source of Truth (SSoT)**
-*Publishing: August 18, 2025*
+*Coming Soon - August 18, 2025*
 
 - Deploy Nautobot
 - Connect to Git repository
@@ -52,7 +52,7 @@ This series takes you from a basic Nautobot installation to a fully automated ne
 **Estimated Time:** ~2 hours
 
 ### 2. **Part 2 – Onboarding Brownfield Devices with the Device Onboarding App**
-*Publishing: August 25, 2025*
+*Coming Soon - August 25, 2025*
 
 - Install and configure Device Onboarding app
 - Discover existing devices
@@ -62,7 +62,7 @@ This series takes you from a basic Nautobot installation to a fully automated ne
 **Estimated Time:** ~1.5 hours
 
 ### 3. **Part 3 – Golden Config for Intended Configs & Compliance**
-*Publishing: September 1, 2025*
+*Coming Soon - September 1, 2025*
 
 - Install Golden Config plugin
 - Configure backup jobs
@@ -72,7 +72,7 @@ This series takes you from a basic Nautobot installation to a fully automated ne
 **Estimated Time:** ~2 hours
 
 ### 4. **Part 4 – Remediation: Making Devices Compliant**
-*Publishing: September 8, 2025*
+*Coming Soon - September 8, 2025*
 
 - Generate remediation configs (intended, missing, manual)
 - Create a multi-vendor remediation Job
@@ -81,7 +81,7 @@ This series takes you from a basic Nautobot installation to a fully automated ne
 **Estimated Time:** ~2 hours
 
 ### 5. **Part 5 – Event-Driven Automation: Interface Change Jobs**
-*Publishing: September 15, 2025*
+*Coming Soon - September 15, 2025*
 
 - Job Hooks on interface changes
 - Sync admin-state, description, VLANs
@@ -90,7 +90,7 @@ This series takes you from a basic Nautobot installation to a fully automated ne
 **Estimated Time:** ~1.5 hours
 
 ### 6. **Part 6 – Full Device Deployment, ZTP & Site Validation**
-*Publishing: September 22, 2025*
+*Coming Soon - September 22, 2025*
 
 - Push intended configs to startup/running configs
 - Integrate with ZTP server
