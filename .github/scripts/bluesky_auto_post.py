@@ -177,8 +177,8 @@ def main():
         
         # Check if it's published today or in the past and not already posted
         if post_date <= today:
-            # Use a more unique post ID that includes the date and filename
-            post_id = f"{post_date}_{md_file.name}"
+            # Use the file path as post ID to match existing log format
+            post_id = str(md_file)
             print(f"  🔍 Checking post ID: {post_id}")
             
             # Check if this post is already in the log

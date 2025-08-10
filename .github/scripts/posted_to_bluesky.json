@@ -29,11 +29,6 @@
     "title": "Monitoring Networks with Prometheus and Grafana: A Complete Guide",
     "url": "https://netdevops.it/blog/posts/2023/2023-09-08-monitoring-networks-with-prometheus-grafana"
   },
-  "docs/blog/posts/2023/2023-09-25-netdevops-dev-setup.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Network Automation Development Setup",
-    "url": "https://netdevops.it/blog/posts/2023/2023-09-25-netdevops-dev-setup"
-  },
   "docs/blog/posts/2024/2024-01-15-ai-agents-network-automation.md": {
     "posted_at": "2025-08-10T00:00:00+00:00",
     "title": "AI Agents in Network Automation: The Future of Intelligent Networking",
@@ -96,58 +91,13 @@
   },
   "docs/blog/posts/2025/2025-08-02-nautobot-zero-to-hero-landings-page.md": {
     "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Global Series Index",
+    "title": "Nautobot in Action – Global Series Index",
     "url": "https://netdevops.it/blog/posts/2025/2025-08-02-nautobot-zero-to-hero-landings-page"
   },
-  "docs/blog/posts/2025/2025-08-18-nautobot-zero-to-hero-part1.md": {
+  "docs/blog/posts/2025/2025-08-10-building-reusable-network-automation-lab-with-containerlab.md": {
     "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 1",
-    "url": "https://netdevops.it/blog/posts/2025/2025-08-18-nautobot-zero-to-hero-part1"
-  },
-  "docs/blog/posts/2025/2025-08-25-nautobot-zero-to-hero-part2.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 2",
-    "url": "https://netdevops.it/blog/posts/2025/2025-08-25-nautobot-zero-to-hero-part2"
-  },
-  "docs/blog/posts/2025/2025-09-01-nautobot-zero-to-hero-part3.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 3",
-    "url": "https://netdevops.it/blog/posts/2025/2025-09-01-nautobot-zero-to-hero-part3"
-  },
-  "docs/blog/posts/2025/2025-09-08-nautobot-zero-to-hero-part4.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 4",
-    "url": "https://netdevops.it/blog/posts/2025/2025-09-08-nautobot-zero-to-hero-part4"
-  },
-  "docs/blog/posts/2025/2025-09-15-nautobot-zero-to-hero-part5.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 5",
-    "url": "https://netdevops.it/blog/posts/2025/2025-09-15-nautobot-zero-to-hero-part5"
-  },
-  "docs/blog/posts/2025/2025-09-22-nautobot-zero-to-hero-part6.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 6",
-    "url": "https://netdevops.it/blog/posts/2025/2025-09-22-nautobot-zero-to-hero-part6"
-  },
-  "docs/blog/posts/2025/2025-09-29-nautobot-zero-to-hero-part7.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 7",
-    "url": "https://netdevops.it/blog/posts/2025/2025-09-29-nautobot-zero-to-hero-part7"
-  },
-  "docs/blog/posts/2025/2025-10-06-nautobot-zero-to-hero-part8.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 8",
-    "url": "https://netdevops.it/blog/posts/2025/2025-10-06-nautobot-zero-to-hero-part8"
-  },
-  "docs/blog/posts/2025/2025-10-13-nautobot-zero-to-hero-part9.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 9",
-    "url": "https://netdevops.it/blog/posts/2025/2025-10-13-nautobot-zero-to-hero-part9"
-  },
-  "docs/blog/posts/2025/2025-10-20-nautobot-zero-to-hero-part10.md": {
-    "posted_at": "2025-08-10T00:00:00+00:00",
-    "title": "Nautobot in Action \u2013 Part 10",
-    "url": "https://netdevops.it/blog/posts/2025/2025-10-20-nautobot-zero-to-hero-part10"
+    "title": "Building a Reusable Network Automation Lab with Containerlab",
+    "url": "https://netdevops.it/blog/posts/2025/2025-08-10-building-reusable-network-automation-lab-with-containerlab"
   },
   "docs/blog/posts/tools/ansible.md": {
     "posted_at": "2025-08-10T00:00:00+00:00",
@@ -163,6 +113,11 @@
     "posted_at": "2025-08-10T00:00:00+00:00",
     "title": "AWS CloudFormation Introduction & Getting Started",
     "url": "https://netdevops.it/blog/posts/tools/cloudformation"
+  },
+  "docs/blog/posts/tools/containerlab.md": {
+    "posted_at": "2025-08-10T00:00:00+00:00",
+    "title": "ContainerLab",
+    "url": "https://netdevops.it/blog/posts/tools/containerlab"
   },
   "docs/blog/posts/tools/docker.md": {
     "posted_at": "2025-08-10T00:00:00+00:00",
