@@ -1,15 +1,29 @@
+# DISABLED: This workflow was causing duplicate posts
+# The bluesky-auto-post.yml workflow already handles posting on push and schedule
+# To re-enable, replace the 'never' trigger with the workflow_run trigger below
 name: Post to Bluesky on Deploy
 
 on:
-  workflow_run:
-    workflows: ["ci"]  # Trigger when the main deployment workflow completes
-    types:
-      - completed
+  # This trigger will never fire, effectively disabling the workflow
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'This workflow is disabled to prevent duplicate posts'
+        required: true
+        default: 'disabled'
+  
+  # To re-enable, uncomment this and remove the workflow_dispatch above:
+  # workflow_run:
+  #   workflows: ["ci"]
+  #   types:
+  #     - completed
 
 jobs:
   post-to-bluesky:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # Only run if the triggering workflow had changes to blog posts
+    # This prevents duplicate posts when bluesky-auto-post.yml already ran
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

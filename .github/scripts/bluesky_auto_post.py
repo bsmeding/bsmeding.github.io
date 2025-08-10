@@ -136,8 +136,9 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
     # Add the URL as a clickable link
     tb.link(url, url)
     
-    # Build the post text and facets
-    post_text, post_facets = tb.build()
+    # Get the text and facets
+    post_text = tb.text
+    post_facets = tb.facets
     
     # Truncate if too long
     if len(post_text) > max_length:
@@ -152,7 +153,8 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
             tb.text(f"{new_summary}\n\n")
         
         tb.link(url, url)
-        post_text, post_facets = tb.build()
+        post_text = tb.text
+        post_facets = tb.facets
         
         # Final truncation if still too long
         if len(post_text) > max_length:
