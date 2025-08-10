@@ -50,12 +50,17 @@ def extract_front_matter(file_path):
 def get_post_url(file_path):
     """Generate the URL for a blog post."""
     # Remove docs/ prefix and .md suffix
+    # Generate the relative path for the blog post URL
     relative_path = str(file_path).replace('docs/', '').replace('.md', '')
-    # Ensure proper URL formatting
-    url = f"{SITE_URL}/{relative_path}"
-    # Fix double slashes in path (but preserve protocol)
-    if '//' in url[8:]:  # After https://
-        url = url[:8] + url[8:].replace('//', '/')
+    # Ensure the path starts with a single slash
+    if not relative_path.startswith('/'):
+        relative_path = '/' + relative_path
+    # Remove any accidental double slashes (except after https:)
+    url = f"{SITE_URL}{relative_path}"
+    url = re.sub(r'(?<!:)//+', '/', url)
+    # Ensure https:// is preserved
+    if not url.startswith('https://'):
+        url = url.replace('https:/', 'https://', 1)
     return url
 
 def format_bluesky_post(title, summary, url, tags):
