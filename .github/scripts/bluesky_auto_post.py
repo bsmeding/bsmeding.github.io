@@ -138,7 +138,7 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
     
     # Get the text and facets
     post_text = tb.text
-    post_facets = tb.facets
+    post_facets = tb.get_facets()
     
     # Truncate if too long
     if len(post_text) > max_length:
@@ -154,7 +154,7 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
         
         tb.link(url, url)
         post_text = tb.text
-        post_facets = tb.facets
+        post_facets = tb.get_facets()
         
         # Final truncation if still too long
         if len(post_text) > max_length:
@@ -164,8 +164,8 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
     
     return post_text, post_facets
 
-def post_to_bluesky(content, facets=None):
-    """Post content to Bluesky using the atproto library with optional facets."""
+def post_to_bluesky(content):
+    """Post content to Bluesky using the atproto library."""
     identifier = os.environ.get('BLUESKY_IDENTIFIER')
     password = os.environ.get('BLUESKY_PASSWORD')
     
@@ -174,8 +174,6 @@ def post_to_bluesky(content, facets=None):
         print("🔍 Would post this content:")
         print("---")
         print(content)
-        if facets:
-            print(f"With facets: {facets}")
         print("---")
         return False
     
@@ -183,25 +181,9 @@ def post_to_bluesky(content, facets=None):
         client = Client()
         client.login(identifier, password)
         
-        if facets:
-            # Post with facets for clickable links
-            response = client.com.atproto.repo.create_record(
-                models.ComAtprotoRepoCreateRecord.Data(
-                    repo=client.me.did,
-                    collection=models.ids.AppBskyFeedPost,
-                    record=models.AppBskyFeedPost.Main(
-                        text=content,
-                        facets=facets,
-                        created_at=client.get_current_time_iso(),
-                    ),
-                )
-            )
-            print(f"✅ Posted to Bluesky with facets: {response.uri}")
-        else:
-            # Fallback to simple post
-            response = client.send_post(text=content)
-            print(f"✅ Posted to Bluesky: {response.uri}")
-        
+        # Post to Bluesky
+        response = client.send_post(text=content)
+        print(f"✅ Posted to Bluesky: {response.uri}")
         return True
         
     except Exception as e:
@@ -295,11 +277,11 @@ def main():
         
         print(f"  - {title}")
         
-        # Format the post for Bluesky with facets for clickable links
-        bluesky_content, facets = create_bluesky_post_with_facets(title, summary, url, tags)
+        # Format the post for Bluesky (fallback to basic approach for now)
+        bluesky_content = format_bluesky_post(title, summary, url, tags)
         
         # Post to Bluesky
-        if post_to_bluesky(bluesky_content, facets):
+        if post_to_bluesky(bluesky_content):
             # Mark as posted with current timestamp
             posted_log[post['post_id']] = {
                 'posted_at': datetime.now(timezone.utc).isoformat(),
