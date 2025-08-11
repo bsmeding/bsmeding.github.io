@@ -48,8 +48,24 @@ def extract_front_matter(file_path):
             return None
     return None
 
-def get_post_url(file_path):
+def get_post_url(file_path, front_matter=None):
     """Generate the URL for a blog post."""
+    # If we have front matter with a title, use that to generate the URL
+    if front_matter and 'title' in front_matter:
+        title = front_matter['title']
+        # Convert title to URL-friendly slug
+        # Convert to lowercase and replace spaces with hyphens
+        slug = title.lower().replace(' ', '-')
+        # Remove any special characters except hyphens
+        slug = re.sub(r'[^a-z0-9\-]', '', slug)
+        # Remove multiple consecutive hyphens
+        slug = re.sub(r'-+', '-', slug)
+        # Remove leading/trailing hyphens
+        slug = slug.strip('-')
+        url = f"{SITE_URL}/blog/{slug}/"
+        return url
+    
+    # Fallback: use filename-based approach
     # Convert file path to URL path
     # Remove docs/ prefix and .md suffix
     relative_path = str(file_path).replace('docs/', '').replace('.md', '')
@@ -126,60 +142,54 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
     # Bluesky has a 300 character limit
     max_length = 300
     
+    # Reserve space for the URL (always keep it complete)
+    url_length = len(url)
+    available_length = max_length - url_length - 10  # Reserve 10 chars for formatting
+    
     # Build the text content
     tb = TextBuilder()
     
-    # Add title
-    tb.text(f"New blog post online!: {title}\n\n")
+    # Add title (truncate if necessary)
+    title_text = f"New blog post online!: {title}\n\n"
+    if len(title_text) > available_length:
+        # Truncate title to fit
+        max_title_length = available_length - 10  # Reserve space for summary
+        truncated_title = title[:max_title_length-3] + "..."
+        title_text = f"New blog post online!: {truncated_title}\n\n"
     
-    # Add summary if available
-    if summary:
+    tb.text(title_text)
+    available_length -= len(title_text)
+    
+    # Add summary if available and there's space
+    if summary and available_length > 20:
         # Truncate summary if too long
-        current_length = len(f"New blog post online!: {title}\n\n")
-        max_summary_length = max_length - current_length - len(url) - 20  # Reserve space for tags and URL
-        if len(summary) > max_summary_length:
-            summary = summary[:max_summary_length-3] + "..."
+        if len(summary) > available_length - 10:  # Reserve space for tags
+            summary = summary[:available_length-13] + "..."
         tb.text(f"{summary}\n\n")
+        available_length -= len(summary) + 2  # +2 for \n\n
     
     # Add tags if there's space (limit to 3 tags)
-    if tags:
+    if tags and available_length > 15:
         tag_text = " ".join([f"#{tag.replace('-', '').replace(' ', '')}" for tag in tags[:3]])
-        # Check if we have space for tags by building a temporary text
-        temp_text = f"New blog post online!: {title}\n\n"
-        if summary:
-            temp_text += f"{summary}\n\n"
-        temp_text += f"{tag_text}\n\n{url}"
-        if len(temp_text) <= max_length - 5:
+        if len(tag_text) <= available_length - 5:
             tb.text(f"{tag_text}\n\n")
+            available_length -= len(tag_text) + 2  # +2 for \n\n
     
-    # Add the URL as a clickable link
+    # Add the URL as a clickable link (always complete)
     tb.link(url, url)
     
     # Get the text and facets
     post_text = tb.build_text()
     post_facets = tb.build_facets()
     
-    # Truncate if too long
-    if len(post_text) > max_length:
-        # Rebuild with shorter content
+    # Verify the URL is complete in the final text
+    if url not in post_text:
+        # If URL was truncated, rebuild with minimal content
         tb = TextBuilder()
-        tb.text(f"New blog post online!: {title}\n\n")
-        
-        if summary and len(summary) > 20:
-            # Calculate how much to truncate
-            excess = len(post_text) - max_length
-            new_summary = summary[:-excess-3] + "..."
-            tb.text(f"{new_summary}\n\n")
-        
+        tb.text(f"New blog post online!: {title[:50]}...\n\n")
         tb.link(url, url)
         post_text = tb.build_text()
         post_facets = tb.build_facets()
-        
-        # Final truncation if still too long
-        if len(post_text) > max_length:
-            post_text = post_text[:max_length-3] + "..."
-            # Remove facets that might be cut off
-            post_facets = []
     
     return post_text, post_facets
 
@@ -297,7 +307,7 @@ def main():
         title = post['front_matter'].get('title', 'Untitled')
         summary = post['front_matter'].get('summary', '')
         tags = post['front_matter'].get('tags', [])
-        url = get_post_url(post['file'])
+        url = get_post_url(post['file'], post['front_matter'])
         
         print(f"  - {title}")
         print(f"    URL: {url}")
