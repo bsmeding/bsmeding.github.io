@@ -51,3 +51,4 @@ print(f"Input file: {test_file}")
 print(f"Generated URL: {url}")
 print(f"Expected URL: https://netdevops.it/blog/building-reusable-network-automation-lab-with-containerlab/")
 print(f"URLs match: {url == 'https://netdevops.it/blog/building-reusable-network-automation-lab-with-containerlab/'}")
+

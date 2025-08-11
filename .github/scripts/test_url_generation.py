@@ -63,3 +63,4 @@ print("Expected results:")
 print("- https://netdevops.it/blog/building-reusable-network-automation-lab-with-containerlab/")
 print("- https://netdevops.it/blog/some-other-post/")
 print("- https://netdevops.it/blog/another-example-post/")
+

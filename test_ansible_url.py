@@ -80,3 +80,4 @@ print(f"8. Strip leading/trailing: {slug}")
 
 final_url = f"{SITE_URL}/blog/{slug}/"
 print(f"9. Final URL: {final_url}")
+

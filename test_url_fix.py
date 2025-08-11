@@ -94,3 +94,4 @@ print()
 print(f"Expected URL: https://netdevops.it/blog/building-a-reusable-network-automation-lab-with-containerlab/")
 print(f"URLs match (with front matter): {url_with_front_matter == 'https://netdevops.it/blog/building-a-reusable-network-automation-lab-with-containerlab/'}")
 print(f"URLs match (without front matter): {url_without_front_matter == 'https://netdevops.it/blog/building-a-reusable-network-automation-lab-with-containerlab/'}")
+

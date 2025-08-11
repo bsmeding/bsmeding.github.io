@@ -8,3 +8,4 @@
 .gitignore
 .gitignore
 .cache/*
+*.py
