@@ -89,11 +89,6 @@
     "title": "UV Package Manager: The Modern Alternative to Python Virtual Environments",
     "url": "https://netdevops.it/blog/posts/2025/2025-05-23-uv-package-manager-replacing-venv"
   },
-  "docs/blog/posts/2025/2025-06-12-graphql-network-automation.md": {
-    "posted_at": "2025-06-12T10:00:00+00:00",
-    "title": "Supercharge Network Automation with GraphQL -> One Query to Rule Them All",
-    "url": "https://netdevops.it/blog/posts/2025/2025-06-12-graphql-network-automation"
-  },
   "docs/blog/posts/2025/2025-08-02-nautobot-zero-to-hero-landings-page.md": {
     "posted_at": "2025-08-02T10:00:00+00:00",
     "title": "Nautobot in Action – Global Series Index",

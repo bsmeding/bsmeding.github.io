@@ -50,16 +50,35 @@ def extract_front_matter(file_path):
 
 def get_post_url(file_path):
     """Generate the URL for a blog post."""
+    # Convert file path to URL path
     # Remove docs/ prefix and .md suffix
-    # Generate the relative path for the blog post URL
     relative_path = str(file_path).replace('docs/', '').replace('.md', '')
-    # Ensure the path starts with a single slash
+    
+    # Extract the blog post slug from the path
+    # Expected format: blog/posts/YYYY/YYYY-MM-DD-title.md
+    # We want: /blog/title/
+    path_parts = relative_path.split('/')
+    
+    if len(path_parts) >= 4 and path_parts[0] == 'blog' and path_parts[1] == 'posts':
+        # Extract the date and title from the filename
+        filename = path_parts[-1]  # YYYY-MM-DD-title.md
+        if filename.endswith('.md'):
+            filename = filename[:-3]  # Remove .md
+        
+        # Extract title from YYYY-MM-DD-title format
+        if '-' in filename:
+            # Split by '-' and skip the first 3 parts (YYYY-MM-DD)
+            title_parts = filename.split('-')[3:]
+            if title_parts:
+                title_slug = '-'.join(title_parts)
+                url = f"{SITE_URL}/blog/{title_slug}/"
+                return url
+    
+    # Fallback: use the original path but clean it up
     if not relative_path.startswith('/'):
         relative_path = '/' + relative_path
-    # Remove any accidental double slashes (except after https:)
     url = f"{SITE_URL}{relative_path}"
     url = re.sub(r'(?<!:)//+', '/', url)
-    # Ensure https:// is preserved
     if not url.startswith('https://'):
         url = url.replace('https:/', 'https://', 1)
     return url
@@ -137,8 +156,8 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
     tb.link(url, url)
     
     # Get the text and facets
-    post_text = tb.text
-    post_facets = tb.get_facets()
+    post_text = tb.build_text()
+    post_facets = tb.build_facets()
     
     # Truncate if too long
     if len(post_text) > max_length:
@@ -153,8 +172,8 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
             tb.text(f"{new_summary}\n\n")
         
         tb.link(url, url)
-        post_text = tb.text
-        post_facets = tb.get_facets()
+        post_text = tb.build_text()
+        post_facets = tb.build_facets()
         
         # Final truncation if still too long
         if len(post_text) > max_length:
@@ -164,7 +183,7 @@ def create_bluesky_post_with_facets(title, summary, url, tags):
     
     return post_text, post_facets
 
-def post_to_bluesky(content):
+def post_to_bluesky(content, facets=None):
     """Post content to Bluesky using the atproto library."""
     identifier = os.environ.get('BLUESKY_IDENTIFIER')
     password = os.environ.get('BLUESKY_PASSWORD')
@@ -174,6 +193,8 @@ def post_to_bluesky(content):
         print("🔍 Would post this content:")
         print("---")
         print(content)
+        if facets:
+            print("With facets:", facets)
         print("---")
         return False
     
@@ -181,8 +202,11 @@ def post_to_bluesky(content):
         client = Client()
         client.login(identifier, password)
         
-        # Post to Bluesky
-        response = client.send_post(text=content)
+        # Post to Bluesky with facets if provided
+        if facets:
+            response = client.send_post(text=content, facets=facets)
+        else:
+            response = client.send_post(text=content)
         print(f"✅ Posted to Bluesky: {response.uri}")
         return True
         
@@ -276,12 +300,13 @@ def main():
         url = get_post_url(post['file'])
         
         print(f"  - {title}")
+        print(f"    URL: {url}")
         
-        # Format the post for Bluesky (fallback to basic approach for now)
-        bluesky_content = format_bluesky_post(title, summary, url, tags)
+        # Format the post for Bluesky with proper link facets for clickable URLs
+        bluesky_content, bluesky_facets = create_bluesky_post_with_facets(title, summary, url, tags)
         
         # Post to Bluesky
-        if post_to_bluesky(bluesky_content):
+        if post_to_bluesky(bluesky_content, bluesky_facets):
             # Mark as posted with current timestamp
             posted_log[post['post_id']] = {
                 'posted_at': datetime.now(timezone.utc).isoformat(),
