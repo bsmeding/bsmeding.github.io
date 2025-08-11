@@ -66,6 +66,6 @@ tags:
 
 ## Step-by-Step Ansible Tutorials
 If you want a structured, beginner-friendly path, check out the Ansible tutorial series:
-- [Tutorial 1: Concepts & Terminology](/tutorials/ansible_tutorial_1_concepts.html)
-- [Tutorial 2: Modules & Your First Playbook](/tutorials/ansible_tutorial_2_modules.html)
-- [Tutorial 3: Variables, Modules & Network Fact Gathering](/tutorials/ansible_tutorial_3_variables_facts.html) 
+- [Tutorial 1: Concepts & Terminology](/tutorials/ansible_tutorial_1_concepts/)
+- [Tutorial 2: Modules & Your First Playbook](/tutorials/ansible_tutorial_2_modules/)
+- [Tutorial 3: Variables, Modules & Network Fact Gathering](/tutorials/ansible_tutorial_3_variables_facts/) 
