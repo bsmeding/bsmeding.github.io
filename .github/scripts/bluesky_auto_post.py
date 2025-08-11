@@ -56,10 +56,19 @@ def get_post_url(file_path, front_matter=None):
         # Convert title to URL-friendly slug
         # Convert to lowercase and replace spaces with hyphens
         slug = title.lower().replace(' ', '-')
-        # Remove any special characters except hyphens
+        # Replace colons with dashes (common in titles)
+        slug = slug.replace(':', '-')
+        # Remove any special characters except hyphens and dashes
         slug = re.sub(r'[^a-z0-9\-]', '', slug)
-        # Remove multiple consecutive hyphens
-        slug = re.sub(r'-+', '-', slug)
+        # Handle dash patterns - convert double dashes to triple dashes for consistency
+        slug = re.sub(r'-{2}', '---', slug)
+        # Remove multiple consecutive hyphens (but preserve intentional dashes)
+        # First, convert 4+ dashes to triple dashes
+        slug = re.sub(r'-{4,}', '---', slug)
+        # Then, convert 3 dashes to triple dashes (ensure consistency)
+        slug = re.sub(r'-{3}', '---', slug)
+        # Convert any remaining 4+ dashes to single (shouldn't happen after above)
+        slug = re.sub(r'-{4,}', '-', slug)
         # Remove leading/trailing hyphens
         slug = slug.strip('-')
         url = f"{SITE_URL}/blog/{slug}/"
