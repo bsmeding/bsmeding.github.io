@@ -60,8 +60,9 @@ def get_post_url(file_path, front_matter=None):
         slug = slug.replace(':', '-')
         # Remove any special characters except hyphens and dashes
         slug = re.sub(r'[^a-z0-9\-]', '', slug)
-        # Handle dash patterns - convert double dashes to triple dashes for consistency
-        slug = re.sub(r'-{2}', '---', slug)
+        # Handle dash patterns - but don't convert double dashes to triple dashes
+        # The original logic was wrong - we should preserve double dashes
+        # Only convert 4+ dashes to triple dashes
         # Remove multiple consecutive hyphens (but preserve intentional dashes)
         # First, convert 4+ dashes to triple dashes
         slug = re.sub(r'-{4,}', '---', slug)
