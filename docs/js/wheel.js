@@ -1,5 +1,5 @@
 (function () {
-    const NAMES_FILE_PATH = 'assets/names.txt'; // optional
+    const NAMES_FILE_PATH = '/assets/names.txt'; // optional
   
     const namesArea = document.getElementById('namesArea');
     const loadFromSiteBtn = document.getElementById('loadFromSiteBtn');
