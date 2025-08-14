@@ -74,7 +74,7 @@ containerlab version
 
 ## 4. Getting Network OS Images
 
-For comprehensive instructions on downloading and importing network OS images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+For comprehensive instructions on downloading and importing network OS images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/).
 
 **Free Downloadable Images:**
 - **Arista vEOS-lab** - Available from Arista's website

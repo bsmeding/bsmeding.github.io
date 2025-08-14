@@ -425,13 +425,13 @@ containerlab inspect --name my-lab --all
 Now that you have containerlab set up, you can:
 
 1. **Explore more topologies**: Try different network designs and vendor combinations
-2. **Learn advanced features**: Check out the [ContainerLab Extended Configurations](/tutorials/containerlab_extended_configurations.html) tutorial
+2. **Learn advanced features**: Check out the [ContainerLab Extended Configurations](/tutorials/containerlab_extended_configurations/) tutorial
 3. **Integrate with automation**: Use Ansible, Python, or other tools to automate lab operations
 4. **Build CI/CD pipelines**: Automate lab testing and validation
 5. **Create training environments**: Build labs for network training and certification
 
 For more advanced topics, check out:
-- [ContainerLab Extended Configurations](/tutorials/containerlab_extended_configurations.html) - Advanced features and automation
+- [ContainerLab Extended Configurations](/tutorials/containerlab_extended_configurations/) - Advanced features and automation
 - [ContainerLab Overview and Installation](/blog/posts/tools/containerlab.html) - Comprehensive guide
 - [Building a Reusable Network Automation Lab](/blog/posts/2025/2025-08-10-building-reusable-network-automation-lab-with-containerlab.html) - Complete lab example
 - [Containerlab Documentation](https://containerlab.dev/)

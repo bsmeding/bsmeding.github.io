@@ -39,7 +39,7 @@ ContainerLab is an open-source tool that enables you to:
 
 ### Step 1: Install Docker
 
-For detailed Docker installation instructions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+For detailed Docker installation instructions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/).
 
 **Supported platforms:**
 - Ubuntu 20.04+ / Debian
@@ -48,7 +48,7 @@ For detailed Docker installation instructions, see the [ContainerLab Getting Sta
 
 ### Step 2: Install ContainerLab
 
-For detailed ContainerLab installation instructions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+For detailed ContainerLab installation instructions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/).
 
 **Installation methods:**
 - Official install script (recommended)
@@ -58,7 +58,7 @@ For detailed ContainerLab installation instructions, see the [ContainerLab Getti
 
 ### Step 3: Install Additional Tools (Optional)
 
-For detailed instructions on installing additional tools, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+For detailed instructions on installing additional tools, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/).
 
 **Optional tools:**
 - Docker Compose (for advanced deployments)
@@ -68,7 +68,7 @@ For detailed instructions on installing additional tools, see the [ContainerLab 
 
 ### Step 4: Docker Compose Installation (Alternative Method)
 
-For those who prefer using Docker Compose for ContainerLab deployment, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html) for complete setup instructions.
+For those who prefer using Docker Compose for ContainerLab deployment, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/) for complete setup instructions.
 
 **Docker Compose features:**
 - Complete ContainerLab environment in containers
@@ -90,7 +90,7 @@ The Ansible role will be published to the [bsmeding.containerlab](https://github
 
 ## Getting Started with Free Vendor Images
 
-For a step-by-step tutorial on setting up ContainerLab and downloading vendor images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+For a step-by-step tutorial on setting up ContainerLab and downloading vendor images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/).
 
 ### Available Free Images
 
@@ -116,7 +116,7 @@ For a step-by-step tutorial on setting up ContainerLab and downloading vendor im
 
 ### Downloading Free Images
 
-For detailed instructions on downloading and importing vendor images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+For detailed instructions on downloading and importing vendor images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/).
 
 **Available free images:**
 - Arista cEOS (requires registration)

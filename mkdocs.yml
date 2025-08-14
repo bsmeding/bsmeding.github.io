@@ -51,6 +51,8 @@ nav:
     - 'Linux basics': tutorials/linux_basics.md
     - 'Enable Windows Subsystem for Linux': tutorials/enable_wsl_on_windows.md
     - 'Vagrant Installation': tutorials/vagrant_install.md
+    - 'ContainerLab Getting Started': tutorials/containerlab_getting_started.md
+    - 'ContainerLab Extended Configurations': tutorials/containerlab_extended_configurations.md
     - 'SSO: Introduction': sso.md
   - Tools:
     - 'Tools Index': tools.md
