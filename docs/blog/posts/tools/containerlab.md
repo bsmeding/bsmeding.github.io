@@ -39,230 +39,42 @@ ContainerLab is an open-source tool that enables you to:
 
 ### Step 1: Install Docker
 
-#### Ubuntu/Debian
-```bash
-# Update package list
-sudo apt update
+For detailed Docker installation instructions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-# Install required packages
-sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
-
-# Add Docker's official GPG key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-# Add Docker repository
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Install Docker
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-
-# Add user to docker group
-sudo usermod -aG docker $USER
-
-# Start and enable Docker
-sudo systemctl start docker
-sudo systemctl enable docker
-
-# Verify installation
-docker --version
-```
-
-#### CentOS/RHEL
-```bash
-# Install required packages
-sudo yum install -y yum-utils
-
-# Add Docker repository
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
-# Install Docker
-sudo yum install -y docker-ce docker-ce-cli containerd.io
-
-# Start and enable Docker
-sudo systemctl start docker
-sudo systemctl enable docker
-
-# Add user to docker group
-sudo usermod -aG docker $USER
-
-# Verify installation
-docker --version
-```
+**Supported platforms:**
+- Ubuntu 20.04+ / Debian
+- CentOS 8+ / RHEL 8+
+- Other Linux distributions with Docker support
 
 ### Step 2: Install ContainerLab
 
-#### Method 1: Using the Official Install Script (Recommended)
-```bash
-# Download and run the installation script
-bash -c "$(curl -sL https://get.containerlab.dev)"
+For detailed ContainerLab installation instructions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-# Verify installation
-containerlab version
-```
-
-#### Method 2: Manual Installation
-```bash
-# Download the latest release
-VERSION=$(curl -s https://api.github.com/repos/srl-labs/containerlab/releases/latest | grep 'tag_name' | cut -d\" -f4)
-wget https://github.com/srl-labs/containerlab/releases/download/${VERSION}/containerlab_${VERSION}_Linux_amd64.tar.gz
-
-# Extract and install
-sudo tar -xzf containerlab_${VERSION}_Linux_amd64.tar.gz -C /usr/local/bin containerlab
-sudo chmod +x /usr/local/bin/containerlab
-
-# Verify installation
-containerlab version
-```
+**Installation methods:**
+- Official install script (recommended)
+- Manual installation from GitHub releases
+- Docker-based installation
+- Package manager installation
 
 ### Step 3: Install Additional Tools (Optional)
 
-#### Install Docker Compose
-```bash
-# Download Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+For detailed instructions on installing additional tools, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-# Make it executable
-sudo chmod +x /usr/local/bin/docker-compose
-
-# Verify installation
-docker-compose --version
-```
-
-#### Install Network Tools
-```bash
-# Install additional networking tools
-sudo apt install -y bridge-utils iproute2 net-tools tcpdump
-
-# Or for CentOS/RHEL
-sudo yum install -y bridge-utils iproute net-tools tcpdump
-```
+**Optional tools:**
+- Docker Compose (for advanced deployments)
+- Network utilities (bridge-utils, iproute2, net-tools, tcpdump)
+- Monitoring tools (Grafana, Prometheus)
+- Web UI components
 
 ### Step 4: Docker Compose Installation (Alternative Method)
 
-For those who prefer using Docker Compose for ContainerLab deployment, here's a complete setup:
+For those who prefer using Docker Compose for ContainerLab deployment, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html) for complete setup instructions.
 
-#### Docker Compose Setup
-Create a `docker-compose.yml` file:
-
-```yaml
-version: '3.8'
-
-services:
-  containerlab:
-    image: ghcr.io/srl-labs/containerlab:latest
-    container_name: containerlab
-    privileged: true
-    network_mode: host
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./labs:/labs
-      - ./configs:/configs
-      - ./images:/images
-    environment:
-      - CLAB_HOST=0.0.0.0
-      - CLAB_PORT=8080
-    restart: unless-stopped
-    command: ["sleep", "infinity"]
-
-  # Optional: Web UI for ContainerLab
-  containerlab-ui:
-    image: ghcr.io/srl-labs/containerlab-ui:latest
-    container_name: containerlab-ui
-    ports:
-      - "3000:3000"
-    environment:
-      - CLAB_API_URL=http://localhost:8080
-    depends_on:
-      - containerlab
-    restart: unless-stopped
-
-  # Optional: Grafana for lab monitoring
-  grafana:
-    image: grafana/grafana:latest
-    container_name: containerlab-grafana
-    ports:
-      - "3001:3000"
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-    volumes:
-      - grafana_data:/var/lib/grafana
-    restart: unless-stopped
-
-  # Optional: Prometheus for metrics collection
-  prometheus:
-    image: prom/prometheus:latest
-    container_name: containerlab-prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus_data:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/etc/prometheus/console_libraries'
-      - '--web.console.templates=/etc/prometheus/consoles'
-      - '--storage.tsdb.retention.time=200h'
-      - '--web.enable-lifecycle'
-    restart: unless-stopped
-
-volumes:
-  grafana_data:
-  prometheus_data:
-```
-
-#### Prometheus Configuration
-Create `prometheus.yml`:
-
-```yaml
-global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
-
-scrape_configs:
-  - job_name: 'containerlab'
-    static_configs:
-      - targets: ['localhost:8080']
-    metrics_path: /metrics
-
-  - job_name: 'network-devices'
-    static_configs:
-      - targets: ['192.168.1.10:9100', '192.168.1.11:9100']
-    scrape_interval: 30s
-```
-
-#### Directory Structure
-```bash
-# Create the directory structure
-mkdir -p containerlab-setup/{labs,configs,images}
-cd containerlab-setup
-
-# Copy the docker-compose.yml and prometheus.yml files
-# Then start the services
-docker-compose up -d
-
-# Access ContainerLab
-docker exec -it containerlab containerlab version
-
-# Deploy a lab
-docker exec -it containerlab containerlab deploy -t /labs/lab.yml
-```
-
-#### Using ContainerLab with Docker Compose
-```bash
-# Deploy a lab
-docker exec -it containerlab containerlab deploy -t /labs/my-lab.yml
-
-# List running labs
-docker exec -it containerlab containerlab list
-
-# Access a device
-docker exec -it containerlab containerlab exec -t /labs/my-lab.yml --label clab-node-name=ceos1
-
-# Destroy a lab
-docker exec -it containerlab containerlab destroy -t /labs/my-lab.yml
-```
+**Docker Compose features:**
+- Complete ContainerLab environment in containers
+- Optional Web UI for lab management
+- Monitoring with Grafana and Prometheus
+- Persistent storage and configuration management
 
 ### Step 5: Ansible Role Deployment (Coming Soon)
 
@@ -278,6 +90,8 @@ The Ansible role will be published to the [bsmeding.containerlab](https://github
 
 ## Getting Started with Free Vendor Images
 
+For a step-by-step tutorial on setting up ContainerLab and downloading vendor images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
 ### Available Free Images
 
 #### 1. **Arista cEOS (Cloud Edition)**
@@ -287,7 +101,7 @@ The Ansible role will be published to the [bsmeding.containerlab](https://github
 
 #### 2. **Nokia SR Linux**
 - **License**: Free for lab use
-- **Download**: Available from Nokia website
+- **Download**: Available from GitHub Container Registry
 - **Features**: Full SR Linux functionality, gNMI, gRPC
 
 #### 3. **Cisco XE (Subscription Required)**
@@ -295,615 +109,262 @@ The Ansible role will be published to the [bsmeding.containerlab](https://github
 - **Download**: Available through Cisco DevNet
 - **Features**: Full IOS XE functionality, RESTCONF, NETCONF
 
-#### 4. **Juniper vMX (Subscription Required)**
-- **License**: Requires Juniper subscription
-- **Download**: Available through Juniper website
+#### 4. **Juniper Images (Various Licenses)**
+- **Available**: cRPD, vQFX, vSRX, vJunos-router, vJunos-switch, vJunosEvolved, cJunosEvolved
+- **Download**: Available through Juniper support portal
 - **Features**: Full Junos functionality, NETCONF, REST API
 
 ### Downloading Free Images
 
-#### Arista cEOS
-```bash
-# Create directory for images
-mkdir -p ~/containerlab-images
-cd ~/containerlab-images
+For detailed instructions on downloading and importing vendor images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-# Download Arista cEOS (you'll need to register on Arista website)
-# Visit: https://www.arista.com/en/support/software-download
-# Download: cEOS-lab-4.28.0F.tar.xz
+**Available free images:**
+- Arista cEOS (requires registration)
+- Nokia SR Linux (available from GitHub Container Registry)
+- Other vendor images with various licensing requirements
 
-# Extract the image
-tar -xJf cEOS-lab-4.28.0F.tar.xz
+## Traffic Generation with Ostinato
 
-# Import into Docker
-docker import cEOS-lab-4.28.0F.tar.xz ceos:4.28.0F
-```
+For comprehensive network testing and validation, you can use **Ostinato** - a powerful traffic generator that integrates seamlessly with ContainerLab. Ostinato allows you to generate realistic network traffic to test your configurations, validate QoS policies, and measure network performance.
 
-#### Nokia SR Linux
-```bash
-# Download Nokia SR Linux (you'll need to register on Nokia website)
-# Visit: https://www.nokia.com/networks/solutions/sr-linux/
-# Download: srlinux-22.11.1.tar.xz
+### What is Ostinato?
 
-# Extract the image
-tar -xJf srlinux-22.11.1.tar.xz
+Ostinato is a commercial network packet generator and analyzer that supports:
+- **Multiple protocols**: TCP, UDP, ICMP, ARP, BGP, OSPF, and more
+- **Custom packet crafting**: Full control over packet headers and payloads
+- **Traffic patterns**: Burst, continuous, and custom traffic patterns
+- **Statistics**: Real-time packet statistics and analysis
+- **Container support**: Runs natively in Docker containers
+- **Multiple platforms**: Windows, macOS, Linux, Raspberry Pi, Docker containers
 
-# Import into Docker
-docker import srlinux-22.11.1.tar.xz srlinux:22.11.1
-```
+**Pricing Tiers:**
+- **Starter**: $49+/user (single platform)
+- **Pro Bundle**: $169+/user/yr (multiple platforms, email support)
+- **Business Bundle**: $289+/user/yr (all platforms, priority support)
+
+### Installing Ostinato in ContainerLab
+
+#### Method 1: Using Official Ostinato Docker Image
+
+For detailed Ostinato installation instructions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
+**Note**: Ostinato requires a valid license to use. Visit [https://ostinato.org/pricing/](https://ostinato.org/pricing/) for licensing options.
+
+#### Method 2: Alternative Open-Source Traffic Generators
+
+Since Ostinato is now commercial, consider these open-source alternatives:
+
+**Available alternatives:**
+- **Scapy** (Python-based packet manipulation)
+- **Iperf3** (Bandwidth testing and measurement)
+- **Pktgen** (High-performance packet generation)
+- **Custom Python scripts** for specific traffic patterns
+
+### Integrating Ostinato with ContainerLab
+
+#### Basic Traffic Generation Topology
+
+For detailed traffic generation topology examples, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
+**Traffic generator options:**
+- **Ostinato** (commercial, requires license)
+- **Scapy** (open-source Python-based)
+- **Iperf3** (bandwidth testing)
+- **Custom scripts** for specific protocols
+
+#### Advanced Traffic Generation Configuration
+
+For advanced traffic generation scenarios and configurations, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
+**Advanced features:**
+- Multiple traffic generator types in single topology
+- Custom traffic profiles and scripts
+- Automated traffic testing workflows
+- Integration with network automation tools
+
+### Creating Traffic Profiles
+
+For detailed traffic profile examples and configurations, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
+**Traffic profile types:**
+- **BGP traffic profiles** (Ostinato format)
+- **Custom Python scripts** (Scapy-based)
+- **Iperf3 configurations** (bandwidth testing)
+- **Protocol-specific templates** (HTTP, TCP, UDP, etc.)
+
+### Using Traffic Generator Interfaces
+
+#### Accessing Traffic Generator Interfaces
+
+For detailed instructions on using traffic generator interfaces, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
+**Available interfaces:**
+- **Ostinato GUI** (commercial, requires license)
+- **Scapy interactive mode** (open-source)
+- **Iperf3 command-line interface** (open-source)
+- **Custom web interfaces** (for advanced setups)
+
+### Command-Line Traffic Generation
+
+For detailed command-line traffic generation examples, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
+**Command-line tools:**
+- **ostinato-drone** (commercial, requires license)
+- **Scapy Python scripts** (open-source)
+- **Iperf3 commands** (open-source)
+- **Custom automation scripts** (bash, Python, etc.)
+
+### Monitoring and Analysis
+
+For detailed monitoring and analysis examples, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
+**Monitoring capabilities:**
+- **Real-time statistics** from traffic generators
+- **Packet capture and analysis** with tcpdump
+- **Network performance metrics** collection
+- **Traffic pattern analysis** and reporting
+
+### Integration with Network Automation
+
+For detailed network automation integration examples, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
+**Automation integration:**
+- **Ansible playbooks** for traffic testing
+- **Python scripts** for automated testing
+- **CI/CD pipeline integration** for continuous testing
+- **Custom automation workflows** for specific use cases
+
+### Best Practices
+
+#### 1. **Traffic Planning**
+- Define clear test objectives
+- Use realistic traffic patterns
+- Consider network capacity limits
+- Plan for different traffic types
+
+#### 2. **Resource Management**
+- Monitor system resources during traffic generation
+- Use appropriate packet rates
+- Clean up completed test sessions
+- Limit concurrent traffic streams
+
+#### 3. **Configuration Management**
+- Store traffic profiles in version control
+- Document traffic patterns and purposes
+- Use consistent naming conventions
+- Create reusable traffic templates
+
+#### 4. **Monitoring and Validation**
+- Monitor network device statistics
+- Validate QoS policies
+- Check for packet loss and latency
+- Analyze traffic patterns
+
+### Troubleshooting
+
+For detailed troubleshooting guides and solutions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
+**Common troubleshooting areas:**
+- **Service status verification** and diagnostics
+- **Network connectivity issues** resolution
+- **Performance optimization** techniques
+- **Resource management** and system limits
+
+For more information about Ostinato, visit [https://ostinato.org/](https://ostinato.org/).
+
 
 ### Creating Your First Lab
 
-#### Basic Topology File
-Create a file named `lab.yml`:
+For a complete example of building a reusable network automation lab with ContainerLab, see [Building a Reusable Network Automation Lab with ContainerLab](/blog/posts/2025/2025-08-10-building-reusable-network-automation-lab-with-containerlab.html).
 
-```yaml
-name: my-first-lab
-topology:
-  nodes:
-    # Arista cEOS switch
-    ceos1:
-      kind: ceos
-      image: ceos:4.28.0F
-      mgmt_ipv4: 192.168.1.10
-    
-    ceos2:
-      kind: ceos
-      image: ceos:4.28.0F
-      mgmt_ipv4: 192.168.1.11
-    
-    # Nokia SR Linux router
-    srl1:
-      kind: srl
-      image: srlinux:22.11.1
-      mgmt_ipv4: 192.168.1.20
-    
-    # Linux host for testing
-    host1:
-      kind: linux
-      image: alpine:latest
-      mgmt_ipv4: 192.168.1.100
+For detailed step-by-step instructions on creating your first lab, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-  links:
-    - endpoints: ["ceos1:eth1", "srl1:eth1"]
-    - endpoints: ["ceos2:eth1", "srl1:eth2"]
-    - endpoints: ["host1:eth1", "ceos1:eth2"]
-```
-
-#### Deploy the Lab
-```bash
-# Deploy the lab
-containerlab deploy -t lab.yml
-
-# Check lab status
-containerlab inspect -t lab.yml
-
-# List running containers
-containerlab list
-```
-
-#### Access Devices
-```bash
-# Access Arista cEOS
-containerlab exec -t lab.yml --label clab-node-name=ceos1
-
-# Access Nokia SR Linux
-containerlab exec -t lab.yml --label clab-node-name=srl1
-
-# Access Linux host
-containerlab exec -t lab.yml --label clab-node-name=host1
-```
+**Basic lab components:**
+- **Network devices** (Arista cEOS, Nokia SR Linux, etc.)
+- **Linux hosts** for testing and automation
+- **Network links** connecting devices
+- **Management network** for device access
 
 ## Advanced Lab Examples
 
-### Multi-Vendor Lab with Automation
+For detailed advanced lab examples and configurations, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-#### Complex Topology
-```yaml
-name: automation-lab
-topology:
-  nodes:
-    # Core switches
-    core1:
-      kind: ceos
-      image: ceos:4.28.0F
-      mgmt_ipv4: 192.168.1.10
-      startup-config: configs/core1.cfg
-    
-    core2:
-      kind: ceos
-      image: ceos:4.28.0F
-      mgmt_ipv4: 192.168.1.11
-      startup-config: configs/core2.cfg
-    
-    # Distribution switches
-    dist1:
-      kind: ceos
-      image: ceos:4.28.0F
-      mgmt_ipv4: 192.168.1.20
-      startup-config: configs/dist1.cfg
-    
-    dist2:
-      kind: ceos
-      image: ceos:4.28.0F
-      mgmt_ipv4: 192.168.1.21
-      startup-config: configs/dist2.cfg
-    
-    # Edge router
-    edge1:
-      kind: srl
-      image: srlinux:22.11.1
-      mgmt_ipv4: 192.168.1.30
-      startup-config: configs/edge1.cfg
-    
-    # Management server
-    mgmt:
-      kind: linux
-      image: ubuntu:20.04
-      mgmt_ipv4: 192.168.1.100
-      exec:
-        - cmd: "apt update && apt install -y ansible python3-pip"
-        - cmd: "pip3 install napalm netmiko"
-    
-    # Test hosts
-    host1:
-      kind: linux
-      image: alpine:latest
-      mgmt_ipv4: 192.168.1.101
-    
-    host2:
-      kind: linux
-      image: alpine:latest
-      mgmt_ipv4: 192.168.1.102
-
-  links:
-    # Core to distribution
-    - endpoints: ["core1:eth1", "dist1:eth1"]
-    - endpoints: ["core1:eth2", "dist2:eth1"]
-    - endpoints: ["core2:eth1", "dist1:eth2"]
-    - endpoints: ["core2:eth2", "dist2:eth2"]
-    
-    # Distribution to edge
-    - endpoints: ["dist1:eth3", "edge1:eth1"]
-    - endpoints: ["dist2:eth3", "edge1:eth2"]
-    
-    # Hosts to distribution
-    - endpoints: ["host1:eth1", "dist1:eth4"]
-    - endpoints: ["host2:eth1", "dist2:eth4"]
-    
-    # Management to core
-    - endpoints: ["mgmt:eth1", "core1:eth3"]
-```
-
-#### Configuration Files
-Create configuration files in a `configs/` directory:
-
-```bash
-# Create configs directory
-mkdir -p configs
-
-# Core1 configuration
-cat > configs/core1.cfg << 'EOF'
-!
-hostname core1
-!
-interface Ethernet1
-   description Link to dist1
-   no switchport
-   ip address 10.1.1.1/30
-!
-interface Ethernet2
-   description Link to dist2
-   no switchport
-   ip address 10.1.2.1/30
-!
-interface Ethernet3
-   description Management
-   no switchport
-   ip address 192.168.1.10/24
-!
-router ospf 1
-   network 10.1.1.0/30 area 0
-   network 10.1.2.0/30 area 0
-!
-EOF
-
-# Dist1 configuration
-cat > configs/dist1.cfg << 'EOF'
-!
-hostname dist1
-!
-interface Ethernet1
-   description Link to core1
-   no switchport
-   ip address 10.1.1.2/30
-!
-interface Ethernet2
-   description Link to core2
-   no switchport
-   ip address 10.1.3.1/30
-!
-interface Ethernet3
-   description Link to edge1
-   no switchport
-   ip address 10.2.1.1/30
-!
-interface Ethernet4
-   description Link to host1
-   switchport mode access
-   switchport access vlan 10
-!
-vlan 10
-   name DATA
-!
-router ospf 1
-   network 10.1.1.0/30 area 0
-   network 10.1.3.0/30 area 0
-   network 10.2.1.0/30 area 0
-!
-EOF
-```
+**Advanced lab types:**
+- **Multi-vendor labs** with different network operating systems
+- **Automation-ready labs** with management servers
+- **Complex topologies** with core/distribution/access layers
+- **Custom configurations** and startup scripts
 
 ### Ansible Integration
 
-#### Inventory File
-Create `inventory.yml`:
+For detailed Ansible integration examples and playbooks, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-```yaml
-all:
-  children:
-    network_devices:
-      children:
-        arista:
-          hosts:
-            core1:
-              ansible_host: 192.168.1.10
-              ansible_network_os: eos
-              ansible_connection: network_cli
-              ansible_user: admin
-              ansible_password: admin
-            core2:
-              ansible_host: 192.168.1.11
-              ansible_network_os: eos
-              ansible_connection: network_cli
-              ansible_user: admin
-              ansible_password: admin
-            dist1:
-              ansible_host: 192.168.1.20
-              ansible_network_os: eos
-              ansible_connection: network_cli
-              ansible_user: admin
-              ansible_password: admin
-            dist2:
-              ansible_host: 192.168.1.21
-              ansible_network_os: eos
-              ansible_connection: network_cli
-              ansible_user: admin
-              ansible_password: admin
-        nokia:
-          hosts:
-            edge1:
-              ansible_host: 192.168.1.30
-              ansible_network_os: srl
-              ansible_connection: network_cli
-              ansible_user: admin
-              ansible_password: admin
-    linux_hosts:
-      hosts:
-        mgmt:
-          ansible_host: 192.168.1.100
-          ansible_user: root
-        host1:
-          ansible_host: 192.168.1.101
-          ansible_user: root
-        host2:
-          ansible_host: 192.168.1.102
-          ansible_user: root
-```
-
-#### Ansible Playbook
-Create `playbook.yml`:
-
-```yaml
----
-- name: Configure Network Devices
-  hosts: network_devices
-  gather_facts: no
-  
-  tasks:
-    - name: Gather device facts
-      network_facts:
-      
-    - name: Display device facts
-      debug:
-        var: ansible_net_version
-        
-    - name: Configure hostname
-      network_config:
-        lines:
-          - hostname "{{ inventory_hostname }}"
-          
-    - name: Configure interfaces
-      network_config:
-        lines:
-          - description "Configured by Ansible"
-        parents: "{{ item }}"
-      loop:
-        - "interface Ethernet1"
-        - "interface Ethernet2"
-        - "interface Ethernet3"
-        
-    - name: Save running config
-      network_config:
-        save_when: modified
-```
+**Ansible integration features:**
+- **Inventory management** for network devices and hosts
+- **Network automation playbooks** for device configuration
+- **Multi-vendor support** with different network operating systems
+- **Configuration management** and validation workflows
 
 ## Working with Different Vendor Images
 
-### Cisco Images (Subscription Required)
+For detailed instructions on working with different vendor images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-#### Cisco XE
-```bash
-# Download Cisco XE (requires Cisco DevNet account)
-# Visit: https://developer.cisco.com/site/ios-xe/
-# Download: ios-xe-17.03.01a.tar.xz
-
-# Extract and import
-tar -xJf ios-xe-17.03.01a.tar.xz
-docker import ios-xe-17.03.01a.tar.xz cisco_xe:17.03.01a
-```
-
-#### Cisco Topology Example
-```yaml
-name: cisco-lab
-topology:
-  nodes:
-    cisco1:
-      kind: cisco_xe
-      image: cisco_xe:17.03.01a
-      mgmt_ipv4: 192.168.1.10
-      startup-config: configs/cisco1.cfg
-    
-    cisco2:
-      kind: cisco_xe
-      image: cisco_xe:17.03.01a
-      mgmt_ipv4: 192.168.1.11
-      startup-config: configs/cisco2.cfg
-
-  links:
-    - endpoints: ["cisco1:eth1", "cisco2:eth1"]
-```
-
-### Juniper Images (Subscription Required)
-
-#### Juniper vMX
-```bash
-# Download Juniper vMX (requires Juniper account)
-# Visit: https://www.juniper.net/us/en/dm/downloads/
-# Download: vmx-20.4R1.12.tgz
-
-# Extract and import
-tar -xzf vmx-20.4R1.12.tgz
-docker import vmx-20.4R1.12.tar.xz juniper_vmx:20.4R1.12
-```
+**Supported vendor images:**
+- **Cisco images** (subscription required)
+- **Juniper images** (various licensing requirements)
+- **Arista images** (free for lab use)
+- **Nokia images** (free for lab use)
+- **Other vendor images** with specific licensing terms
 
 ## Lab Management Commands
 
-### Basic Commands
-```bash
-# Deploy a lab
-containerlab deploy -t lab.yml
+For detailed lab management commands and examples, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-# Destroy a lab
-containerlab destroy -t lab.yml
+**Basic commands:**
+- `containerlab deploy` - Deploy lab topologies
+- `containerlab destroy` - Remove lab deployments
+- `containerlab list` - List running labs
+- `containerlab inspect` - Inspect lab details
+- `containerlab exec` - Execute commands on nodes
 
-# List running labs
-containerlab list
-
-# Inspect lab topology
-containerlab inspect -t lab.yml
-
-# Execute commands on nodes
-containerlab exec -t lab.yml --label clab-node-name=node1 -- cmd
-
-# Get lab topology graph
-containerlab graph -t lab.yml
-
-# Save lab state
-containerlab save -t lab.yml
-
-# Load lab state
-containerlab load -t lab.yml
-```
-
-### Advanced Commands
-```bash
-# Deploy with specific nodes
-containerlab deploy -t lab.yml --nodes node1,node2
-
-# Deploy with custom topology
-containerlab deploy --topo custom-topo.yml
-
-# Get detailed node information
-containerlab inspect -t lab.yml --all
-
-# Execute interactive shell
-containerlab exec -t lab.yml --label clab-node-name=node1
-
-# Get lab logs
-containerlab logs -t lab.yml
-
-# Export lab configuration
-containerlab export -t lab.yml --format yaml
-```
+**Advanced commands:**
+- `containerlab graph` - Generate topology graphs
+- `containerlab save/load` - Save and restore lab states
+- `containerlab logs` - View lab logs
+- `containerlab export` - Export lab configurations
 
 ## Integration with Automation Tools
 
-### Nornir Integration
-```python
-# nornir_inventory.py
-from nornir import InitNornir
-from nornir.plugins.tasks.networking import napalm_get
+For detailed automation tool integration examples, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-# Initialize Nornir
-nr = InitNornir(
-    inventory={
-        "plugin": "SimpleInventory",
-        "options": {
-            "host_file": "inventory/hosts.yml",
-            "group_file": "inventory/groups.yml",
-            "defaults_file": "inventory/defaults.yml",
-        }
-    }
-)
-
-# Get facts from all devices
-result = nr.run(task=napalm_get, getters=["facts", "interfaces"])
-
-# Print results
-for host, task_result in result.items():
-    print(f"{host}: {task_result[0].result}")
-```
-
-### Terraform Integration
-```hcl
-# main.tf
-terraform {
-  required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 3.0"
-    }
-  }
-}
-
-# Deploy ContainerLab using external data source
-data "external" "containerlab" {
-  program = ["containerlab", "deploy", "-t", "lab.yml", "--format", "json"]
-}
-
-# Use lab information in Terraform
-resource "null_resource" "configure_network" {
-  depends_on = [data.external.containerlab]
-  
-  provisioner "local-exec" {
-    command = "ansible-playbook -i inventory.yml playbook.yml"
-  }
-}
-```
+**Supported automation tools:**
+- **Nornir** - Python-based network automation framework
+- **Terraform** - Infrastructure as Code integration
+- **Ansible** - Configuration management and automation
+- **Custom Python scripts** - Direct API integration
 
 ### Ansible Role Integration (Coming Soon)
 
 A dedicated Ansible role for ContainerLab deployment will be available, providing:
 
-#### Role Features
-- **Automated Installation**: Complete ContainerLab setup with Docker
-- **Lab Management**: Deploy, destroy, and manage lab topologies
-- **Image Management**: Automated vendor image downloads and imports
-- **Configuration Templates**: Pre-built lab configurations
-- **Integration**: Seamless integration with existing Ansible workflows
-
-#### Example Playbook Usage
-```yaml
----
-- name: Deploy ContainerLab Environment
-  hosts: lab_servers
-  roles:
-    - role: bsmeding.containerlab
-      containerlab_version: "0.52.0"
-      containerlab_images:
-        - name: ceos
-          version: "4.28.0F"
-          source: "arista"
-        - name: srlinux
-          version: "22.11.1"
-          source: "nokia"
-      containerlab_labs:
-        - name: "basic-lab"
-          topology_file: "labs/basic-lab.yml"
-          auto_deploy: true
-      containerlab_monitoring:
-        enable_grafana: true
-        enable_prometheus: true
-        grafana_port: 3001
-        prometheus_port: 9090
-```
-
-#### Role Variables
-```yaml
-# containerlab.yml
-containerlab_version: "0.52.0"
-containerlab_install_method: "script"  # script, docker, or manual
-containerlab_docker_compose: false
-containerlab_web_ui: false
-containerlab_monitoring:
-  enable_grafana: false
-  enable_prometheus: false
-  grafana_port: 3001
-  prometheus_port: 9090
-
-# Lab configurations
-containerlab_labs: []
-containerlab_images: []
-
-# Network settings
-containerlab_network:
-  mgmt_subnet: "192.168.1.0/24"
-  data_subnet: "10.0.0.0/8"
-```
+**Role features:**
+- **Automated installation** of ContainerLab and dependencies
+- **Lab management** with deployment and destruction workflows
+- **Image management** for vendor network operating systems
+- **Configuration templates** for common lab topologies
+- **Monitoring integration** with Grafana and Prometheus
 
 The role will be available at: `bsmeding.containerlab`
 
 ## Troubleshooting
 
-### Common Issues
+For detailed troubleshooting guides and solutions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
 
-#### Docker Permission Issues
-```bash
-# If you get permission errors
-sudo usermod -aG docker $USER
-newgrp docker
-```
-
-#### Image Import Issues
-```bash
-# Check available images
-docker images
-
-# Remove corrupted images
-docker rmi image_name:tag
-
-# Re-import images
-docker import image.tar.xz image_name:tag
-```
-
-#### Network Connectivity Issues
-```bash
-# Check Docker networks
-docker network ls
-
-# Inspect network
-docker network inspect containerlab
-
-# Check container connectivity
-containerlab exec -t lab.yml --label clab-node-name=node1 -- ping 8.8.8.8
-```
-
-#### Performance Issues
-```bash
-# Check system resources
-docker stats
-
-# Limit container resources
-# Add to topology file:
-nodes:
-  node1:
-    kind: ceos
-    image: ceos:4.28.0F
-    mgmt_ipv4: 192.168.1.10
-    cpu_limit: 1
-    memory_limit: 1G
-```
+**Common troubleshooting areas:**
+- **Docker permission issues** and user group configuration
+- **Image import problems** and corruption resolution
+- **Network connectivity issues** between containers
+- **Performance optimization** and resource management
 
 ## Best Practices
 
@@ -945,11 +406,15 @@ nodes:
 - [ContainerLab Lab Examples](https://containerlab.dev/lab-examples/lab-examples/)
 - [ContainerLab Examples (GitHub)](https://github.com/srl-labs/containerlab/tree/master/lab-examples)
 
+### Tutorials and Guides
+- [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html) - Step-by-step tutorial
+- [Building a Reusable Network Automation Lab](/blog/posts/2025/2025-08-10-building-reusable-network-automation-lab-with-containerlab.html) - Complete lab example
+
 ### Vendor Resources
 - [Arista cEOS](https://www.arista.com/en/support/software-download)
 - [Nokia SR Linux](https://www.nokia.com/networks/solutions/sr-linux/)
 - [Cisco DevNet](https://developer.cisco.com/)
-- [Juniper vMX](https://www.juniper.net/us/en/dm/downloads/)
+- [Juniper Container Images](https://www.juniper.net/documentation/us/en/software/junos/junos-vm/junos-vm-docker/)
 
 ### Community Resources
 - [ContainerLab Community](https://github.com/srl-labs/containerlab/discussions)

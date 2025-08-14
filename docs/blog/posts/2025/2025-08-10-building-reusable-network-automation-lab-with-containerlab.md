@@ -62,6 +62,9 @@ This guide creates a **reusable Containerlab topology** that you can use for all
 - At least 8GB RAM
 - Containerlab installed
 
+For detailed installation instructions, see the [ContainerLab Installation Guide](/blog/posts/tools/containerlab.html).
+
+Quick install:
 ```bash
 curl -sL https://get.containerlab.dev | bash
 containerlab version
@@ -71,6 +74,8 @@ containerlab version
 
 ## 4. Getting Network OS Images
 
+For comprehensive instructions on downloading and importing network OS images, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+
 **Free Downloadable Images:**
 - **Arista vEOS-lab** - Available from Arista's website
 - **Nokia SR Linux** - Available from Nokia's website
@@ -78,13 +83,13 @@ containerlab version
 
 > ⚠️ Licensing applies. Obtain images legally from vendor websites.
 
-**Download and Import:**
+**Quick Download and Import:**
 ```bash
 # Arista vEOS-lab
 docker import vEOS-lab-4.28.0F.tar.xz arista/veos:4.28.0F
 
-# Nokia SR Linux
-docker import srlinux-22.11.1.tar.xz nokia/srlinux:22.11.1
+# Nokia SR Linux (from GitHub Container Registry)
+docker pull ghcr.io/nokia/srlinux
 ```
 
 ---
@@ -98,30 +103,37 @@ name: nautobot-lab
 topology:
   nodes:
     access1:
-      kind: vr-veos
-      image: arista/veos:4.28.0F
+      kind: ceos
+      image: ceos:4.34.2F
+      mgmt_ipv4: 172.20.20.11
     access2:
-      kind: vr-veos
-      image: arista/veos:4.28.0F
+      kind: ceos
+      image: ceos:4.34.2F
+      mgmt_ipv4: 172.20.20.12
     dist1:
-      kind: nokia_srlinux
-      image: nokia/srlinux:22.11.1
+      kind: srl
+      image: ghcr.io/nokia/srlinux
+      mgmt_ipv4: 172.20.20.21
     rtr1:
-      kind: nokia_srlinux
-      image: nokia/srlinux:22.11.1
+      kind: srl
+      image: ghcr.io/nokia/srlinux
+      mgmt_ipv4: 172.20.20.22
     ztp:
       kind: linux
-      image: alpine:latest
+      image: alpine
+      mgmt_ipv4: 172.20.20.31
     mgmt:
       kind: linux
-      image: alpine:latest
+      image: alpine
+      mgmt_ipv4: 172.20.20.32
   links:
     - endpoints: ["access1:eth1", "dist1:ethernet-1/1"]
     - endpoints: ["access2:eth1", "dist1:ethernet-1/2"]
     - endpoints: ["dist1:ethernet-1/3", "rtr1:ethernet-1/1"]
+
 mgmt:
   network: mgmt-net
-  ipv4_subnet: 172.20.20.0/24
+  ipv4-subnet: 172.20.20.0/24
 ```
 
 ---
