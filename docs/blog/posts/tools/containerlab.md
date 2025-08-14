@@ -146,7 +146,7 @@ Ostinato is a commercial network packet generator and analyzer that supports:
 
 #### Method 1: Using Official Ostinato Docker Image
 
-For detailed Ostinato installation instructions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+For detailed Ostinato installation instructions, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/).
 
 **Note**: Ostinato requires a valid license to use. Visit [https://ostinato.org/pricing/](https://ostinato.org/pricing/) for licensing options.
 
@@ -164,7 +164,7 @@ Since Ostinato is now commercial, consider these open-source alternatives:
 
 #### Basic Traffic Generation Topology
 
-For detailed traffic generation topology examples, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+For detailed traffic generation topology examples, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/).
 
 **Traffic generator options:**
 - **Ostinato** (commercial, requires license)
@@ -174,7 +174,7 @@ For detailed traffic generation topology examples, see the [ContainerLab Getting
 
 #### Advanced Traffic Generation Configuration
 
-For advanced traffic generation scenarios and configurations, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started.html).
+For advanced traffic generation scenarios and configurations, see the [ContainerLab Getting Started Guide](/tutorials/containerlab_getting_started/).
 
 **Advanced features:**
 - Multiple traffic generator types in single topology
