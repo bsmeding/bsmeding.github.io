@@ -38,55 +38,16 @@ Before starting with containerlab, ensure you have the following installed:
 
 ### Step 1: Install Docker
 
-#### Ubuntu/Debian
+For the most up-to-date Docker installation instructions, visit the official Docker documentation:
+
+- **[Docker Installation Guide](https://docs.docker.com/get-docker/)** - Official installation instructions for all platforms
+- **[Docker Desktop](https://www.docker.com/products/docker-desktop)** - For Windows and macOS users
+
+**Quick verification after installation:**
 ```bash
-# Update package list
-sudo apt update
-
-# Install required packages
-sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
-
-# Add Docker's official GPG key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-# Add Docker repository
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Install Docker
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-
-# Add user to docker group
-sudo usermod -aG docker $USER
-
-# Start and enable Docker
-sudo systemctl start docker
-sudo systemctl enable docker
-
-# Verify installation
+# Verify Docker installation
 docker --version
-```
-
-#### CentOS/RHEL
-```bash
-# Install required packages
-sudo yum install -y yum-utils
-
-# Add Docker repository
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
-# Install Docker
-sudo yum install -y docker-ce docker-ce-cli containerd.io
-
-# Start and enable Docker
-sudo systemctl start docker
-sudo systemctl enable docker
-
-# Add user to docker group
-sudo usermod -aG docker $USER
-
-# Verify installation
-docker --version
+docker run hello-world
 ```
 
 ### Step 2: Install ContainerLab
