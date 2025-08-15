@@ -99,33 +99,28 @@ docker pull ghcr.io/nokia/srlinux
 Save as `lab-topology.clab.yml`:
 
 ```yaml
+
 name: nautobot-lab
 topology:
   nodes:
     access1:
-      kind: ceos
+      kind: arista_ceos
       image: ceos:4.34.2F
-      mgmt_ipv4: 172.20.20.11
     access2:
-      kind: ceos
+      kind: arista_ceos
       image: ceos:4.34.2F
-      mgmt_ipv4: 172.20.20.12
     dist1:
-      kind: srl
+      kind: nokia_srlinux
       image: ghcr.io/nokia/srlinux
-      mgmt_ipv4: 172.20.20.21
     rtr1:
-      kind: srl
+      kind: nokia_srlinux
       image: ghcr.io/nokia/srlinux
-      mgmt_ipv4: 172.20.20.22
     ztp:
       kind: linux
       image: alpine
-      mgmt_ipv4: 172.20.20.31
     mgmt:
       kind: linux
       image: alpine
-      mgmt_ipv4: 172.20.20.32
   links:
     - endpoints: ["access1:eth1", "dist1:ethernet-1/1"]
     - endpoints: ["access2:eth1", "dist1:ethernet-1/2"]
@@ -135,6 +130,8 @@ mgmt:
   network: mgmt-net
   ipv4-subnet: 172.20.20.0/24
 ```
+In current versions it is not possible anymore to set static ip addresses from the `yaml`, Containerlab will automatically create an ansible-inventory if needed with the IP addresses assigned
+
 
 ---
 
