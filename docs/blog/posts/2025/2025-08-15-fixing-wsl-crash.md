@@ -6,7 +6,7 @@ tags: ["Windows", "WSL", "troubleshooting", "recovery", "virtualization"]
 toc: true
 layout: single
 comments: true
-draft: true
+draft: false
 ---
 
 # Fixing WSL "Catastrophic Failure" (E_UNEXPECTED) - Complete Recovery Guide
