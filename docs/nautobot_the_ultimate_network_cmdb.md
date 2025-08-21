@@ -124,7 +124,7 @@ Visualize racks, devices, and cable paths on physical layouts.
 
 It is easy to create Python jobs and make them available to the users, for example you can create Test commands to run on devices that first line of support used often. With these added to the GUI they `safe a lot of time` without the need to login and manually run commands. Everything can be accomplished from within the `GUI`. They even don't need to have login credentials!
 
-![Example run show commands](/images/nautobot/zero-to-hero/jobs_run_test_commands.png)
+![Example run show commands](/images/nautobot/jobs_run_test_commands.png)
 
 #### Example
 
