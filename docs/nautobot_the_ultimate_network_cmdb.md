@@ -15,7 +15,7 @@ Nautobot serves as a **single source of truth (SSoT)** for managing network infr
 
 # Why I'm So Excited About Nautobot
 
-When it comes to network automation, **Nautobot** is the one platform that has completely changed the way I work. It’s more than just a Source of Truth — it’s the central automation hub that ties everything together. From configuration generation to compliance, from dynamic job automation to seamless integrations with other tools — Nautobot does it all. And that’s exactly why I’m such a fan.
+When it comes to network automation, **Nautobot** is the one platform that has completely changed the way I work. It’s more than just a Source of Truth — it’s the central automation hub that ties everything together. From configuration generation to compliance, from dynamic job automation to seamless integrations with other tools — Nautobot does it all. And that’s exactly why I’m such a fan. It can be used as Single Pane of Glass for all NetOps users.
 
 ---
 
@@ -25,7 +25,7 @@ When it comes to network automation, **Nautobot** is the one platform that has c
 
 ## A True Single Source of Truth (SSoT)
 
-Nautobot shines as a **Single Source of Truth**. I store my entire network inventory in it: devices, interfaces, IPs, VLANs, locations, and more. With this data in one place, I can drive every automation process — fully based on structured, validated information.
+Nautobot shines as a **Single Source of Truth**. I store my entire network inventory in it: devices, interfaces, IPs, VLANs, locations, and more. With this data in one place, I can drive every automation process — fully based on structured, validated information. This while Nautobot is not the master/owner of the data. For example when using `Infoblox` as DDI that still have the owner role, but Nautob synchronize the data between Infoblox so that the Single Pane of Glass is Nautobot and the DDI-role will be kept on the Infoblox devices.
 
 ```python
 # Example: Accessing Nautobot device data using GraphQL
@@ -66,6 +66,8 @@ interface {{ iface.name }}
 ```
 
 Let’s say an interface changes: a VLAN is updated, or the description is changed. A JobHook can detect this in real-time and regenerate the appropriate configuration snippet. That config can then be pushed directly to the device — with no human error and no delay.
+
+Also `backup` of devices will be stored with a Git synced backend so you can traverse to old configuration states. Those backup's are used for validation and configuration compliancy. Again with this feature the Single pane of glass exists into one tool! Current state, previous state, intended state all in one without the need to connect to the device or another tool.
 
 ---
 
@@ -119,6 +121,12 @@ Visualize racks, devices, and cable paths on physical layouts.
 ![Hot and cold aisle](https://networktocode.com/wp-content/uploads/2024/08/hot-cold-aisle.jpg)
 
 ### 🛠️ Custom Jobs
+
+It is easy to create Python jobs and make them available to the users, for example you can create Test commands to run on devices that first line of support used often. With these added to the GUI they `safe a lot of time` without the need to login and manually run commands. Everything can be accomplished from within the `GUI`. They even don't need to have login credentials!
+
+![Example run show commands](/images/nautobot/zero-to-hero/jobs_run_test_commands.png)
+
+#### Example
 
 Python-based jobs to provision and configure infrastructure:
 

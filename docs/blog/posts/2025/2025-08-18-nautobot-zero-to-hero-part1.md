@@ -67,21 +67,142 @@ We’ll:
 
 **docker-compose.yml**
 ```yaml
-version: "3.8"
 services:
   nautobot:
-    image: networktocode/nautobot:latest
+    container_name: ${NAUTOBOT_CONTAINER_NAME:-customer1-nautobot}
+    image: &shared_image bsmeding/nautobot:stable-py3.11
+    depends_on:
+      - postgres
+      - redis
     ports:
-      - "8080:8080"
+      - "${NAUTOBOT_PORT:-8081}:8080"  # Exposes Nautobot on localhost:8081
     environment:
+      - NAUTOBOT_DEBUG=True
+      - NAUTOBOT_DJANGO_EXTENSIONS_ENABLED=False
+      - NAUTOBOT_DJANGO_TOOLBAR_ENABLED=False
+      - NAUTOBOT_HIDE_RESTRICTED_UI=True
+      - NAUTOBOT_LOG_LEVEL=WARNING
+      - NAUTOBOT_METRICS_ENABLED=False
+      - NAUTOBOT_NAPALM_TIMEOUT=5
+      - NAUTOBOT_MAX_PAGE_SIZE=0
+      - NAUTOBOT_DB_HOST=${NAUTOBOT_DB_HOST:-customer1-postgres}
+      - NAUTOBOT_DB_PORT=5432
+      - NAUTOBOT_DB_NAME=${POSTGRES_DB:-nautobot}
+      - NAUTOBOT_DB_USER=${POSTGRES_USER:-nautobot}
+      - NAUTOBOT_DB_PASSWORD=${POSTGRES_PASSWORD:-nautobotpassword}
+      - NAUTOBOT_ALLOWED_HOSTS=*
+      - NAUTOBOT_REDIS_HOST=${NAUTOBOT_REDIS_HOST:-customer1-redis}
+      - NAUTOBOT_REDIS_PORT=6379
+      - NAUTOBOT_SUPERUSER_NAME=${SUPERUSER_NAME:-admin}
+      - NAUTOBOT_SUPERUSER_PASSWORD=${SUPERUSER_PASSWORD:-admin}
+      - NAUTOBOT_SUPERUSER_API_TOKEN=1234567890abcde0987654321
       - NAUTOBOT_CREATE_SUPERUSER=true
-      - NAUTOBOT_SUPERUSER_USERNAME=admin
-      - NAUTOBOT_SUPERUSER_PASSWORD=admin
-      - NAUTOBOT_SUPERUSER_EMAIL=admin@example.com
+      - NAUTOBOT_INSTALLATION_METRICS_ENABLED=false
+      - NAUTOBOT_CONFIG=/opt/nautobot/nautobot_config.py
+      - NAUTOBOT_CELERY_BROKER_URL=redis://${NAUTOBOT_REDIS_HOST:-customer1-redis}:6379/0
+      - NAUTOBOT_SECURE_HSTS_SECONDS=3600
+      - NAUTOBOT_SECURE_SSL_REDIRECT=True
+      - NAUTOBOT_SESSION_COOKIE_SECURE=True
+      - NAUTOBOT_CSRF_COOKIE_SECURE=True
+      - NAUTOBOT_JOBS_ROOT=/opt/nautobot/jobs
     volumes:
-      - nautobot_data:/opt/nautobot
+      - ./config/nautobot_config.py:/opt/nautobot/nautobot_config.py
+      - ./jobs:/opt/nautobot/jobs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+    command: ["nautobot-server", "runserver", "0.0.0.0:8080"]
+
+  postgres:
+    image: postgres:13-alpine
+    container_name: ${POSTGRES_CONTAINER_NAME:-customer1-postgres}
+    command:
+      - "-c"
+      - "max_connections=1000"
+    healthcheck:
+      test: "pg_isready --username=$$POSTGRES_USER --dbname=$$POSTGRES_DB"
+      interval: "10s"
+      timeout: "5s"
+      retries: 10    
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-nautobot}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nautobotpassword}
+      POSTGRES_DB: ${POSTGRES_DB:-nautobot}
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+    restart: unless-stopped
+
+  redis:
+    image: redis:6
+    container_name: ${REDIS_CONTAINER_NAME:-customer1-redis}
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  celery-beat:
+    container_name: ${CELERY_BEAT_CONTAINER_NAME:-customer1-nautobot_celery_beat}
+    image: *shared_image
+    command: nautobot-server celery beat
+    depends_on:
+      nautobot:
+        condition: "service_healthy"
+    volumes:
+      - ./config/nautobot_config.py:/opt/nautobot/nautobot_config.py
+    environment:
+      - NAUTOBOT_DB_HOST=${NAUTOBOT_DB_HOST:-customer1-postgres}
+      - NAUTOBOT_DB_PORT=5432
+      - NAUTOBOT_DB_NAME=${POSTGRES_DB:-nautobot}
+      - NAUTOBOT_DB_USER=${POSTGRES_USER:-nautobot}
+      - NAUTOBOT_DB_PASSWORD=${POSTGRES_PASSWORD:-nautobotpassword}
+      - NAUTOBOT_REDIS_HOST=${NAUTOBOT_REDIS_HOST:-customer1-redis}
+      - NAUTOBOT_REDIS_PORT=6379      
+      - NAUTOBOT_CELERY_BROKER_URL=redis://${NAUTOBOT_REDIS_HOST:-customer1-redis}:6379/0
+      - NAUTOBOT_CONFIG=/opt/nautobot/nautobot_config.py
+
+  celery-worker-1:
+    image: *shared_image
+    container_name: ${CELERY_WORKER_CONTAINER_NAME:-customer1-nautobot_celery_worker_1}
+    command: nautobot-server celery worker --concurrency=4
+    depends_on:
+      nautobot:
+        condition: "service_healthy"
+    healthcheck:
+      interval: "30s"
+      timeout: "10s"
+      start_period: "30s"
+      retries: 3
+      test:
+        [
+          "CMD",
+          "bash",
+          "-c",
+          "nautobot-server celery inspect ping --destination celery@$$HOSTNAME"  ## $$ because of docker-compose
+        ]
+    volumes:
+      - ./config/nautobot_config.py:/opt/nautobot/nautobot_config.py
+      - ./jobs:/opt/nautobot/jobs
+    environment:
+      - NAUTOBOT_DB_HOST=${NAUTOBOT_DB_HOST:-customer1-postgres}
+      - NAUTOBOT_DB_PORT=5432
+      - NAUTOBOT_DB_NAME=${POSTGRES_DB:-nautobot}
+      - NAUTOBOT_DB_USER=${POSTGRES_USER:-nautobot}
+      - NAUTOBOT_DB_PASSWORD=${POSTGRES_PASSWORD:-nautobotpassword}
+      - NAUTOBOT_REDIS_HOST=${NAUTOBOT_REDIS_HOST:-customer1-redis}
+      - NAUTOBOT_REDIS_PORT=6379      
+      - NAUTOBOT_CELERY_BROKER_URL=redis://${NAUTOBOT_REDIS_HOST:-customer1-redis}:6379/0
+      - NAUTOBOT_CONFIG=/opt/nautobot/nautobot_config.py
+      - NAUTOBOT_JOBS_ROOT=/opt/nautobot/jobs
+
+
 volumes:
-  nautobot_data:
+  postgres_data: {}
+  redis_data: {}
 ```
 
 Run:
@@ -147,6 +268,7 @@ In Nautobot → Apps → Git Repositories → Add:
 ### Add Platforms
 - Cisco IOS XE
 - Arista EOS
+- Nokia SR
 
 ### Add Roles
 - access-switch
@@ -155,6 +277,8 @@ In Nautobot → Apps → Git Repositories → Add:
 
 ### Add Devices
 Match your lab topology.
+
+You can also use Design-builder app to pre-flight you Nautobot instance / devices  #TODO! Add 
 
 ---
 
