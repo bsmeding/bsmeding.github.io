@@ -1,5 +1,6 @@
 /ARCHIVE/*
 /sites/*
+/site/*
 .venv/*
 .DS_Store
 .vscode/*
