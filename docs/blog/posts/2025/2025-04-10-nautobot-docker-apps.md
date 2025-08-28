@@ -39,7 +39,7 @@ The images include (but are not limited to):
 * Nautobot Plugin Nornir
 * Nautobot Single Source of Truth (SSoT)
 
-For the full and up-to-date list, see the [Nautobot Apps documentation](https://docs.nautobot.com/projects/core/en/stable/apps/).
+REad more about the apps on [nautobot_the_ultimate_network_cmdb](/nautobot_the_ultimate_network_cmdb/)
 
 ## 🛠️ How to Use
 1. **Pull the image from Docker Hub:**
