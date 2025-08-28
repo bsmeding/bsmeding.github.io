@@ -1,6 +1,6 @@
 ---
 authors: [bsmeding]
-date: 2025-08-18
+date: 2025-09-01
 title: Nautobot in Action – Part 1
 tags: ["network automation", "device onboarding", "nautobot", "discovery"]
 toc: true

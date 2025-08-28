@@ -1,8 +1,8 @@
 ---
 authors: [bsmeding]
-date: 2025-09-01
+date: 2025-09-15
 title: Nautobot in Action – Part 3
-tags: ["network automation", "golden config", "compliance", "nautobot", "configuration management"]
+tags: ["network automation", "golden config", "nautobot", "compliance"]
 toc: true
 layout: single
 comments: true

@@ -27,15 +27,17 @@ Managing and extending Nautobot with plugins and apps can be challenging, especi
 - **Available on Docker Hub:** [bsmeding/nautobot](https://hub.docker.com/r/bsmeding/nautobot)
 
 ## 🧩 Included Nautobot Apps
+
 The images include (but are not limited to):
-- Nautobot ChatOps
-- Nautobot Data Validation Engine
-- Nautobot Device Lifecycle Management
-- Nautobot Device Onboarding
-- Nautobot Firewall Models
-- Nautobot Golden Configuration
-- Nautobot Plugin Nornir
-- Nautobot Single Source of Truth (SSoT)
+
+* Nautobot ChatOps
+* Nautobot Data Validation Engine
+* Nautobot Device Lifecycle Management
+* Nautobot Device Onboarding
+* Nautobot Firewall Models
+* Nautobot Golden Configuration
+* Nautobot Plugin Nornir
+* Nautobot Single Source of Truth (SSoT)
 
 For the full and up-to-date list, see the [Nautobot Apps documentation](https://docs.nautobot.com/projects/core/en/stable/apps/).
 

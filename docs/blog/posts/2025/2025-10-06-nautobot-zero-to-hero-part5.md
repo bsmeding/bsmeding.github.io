@@ -1,8 +1,8 @@
 ---
 authors: [bsmeding]
-date: 2025-09-15
+date: 2025-10-06
 title: Nautobot in Action – Part 5
-tags: ["network automation", "event-driven", "job hooks", "nautobot", "real-time automation"]
+tags: ["network automation", "hooks", "nautobot", "event-driven"]
 toc: true
 layout: single
 comments: true

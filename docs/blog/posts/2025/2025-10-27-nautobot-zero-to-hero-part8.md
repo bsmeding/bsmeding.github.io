@@ -1,8 +1,8 @@
 ---
 authors: [bsmeding]
-date: 2025-10-06
+date: 2025-10-27
 title: Nautobot in Action – Part 8
-tags: ["network automation", "gitops", "change management", "nautobot", "ci/cd"]
+tags: ["network automation", "gitops", "nautobot", "change management"]
 toc: true
 layout: single
 comments: true

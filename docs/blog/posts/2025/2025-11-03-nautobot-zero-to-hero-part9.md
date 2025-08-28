@@ -1,8 +1,8 @@
 ---
 authors: [bsmeding]
-date: 2025-10-13
+date: 2025-11-03
 title: Nautobot in Action – Part 9
-tags: ["network automation", "firewalls", "wireless", "golden config", "nautobot", "security"]
+tags: ["network automation", "multi-vendor", "nautobot", "compliance"]
 toc: true
 layout: single
 comments: true

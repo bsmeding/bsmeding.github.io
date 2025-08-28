@@ -1,8 +1,8 @@
 ---
 authors: [bsmeding]
-date: 2025-09-22
+date: 2025-10-13
 title: Nautobot in Action – Part 6
-tags: ["network automation", "ztp", "deployment", "site validation", "nautobot", "compliance"]
+tags: ["network automation", "deployment", "nautobot", "validation"]
 toc: true
 layout: single
 comments: true

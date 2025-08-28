@@ -1,8 +1,8 @@
 ---
 authors: [bsmeding]
-date: 2025-09-29
+date: 2025-10-20
 title: Nautobot in Action – Part 7
-tags: ["network automation", "api", "integrations", "infoblox", "ise", "nautobot", "graphql"]
+tags: ["network automation", "api", "nautobot", "integrations"]
 toc: true
 layout: single
 comments: true
