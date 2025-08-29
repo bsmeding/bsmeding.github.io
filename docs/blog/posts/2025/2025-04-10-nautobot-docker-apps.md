@@ -30,16 +30,19 @@ Managing and extending Nautobot with plugins and apps can be challenging, especi
 
 The images include (but are not limited to):
 
-* Nautobot ChatOps
-* Nautobot Data Validation Engine
-* Nautobot Device Lifecycle Management
-* Nautobot Device Onboarding
-* Nautobot Firewall Models
-* Nautobot Golden Configuration
-* Nautobot Plugin Nornir
-* Nautobot Single Source of Truth (SSoT)
+* [Nautobot Data Validation Engine](https://docs.nautobot.com/projects/data-validation/en/latest/)
+* [Nautobot Device Lifecycle Management](https://docs.nautobot.com/projects/device-lifecycle/en/latest/)
+* [Nautobot Device Onboarding](https://docs.nautobot.com/projects/device-onboarding/en/latest/)
+* [Nautobot Firewall Models](https://docs.nautobot.com/projects/firewall-models/en/latest/)
+* [Nautobot Golden Configuration](https://docs.nautobot.com/projects/golden-config/en/latest/)
+* [Nautobot Plugin Nornir](https://docs.nautobot.com/projects/nornir-nautobot/en/latest/)
+* [Nautobot Single Source of Truth (SSoT)](https://docs.nautobot.com/projects/ssot/en/latest/)
+* [Nautobot Floorplan](https://docs.nautobot.com/projects/floor-plan/en/latest/)
+* [Nautobot BGP models](https://docs.nautobot.com/projects/bgp-models/en/latest/)
+* [Nautobot Secrets Provider](https://docs.nautobot.com/projects/secrets-providers/en/latest/)
+* [Nautobot Design Builder](https://docs.nautobot.com/projects/design-builder/en/latest/)
 
-REad more about the apps on [nautobot_the_ultimate_network_cmdb](/nautobot_the_ultimate_network_cmdb/)
+Read more about the apps on [nautobot_the_ultimate_network_cmdb](/nautobot_the_ultimate_network_cmdb/)
 
 ## 🛠️ How to Use
 1. **Pull the image from Docker Hub:**
