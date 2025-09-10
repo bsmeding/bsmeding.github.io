@@ -21,7 +21,7 @@ This Nautobot Job and repo is a for of Nautobot device-type library, i extended 
 
 ## Why automate device-type import?
 
-Manually creating device-types in Nautobot is tedious and error-prone, especially for complex devices with many interfaces, modules, and console ports. By using a job that reads device-type YAML files (such as those from the [nautobot-device-type-library](https://github.com/nautobot/nautobot-device-type-library)), you can:
+Manually creating device-types in Nautobot is tedious and error-prone, especially for complex devices with many interfaces, modules, and console ports. By using a job that reads device-type YAML files (such as those from the [nautobot-device-type-library](https://github.com/bsmeding/nautobot_devicetype_library)), you can:
 
 - **Save time:** Import dozens or hundreds of device-types in seconds.
 - **Reduce errors:** YAML files are version-controlled and community-maintained.
@@ -52,7 +52,7 @@ Suppose you want to import only Cisco Catalyst 9300 device-types:
 3. Run in dry-run mode to preview.
 4. If the results look good, run again with commit enabled.
 
-![Job Form Example](/images/nautobot/import-device-types/job-form.png)
+![Job Form Example](/images/nautobot/sync_device_types_form.png)
 *Example: Selecting manufacturer and filter in the job form.*
 
 ---
@@ -70,7 +70,7 @@ You can fork the repository and add your own device-type YAML files, or contribu
 - **Errors on import?**  
   Check the Nautobot job logs for details. Invalid YAML or missing required fields can cause failures.
 - **Need more device-types?**  
-  Contribute to the [nautobot-device-type-library](https://github.com/nautobot/nautobot-device-type-library) or add your own YAML files.
+  Contribute to the [see my nautobot-device-type-library](https://github.com/bsmeding/nautobot_devicetype_library) or add your own YAML files.
 
 ---
 
@@ -84,7 +84,7 @@ You can fork the repository and add your own device-type YAML files, or contribu
 
 ## 9. Resources
 
-- [nautobot-device-type-library on GitHub](https://github.com/nautobot/nautobot-device-type-library)
+- [nautobot-device-type-library on GitHub (source of my fork, what is forked from Netbox device_type library)](https://github.com/nautobot/nautobot-device-type-library)
 - [Nautobot documentation: Device Types](https://docs.nautobot.com/projects/core/en/stable/models/dcim/devicetype/)
 - [How to write device-type YAML files](https://github.com/nautobot/nautobot-device-type-library#device-type-definition)
 
@@ -102,25 +102,33 @@ You can fork the repository and add your own device-type YAML files, or contribu
 ![Add Git Repository](/images/nautobot/import-device-types/add-git-repo.png)
 *Adding the device-type library as a Git repository in Nautobot.*
 
----
 
-### 2. Launch the Job
+---
+### 2. Enable Job
+- Go to **Jobs** → **Jobs** in Nautobot.
+- Find **Sync device types** Job and click ![Edit](/images/nautobot/import-device-types/enable-nautobot-device-type-sync-job.png)
+- Find **Enabled** and select this ![Enable](/images/nautobot/import-device-types/enable-nautobot-device-type-sync-job2.png)
+
+---
+### 3. Launch the Job
 
 - Navigate to **Jobs** in Nautobot.
 - Find and select the `Sync Device Types` job.
 - (Optional) Enter a search filter or select a manufacturer.
 - Run in **dry-run** mode first to preview changes.
+- ![Start Dry-Run](/images/nautobot/import-device-types/dry-run.png)
+- ![Results Dry-Run](/images/nautobot/import-device-types/dry-run2.png)
 - If satisfied, run again with **commit** enabled to import device-types.
+- ![Results Dry-Run](/images/nautobot/import-device-types/run.png)
 
 
-![Run Job Example](/images/nautobot/import-device-types/run-job.png)
 *Running the Sync Device Types job with filter and manufacturer selection.*
 
 > **Tip:** Please DO filter otherwise ALL devices will be added
 > 
 ---
 
-### 3. Verify Imported Device Types
+### 4. Verify Imported Device Types
 
 - Go to **Devices** → **Device Types** to see the imported device-types.
 - You can now use these when creating new devices in Nautobot.
@@ -134,11 +142,10 @@ With this approach, you can keep your Nautobot device inventory accurate, consis
 
 ---
 
-## 11. Contributing Missing Device Types
 
-Did you notice a device type missing from the library? You can help improve the ecosystem!
 
 ### How to Contribute a New Device Type
+Did you notice a device type missing from the library? You can help improve the ecosystem!
 
 1. **Fork the Repository**  
    Go to [nautobot_devicetype_library on GitHub](https://github.com/bsmeding/nautobot_devicetype_library) and click **Fork**.
@@ -163,6 +170,3 @@ Your contribution will be reviewed and, once approved, merged into the main libr
 > **Tip:** If you’re unsure about the YAML format, check out existing device types or open an issue for help.
 
 ---
-
----
-
