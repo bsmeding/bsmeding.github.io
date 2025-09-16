@@ -133,7 +133,7 @@ You can fork the repository and add your own device-type YAML files, or contribu
 - Go to **Devices** → **Device Types** to see the imported device-types.
 - You can now use these when creating new devices in Nautobot.
 
-![Device Types Imported](/images/nautobot/import-device-types/device-types-list.png)
+![Device Types Imported](/images/nautobot/import-device-types/imported_device_example.png)
 *Imported device-types now available in Nautobot.*
 
 ---
