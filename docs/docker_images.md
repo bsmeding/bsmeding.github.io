@@ -19,7 +19,7 @@ I maintain several Docker images, mostly to run Ansible CI/CD pipelines and netw
 These images are designed for testing Ansible playbooks, roles, and more. They are based on various Linux distributions with Ansible and other packages pre-installed, mainly for **Network Automation** (NetDevOps). For each distro, there is a versionless image that always contains the latest release (e.g., `ansible_cicd_debian` is the same as `ansible_cicd_debian12`).
 
 **Currently installed Python packages for network and CMDB testing:**
-- ansible
+- ansible (version varies by distribution)
 - cryptography
 - yamllint
 - pynautobot
@@ -27,11 +27,16 @@ These images are designed for testing Ansible playbooks, roles, and more. They a
 - jmespath
 - netaddr
 - pywinrm
+- **Network automation:** netmiko, ncclient, scrapli, napalm, paramiko, textfsm, ntc-templates, pyats
+- **CI/CD testing:** ansible-lint, molecule, molecule-plugins, pytest, pytest-ansible
+- **Cloud/API automation:** requests, boto3, openstacksdk, kubernetes
+- **Utilities:** jinja2, passlib
 
 | Container | CI Status   | Downloads |
 | --------- | ----------- | --------- |
 | [ansible_cicd_debian11](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian11/general) | [![Build and Push Ansible Images](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml/badge.svg)](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian11) |
 | [ansible_cicd_debian12](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian12/general) | [![Build and Push Ansible Images](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml/badge.svg)](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian12) |
+| [ansible_cicd_debian13](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian13/general) | [![Build and Push Ansible Images](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml/badge.svg)](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian13) |
 | [ansible_cicd_debian](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_debian/general) | [![Build and Push Ansible Images](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml/badge.svg)](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_debian) |
 | [ansible_cicd_rockylinux8](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_rockylinux8/general) | [![Build and Push Ansible Images](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml/badge.svg)](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_rockylinux8) |
 | [ansible_cicd_rockylinux9](https://hub.docker.com/repository/docker/bsmeding/ansible_cicd_rockylinux9/general) | [![Build and Push Ansible Images](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml/badge.svg)](https://github.com/bsmeding/docker_containers_ansible_cicd/actions/workflows/docker.yml) | ![Docker Pulls](https://img.shields.io/docker/pulls/bsmeding/ansible_cicd_rockylinux9) |
