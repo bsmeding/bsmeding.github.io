@@ -27,7 +27,7 @@ These images are designed for testing Ansible playbooks, roles, and more. They a
 - jmespath
 - netaddr
 - pywinrm
-- **Network automation:** netmiko, ncclient, scrapli, napalm, paramiko, textfsm, ntc-templates, pyats
+- **Network automation:** netmiko, ncclient, scrapli, napalm, paramiko, textfsm, ntc-templates, pyats (pyats not availble in alpine and rocky distro's)
 - **CI/CD testing:** ansible-lint, molecule, molecule-plugins, pytest, pytest-ansible
 - **Cloud/API automation:** requests, boto3, openstacksdk, kubernetes
 - **Utilities:** jinja2, passlib
