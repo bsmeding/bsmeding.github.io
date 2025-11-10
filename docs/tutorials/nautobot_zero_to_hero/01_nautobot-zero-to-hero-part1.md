@@ -127,11 +127,8 @@ If you prefer to install manually, follow these steps:
    ```
 
    > **Important:** On first startup, database migrations may take more than 5 minutes. Please be patient!
-
-   **For Apple Silicon (M1, M2, M3, M4):**
-   ```bash
-   docker compose -f docker-compose.yml -f docker-compose.override.amd64.yml up -d
-   ```
+   >
+   > **Note:** ARM64 images are now available on Docker Hub, so Apple Silicon (M1, M2, M3, M4) users can use the standard `docker compose up -d` command without any special configuration.
 
 3. **Wait for services to be healthy:**
    ```bash

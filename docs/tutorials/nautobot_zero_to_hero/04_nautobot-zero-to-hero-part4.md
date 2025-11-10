@@ -49,7 +49,7 @@ We'll:
 
 ## 2. Prerequisites
 
-- Completed [Part 3: Deploy Network with Containerlab](/tutorials/nautobot_zero_to_hero/03_nautobot-zero-to-hero-part3/)
+d- Completed [Part 3: Deploy Network with Containerlab](/tutorials/nautobot_zero_to_hero/03_nautobot-zero-to-hero-part3/)
 - Nautobot is running and accessible
 - Containerlab network is deployed and devices are reachable
 - SSH access to Containerlab devices
