@@ -16,9 +16,10 @@ I maintain several Docker images, mostly to run Ansible CI/CD pipelines and netw
 
 ## Docker CI/CD Images
 
-These images are designed for testing Ansible playbooks, roles, and more. They are based on various Linux distributions with Ansible and other packages pre-installed, mainly for **Network Automation** (NetDevOps). For each distro, there is a versionless image that always contains the latest release (e.g., `ansible_cicd_debian` is the same as `ansible_cicd_debian12`).
+These images are designed for testing Ansible playbooks, roles, and more. They are based on various Linux distributions with Ansible and other packages pre-installed, mainly for **Network Automation** (NetDevOps). For each distro, there is a versionless image that always contains the latest release (e.g., `ansible_cicd_debian` is the same as `ansible_cicd_debian13`).
 
 **Currently installed Python packages for network and CMDB testing:**
+
 - ansible (version varies by distribution)
 - cryptography
 - yamllint
@@ -27,10 +28,33 @@ These images are designed for testing Ansible playbooks, roles, and more. They a
 - jmespath
 - netaddr
 - pywinrm
-- **Network automation:** netmiko, ncclient, scrapli, napalm, paramiko, textfsm, ntc-templates, pyats (pyats not availble in alpine and rocky distro's)
-- **CI/CD testing:** ansible-lint, molecule, molecule-plugins, pytest, pytest-ansible
-- **Cloud/API automation:** requests, boto3, openstacksdk, kubernetes
-- **Utilities:** jinja2, passlib
+
+**Network automation:**
+- netmiko
+- ncclient
+- scrapli
+- napalm
+- paramiko
+- textfsm
+- ntc-templates
+- pyats *(pyats not available in alpine and rocky distros)*
+
+**CI/CD testing:**
+- ansible-lint
+- molecule
+- molecule-plugins
+- pytest
+- pytest-ansible
+
+**Cloud/API automation:**
+- requests
+- boto3
+- openstacksdk
+- kubernetes
+
+**Utilities:**
+- jinja2
+- passlib
 
 | Container | CI Status   | Downloads |
 | --------- | ----------- | --------- |

@@ -1,6 +1,5 @@
 ---
 authors: [bsmeding]
-date: 2025-09-01
 title: Nautobot Zero to Hero – Build Your Network Automation Platform
 tags: ["graphql", "network automation", "api", "jinja2", "opsmill", "nautobot"]
 toc: true
@@ -43,80 +42,94 @@ By the end of this series, you'll have a **complete network automation platform*
 
 ## 📋 Series Roadmap
 
-### **Core Series (Production-Ready Setup)**
-*Complete these 6 parts for a fully functional network automation platform*
+### **Foundation Series (Getting Started)**
+*Complete these first 3 parts to get your Nautobot environment up and running*
 
-#### **Part 1: Foundation Setup** 
-*September 1, 2025 | ~2 hours*
-- Deploy Nautobot with Docker
-- Connect to Git repository for version control
-- Create your first network inventory
-- Build and test your first Jinja2 template
-- Create and run your first Nautobot Job
+#### **Part 1: Install Nautobot**
+*~1.5 hours*
+- Install Nautobot with Docker in a virtual machine
+- Follow installation instructions from the nautobot_zero_to_hero repository
+- Set up the complete Nautobot stack with PostgreSQL and Redis
 
-#### **Part 2: Device Discovery & Onboarding**
-*September 8, 2025 | ~1.5 hours*
-- Install and configure the Device Onboarding app
-- Automatically discover existing network devices
+#### **Part 2: Getting Started with Nautobot**
+*~1 hour*
+- Explore what Nautobot can do
+- Use Jobs from the nautobot_zero_to_hero repository to deploy a demo environment
+- Run the pre-flight job to create a region, site, and device
+
+#### **Part 3: Deploy Network with Containerlab**
+*~1 hour*
+- Set up a containerlab network topology
+- Configure multi-vendor network devices
+- Prepare your lab environment for automation
+
+### **Core Automation Series (Production-Ready Setup)**
+*Complete these 8 parts for a fully functional network automation platform*
+
+#### **Part 4: Device Discovery & Onboarding**
+*~1.5 hours*
+- Install and configure the Device Onboarding plugin
+- Enable the plugin in nautobot_config.py
+- Automatically discover and onboard devices from Containerlab
 - Auto-create devices with proper platforms, roles, and interfaces
-- Store discovered configurations in Git for version control
 
-#### **Part 3: Configuration Compliance**
-*September 15, 2025 | ~2 hours*
-- Install and configure Golden Config plugin
-- Set up automated configuration backups
-- Store intended configurations in Git
+#### **Part 5: Add Device Config from Jobs**
+*~1.5 hours*
+- Sync with the nzth_demo_jobs repository
+- Create custom Jobs to manage device configurations
+- Automate configuration collection and storage
+
+#### **Part 6: Enable Golden Config Plugin**
+*~2 hours*
+- Install and configure the Golden Config plugin
+- Fork required repositories (backups, jinja templates, intended config)
+- Add forked repositories to Nautobot
+- Create golden configurations for devices
+
+#### **Part 7: Deploy Provision Job**
+*~1.5 hours*
+- Create a Provision job to send golden-config to devices
+- Deploy intended configurations to network devices
+- Verify configuration deployment
+
+#### **Part 8: Separate Golden Config Templates**
+*~1.5 hours*
+- Separate Interface configuration into a separate Jinja template file
+- Create a Job and Job Hook to automatically execute on interface changes
+- Automate interface configuration updates (create/delete/update)
+
+#### **Part 9: Configuration Compliance**
+*~2 hours*
+- Create configuration compliance checks with Golden Config plugin
 - Run compliance reports and detect configuration drift
+- Monitor device compliance status
 
-#### **Part 4: Automated Remediation**
-*September 29, 2025 | ~2 hours*
-- Generate remediation configurations (intended, missing, manual)
-- Create multi-vendor remediation Jobs
-- Push remediation to devices and verify compliance
-- Build automated fix workflows
+#### **Part 10: Configuration Remediation**
+*~2 hours*
+- Generate remediation configurations from Golden Config plugin
+- Create automated remediation workflows
+- Fix configuration drift automatically
 
-#### **Part 5: Event-Driven Automation**
-*October 6, 2025 | ~1.5 hours*
-- Set up Job Hooks for interface changes
-- Automatically sync admin-state, descriptions, and VLANs
-- Handle multi-vendor syntax differences automatically
-- Build reactive automation workflows
+#### **Part 11: Event-Driven Automation**
+*~1.5 hours*
+- Automatically deploy full golden config to device when device is changed
+- Set up event-driven workflows
+- Build reactive automation based on Nautobot changes
 
-#### **Part 6: Full Deployment & Validation**
-*October 13, 2025 | ~2 hours*
-- Push intended configurations to startup/running configs
-- Integrate with Zero-Touch Provisioning (ZTP) server
-- Validate site cabling (LLDP/CDP) and VLAN/IP assignments
-- Generate comprehensive site compliance reports
+### **Advanced Features Series (Enterprise Capabilities)**
+*Extend your platform with advanced visualization and design capabilities*
 
-### **Advanced Series (Enterprise Features)**
-*Extend your platform with enterprise-grade capabilities*
+#### **Part 12: Floorplan Plugin**
+*~1.5 hours*
+- Enable and configure the Floorplan plugin
+- Create visual floor plans for your network sites
+- Map devices to physical locations
 
-#### **Part 7: API Integrations**
-*October 20, 2025 | ~1.5 hours*
-- Integrate Nautobot with Infoblox, ISE, and other tools
-- Use REST and GraphQL APIs for data synchronization
-- Build custom integrations for your specific environment
-
-#### **Part 8: GitOps Change Management**
-*October 27, 2025 | ~1.5 hours*
-- Implement PR-based change management workflows
-- Use Golden Config in GitOps pipelines
-- Build automated deployment processes
-
-#### **Part 9: Multi-Vendor Compliance**
-*November 3, 2025 | ~2 hours*
-- Advanced Golden Config with vendor-specific templates
-- Comprehensive compliance across Cisco, Arista, Juniper
-- Vendor-agnostic operations and workflows
-
-#### **Part 10: Beyond Switches & Routers**
-*November 10, 2025 | ~1.5 hours*
-- Extend automation to firewalls and wireless controllers
-- Handle non-switch/router device configurations
-- Build unified compliance across all network devices
-
-> **📅 Schedule Note**: The series will pause from September 19-27, 2025, due to vacation. Part 4 will resume on September 29, 2025.
+#### **Part 13: Design Builder Plugin**
+*~2 hours*
+- Install and configure the Design Builder plugin
+- Create designs via Git sync of jobs
+- Deploy designs to your network environment
 
 ---
 
@@ -134,9 +147,10 @@ By the end of this series, you'll have a **complete network automation platform*
 - **Setup Guide**: [Building a Reusable Network Automation Lab](/blog/posts/2025/2025-02-04-building-reusable-network-automation-lab-with-containerlab/)
 
 ### **Time Investment**
-- **Core Series**: 8-10 hours (complete in 1-2 weeks)
-- **Full Series**: 12-15 hours (complete in 2-3 weeks)
-- **Lab Setup**: 1 hour (one-time setup)
+- **Foundation Series**: 3.5 hours (Parts 1-3)
+- **Core Automation Series**: 13 hours (Parts 4-11)
+- **Advanced Features Series**: 3.5 hours (Parts 12-13)
+- **Total Series**: ~20 hours
 
 ---
 
@@ -169,10 +183,11 @@ After completing this series, you'll be able to:
 3. Ensure you have access to Docker and Git
 
 ### **Step 2: Start Building**
-1. Begin with **Part 1** to deploy Nautobot and create your first inventory
-2. Follow each part sequentially as they build upon each other
-3. Complete the **Core Series** (Parts 1-6) for a production-ready setup
-4. Explore **Advanced Series** (Parts 7-10) for enterprise features
+1. Begin with **Part 1** to install Nautobot with Docker
+2. Follow **Part 2** to get started and deploy the demo environment
+3. Set up your network lab with **Part 3** using Containerlab
+4. Complete the **Core Automation Series** (Parts 4-11) for a production-ready setup
+5. Explore **Advanced Features Series** (Parts 12-13) for enterprise capabilities
 
 ### **Step 3: Apply to Production**
 - Use the patterns and workflows from the series in your production environment
