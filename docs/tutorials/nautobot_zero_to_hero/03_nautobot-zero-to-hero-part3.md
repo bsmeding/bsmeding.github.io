@@ -72,45 +72,35 @@ For detailed installation instructions, see the [Containerlab documentation](htt
 
 ## 4. Create Network Topology
 
-The nautobot_zero_to_hero repository includes example Containerlab topologies. Let's use or create a simple multi-vendor topology:
+The nautobot_zero_to_hero repository includes a complete Containerlab topology file that matches the lab environment used throughout the series. This topology includes multiple Arista cEOS devices that will be used for automation practice.
 
-### 4.1 Example Topology File
+### 4.1 Use Repository Topology
 
-Create a file named `topology.clab.yml`:
-
-```yaml
-name: nautobot-lab
-
-topology:
-  nodes:
-    r1:
-      kind: vr-sros
-      image: vrnetlab/vr-sros:20.10.R1
-    sw1:
-      kind: vr-veos
-      image: vrnetlab/vr-veos:latest
-    sw2:
-      kind: vr-veos
-      image: vrnetlab/vr-veos:latest
-
-  links:
-    - endpoints: ["r1:eth1", "sw1:eth1"]
-    - endpoints: ["sw1:eth2", "sw2:eth1"]
-```
-
-This creates a simple topology with:
-- One router (Nokia SR OS)
-- Two switches (Arista vEOS)
-
-### 4.2 Use Repository Topology
-
-Alternatively, use the topology from the nautobot_zero_to_hero repository:
+The repository includes a ready-to-use topology file:
 
 ```bash
 cd nautobot_zero_to_hero/containerlab
 # Review the topology file
-cat topology.clab.yml
+cat nautobot-lab.clab.yml
 ```
+
+This topology includes:
+- **access1** - Arista cEOS access switch (172.20.20.11)
+- **access2** - Arista cEOS access switch (172.20.20.12)
+- **dist1** - Arista cEOS distribution switch (172.20.20.13)
+- **rtr1** - Arista cEOS router (172.20.20.14)
+- **workstation1** - Linux workstation (172.20.20.15)
+- **mgmt** - Management server (172.20.20.16)
+
+All devices are pre-configured with:
+- Management IP addresses in the 172.20.20.0/24 subnet
+- Bootstrap configurations
+- SSH access (admin/admin)
+- NAPALM support enabled
+
+### 4.2 Verify Topology File
+
+The topology file is located at `containerlab/nautobot-lab.clab.yml`. You can review it to understand the network structure before deploying.
 
 ---
 
@@ -119,28 +109,57 @@ cat topology.clab.yml
 ### 5.1 Deploy the Topology
 
 ```bash
-# Deploy the lab
-containerlab deploy -t topology.clab.yml
+# Navigate to containerlab directory
+cd nautobot_zero_to_hero/containerlab
+
+# Deploy the lab (requires sudo for network namespace creation)
+sudo containerlab deploy -t nautobot-lab.clab.yml
 
 # Check status
-containerlab inspect -t topology.clab.yml
+sudo containerlab inspect -t nautobot-lab.clab.yml
+```
+
+> **Note:** Containerlab requires `sudo` privileges to create network namespaces and configure networking.
+
+### 5.2 Verify Lab Status
+
+```bash
+# Show all lab nodes
+sudo containerlab show -t nautobot-lab.clab.yml
+
+# Check if all nodes are running
+sudo containerlab inspect -t nautobot-lab.clab.yml
 ```
 
 📸 **[Screenshot: Containerlab Deployment]**
 
-### 5.2 Access Device Information
+### 5.3 Access Device Information
 
-Containerlab will create entries in `/etc/hosts` for easy access:
+If you ran `install.sh` from Part 1, your `/etc/hosts` file should already be updated with friendly hostnames. Otherwise, you can update it manually:
 
+**Option 1: Use the update script (if not already done):**
 ```bash
-# View device hostnames
-cat /etc/hosts | grep clab
+cd nautobot_zero_to_hero
+sudo bash update_hosts.sh
 ```
 
-You can also use the `update_hosts.sh` script from the repository:
-
+**Option 2: Manual /etc/hosts update:**
 ```bash
-./update_hosts.sh
+# Add these entries to /etc/hosts
+172.20.20.11  access1.lab access1
+172.20.20.12  access2.lab access2
+172.20.20.13  dist1.lab dist1
+172.20.20.14  rtr1.lab rtr1
+172.20.20.15  workstation1.lab workstation1
+172.20.20.16  mgmt.lab mgmt
+127.0.0.1     nautobotlab.dev
+```
+
+After updating `/etc/hosts`, you can access devices using friendly names:
+```bash
+ssh admin@access1
+ssh admin@dist1.lab
+ping rtr1
 ```
 
 ---
@@ -150,23 +169,31 @@ You can also use the `update_hosts.sh` script from the repository:
 ### 6.1 Test Device Access
 
 ```bash
-# Test SSH access to devices
-ssh admin@clab-nautobot-lab-r1
-ssh admin@clab-nautobot-lab-sw1
-ssh admin@clab-nautobot-lab-sw2
+# Test SSH access to devices (using friendly hostnames from /etc/hosts)
+ssh admin@access1
+ssh admin@access2
+ssh admin@dist1
+ssh admin@rtr1
 ```
 
-Default credentials are typically:
-- Username: `admin`
-- Password: `admin` (or check the repository documentation)
+Default credentials for all devices:
+- **Username:** `admin`
+- **Password:** `admin`
+
+You can also use the Containerlab-generated hostnames:
+```bash
+ssh admin@clab-nautobot-lab-access1
+ssh admin@clab-nautobot-lab-dist1
+```
 
 ### 6.2 Verify Device Configurations
 
 ```bash
-# Connect to a device and check configuration
-ssh admin@clab-nautobot-lab-sw1
+# Connect to an access switch and check configuration
+ssh admin@access1
 show version
 show ip interface brief
+show running-config
 ```
 
 ### 6.3 Test Inter-Device Connectivity
@@ -174,8 +201,25 @@ show ip interface brief
 From within a device, test connectivity to other devices:
 
 ```bash
-# From sw1, ping sw2
-ping clab-nautobot-lab-sw2
+# From access1, ping other devices
+ssh admin@access1
+ping 172.20.20.12  # access2
+ping 172.20.20.13  # dist1
+ping 172.20.20.14  # rtr1
+```
+
+### 6.4 Verify Management Network
+
+All devices should be reachable from your host machine:
+
+```bash
+# Ping all devices from your host
+ping -c 2 access1
+ping -c 2 access2
+ping -c 2 dist1
+ping -c 2 rtr1
+ping -c 2 workstation1
+ping -c 2 mgmt
 ```
 
 ---

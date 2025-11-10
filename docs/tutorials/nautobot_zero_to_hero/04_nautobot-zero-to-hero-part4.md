@@ -49,10 +49,19 @@ We'll:
 
 ## 2. Prerequisites
 
-- Completed [Part 3: Deploy Network with Containerlab](/tutorials/nautobot_zero_to_hero/04_nautobot-zero-to-hero-part3/)
+- Completed [Part 3: Deploy Network with Containerlab](/tutorials/nautobot_zero_to_hero/03_nautobot-zero-to-hero-part3/)
 - Nautobot is running and accessible
 - Containerlab network is deployed and devices are reachable
 - SSH access to Containerlab devices
+
+> **💡 Starting Fresh?** If you're starting from Part 4, you can clone the [nautobot_zero_to_hero](https://github.com/bsmeding/nautobot_zero_to_hero) repository and follow the setup from Parts 1-3:
+> ```bash
+> git clone https://github.com/bsmeding/nautobot_zero_to_hero.git
+> cd nautobot_zero_to_hero
+> bash install.sh
+> docker compose up -d
+> ```
+> Then complete Parts 1-3 before proceeding with Part 4.
 
 ---
 

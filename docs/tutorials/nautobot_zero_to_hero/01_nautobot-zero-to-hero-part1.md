@@ -70,19 +70,33 @@ cd nautobot_zero_to_hero
 
 ## 4. Install Nautobot
 
-The repository includes an automated installation script that will:
-- Check for required dependencies (Docker, Docker Compose)
-- Set up the Nautobot environment
-- Configure PostgreSQL and Redis
-- Initialize Nautobot
+The repository includes an automated installation script (`install.sh`) that will:
+- Install Docker and Docker Compose (if not already installed)
+- Install Containerlab (for network lab setup)
+- Update `/etc/hosts` with lab device hostnames
+- Optionally install desktop environment (XFCE, VS Code, Firefox) for GUI support
 
 ### Option 1: Automated Installation (Recommended)
 
+**Standard Installation (Headless):**
 ```bash
-./install.sh
+bash install.sh
 ```
 
-The script will guide you through the installation process and prompt for any required configuration.
+This installs Docker, Docker Compose, Containerlab, and updates `/etc/hosts` with lab device hostnames.
+
+**Installation with Desktop Environment (Optional):**
+```bash
+INSTALL_DESKTOP=true bash install.sh
+```
+
+This includes everything from the standard installation plus:
+- XFCE desktop environment
+- Visual Studio Code
+- Firefox browser
+- ssh:// protocol handler (for clickable SSH links)
+
+> **Note:** The desktop environment is useful for WSL users or if you want GUI tools. For server installations, use the standard installation.
 
 ### Option 2: Manual Installation
 
@@ -90,8 +104,21 @@ If you prefer to install manually, follow these steps:
 
 1. **Create environment file:**
    ```bash
-   cp .env.example .env
-   # Edit .env with your preferred settings
+   cat > .env << EOF
+   NAUTOBOT_PORT=8080
+   POSTGRES_DB=nautobot
+   POSTGRES_USER=nautobot
+   POSTGRES_PASSWORD=nautobotpassword
+   SUPERUSER_NAME=admin
+   SUPERUSER_PASSWORD=admin
+   NAUTOBOT_CONTAINER_NAME=nautobot
+   POSTGRES_CONTAINER_NAME=postgres
+   REDIS_CONTAINER_NAME=redis
+   CELERY_BEAT_CONTAINER_NAME=nautobot_celery_beat
+   CELERY_WORKER_CONTAINER_NAME=nautobot_celery_worker_1
+   NAUTOBOT_DB_HOST=postgres
+   NAUTOBOT_REDIS_HOST=redis
+   EOF
    ```
 
 2. **Start the services:**
@@ -99,15 +126,19 @@ If you prefer to install manually, follow these steps:
    docker compose up -d
    ```
 
+   > **Important:** On first startup, database migrations may take more than 5 minutes. Please be patient!
+
+   **For Apple Silicon (M1, M2, M3, M4):**
+   ```bash
+   docker compose -f docker-compose.yml -f docker-compose.override.amd64.yml up -d
+   ```
+
 3. **Wait for services to be healthy:**
    ```bash
    docker compose ps
    ```
 
-4. **Run initial setup (if needed):**
-   ```bash
-   docker compose exec nautobot nautobot-server post_upgrade
-   ```
+   All services should show as "healthy" or "running" before proceeding.
 
 ---
 
@@ -116,8 +147,10 @@ If you prefer to install manually, follow these steps:
 Once the installation is complete, you can access Nautobot:
 
 - **URL:** `http://localhost:8080` (or the port configured in your `.env` file)
+- **Alternative URL:** `http://nautobotlab.dev:8080` (if you ran `install.sh` which updates `/etc/hosts`)
 - **Default Username:** `admin`
 - **Default Password:** `admin` (change this immediately!)
+- **Default API Token:** `1234567890abcde0987654321` (found in user profile)
 
 📸 **[Screenshot: Nautobot Login Page]**
 
