@@ -10,7 +10,7 @@ draft: true
 
 # Nautobot Zero to Hero – Part 1: Install Nautobot
 ## Install Nautobot with Docker in a Virtual Machine
-*Get your Nautobot environment up and running with Docker.*
+*Get your Nautobot environment up and running with Docker within 5 minutes.*
 
 <!-- more -->
 
