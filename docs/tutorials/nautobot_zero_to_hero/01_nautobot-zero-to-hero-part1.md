@@ -150,11 +150,11 @@ Once the installation is complete, you can access Nautobot:
 - **Default Password:** `admin` (change this immediately!)
 - **Default API Token:** `1234567890abcde0987654321` (found in user profile)
 
-📸 **[Screenshot: Nautobot Login Page]**
+![Nautobot Dashboard](/tutorials/nautobot_zero_to_hero/images/nautobot_login_screen.png)
 
 After logging in, you should see the Nautobot dashboard.
 
-📸 **[Screenshot: Nautobot Dashboard]**
+![Nautobot Dashboard](/tutorials/nautobot_zero_to_hero/images/nautobot_dashboard.png)
 
 ---
 
