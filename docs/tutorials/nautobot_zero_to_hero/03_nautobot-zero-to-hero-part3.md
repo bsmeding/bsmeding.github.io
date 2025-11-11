@@ -36,6 +36,7 @@ draft: true
 In this part, we'll deploy a network lab environment using Containerlab. This will provide us with real network devices that we can use for automation practice throughout the series.
 
 We'll:
+
 1. Install Containerlab
 2. Create a network topology file
 3. Deploy the lab network
@@ -56,7 +57,24 @@ We'll:
 
 ## 3. Install Containerlab
 
-Containerlab is a tool for deploying container-based network topologies. Install it using the official method:
+Containerlab is a tool for deploying container-based network topologies.
+
+> **💡 Already Installed?** If you followed Part 1 and used the `install.sh` script from the [nautobot_zero_to_hero](https://github.com/bsmeding/nautobot_zero_to_hero) repository, Containerlab is already installed. You can skip to section 4.
+
+### 3.1 Check if Containerlab is Installed
+
+First, verify if Containerlab is already installed:
+
+```bash
+# Check if Containerlab is installed
+containerlab version
+```
+
+If the command succeeds and shows a version number, Containerlab is already installed. You can proceed to section 4.
+
+### 3.2 Install Containerlab (if needed)
+
+If Containerlab is not installed, install it using the official method:
 
 ```bash
 # Install Containerlab

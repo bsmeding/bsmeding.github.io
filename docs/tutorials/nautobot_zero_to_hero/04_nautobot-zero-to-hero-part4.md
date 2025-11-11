@@ -37,6 +37,7 @@ draft: true
 In this part, we'll use the Device Onboarding plugin to automatically discover and onboard devices from your Containerlab network. This eliminates the need to manually create each device in Nautobot.
 
 We'll:
+
 1. Install the Device Onboarding plugin
 2. Enable it in nautobot_config.py
 3. Configure the plugin settings

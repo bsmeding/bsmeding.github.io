@@ -36,6 +36,7 @@ draft: true
 In this first part of the series, we'll install Nautobot using Docker in a virtual machine. We'll use the comprehensive installation guide and setup scripts from the [nautobot_zero_to_hero](https://github.com/bsmeding/nautobot_zero_to_hero) repository.
 
 We'll:
+
 1. Clone the nautobot_zero_to_hero repository
 2. Follow the installation instructions
 3. Deploy Nautobot with Docker Compose
@@ -168,6 +169,7 @@ docker compose ps
 ```
 
 All services should show as "healthy" or "running":
+
 - `nautobot` - Main Nautobot application
 - `postgres` - PostgreSQL database
 - `redis` - Redis cache and message broker
@@ -206,6 +208,7 @@ Congratulations! You have successfully:
 ## 8. Next Steps
 
 Now that Nautobot is installed and running, proceed to **Part 2: Getting Started with Nautobot** to:
+
 - Explore what Nautobot can do
 - Deploy a demo environment using Jobs
 - Run the pre-flight job to create initial data

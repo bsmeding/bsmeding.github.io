@@ -47,6 +47,7 @@ draft: true
 In this part, we'll explore what Nautobot can do and use Jobs from the [nautobot_zero_to_hero](https://github.com/bsmeding/nautobot_zero_to_hero) repository to quickly set up a demo environment. We'll run the pre-flight job that automatically creates a region, site, and device to get you started.
 
 We'll:
+
 1. Understand Nautobot's core capabilities
 2. Learn about Nautobot Globals - the foundation data needed before adding sites and devices
 3. Access Jobs from the repository

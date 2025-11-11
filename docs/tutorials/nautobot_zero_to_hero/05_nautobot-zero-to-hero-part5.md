@@ -36,6 +36,7 @@ draft: true
 In this part, we'll sync with the [nzth_demo_jobs](https://github.com/bsmeding/nzth_demo_jobs) repository to access pre-built Jobs for managing device configurations. These Jobs will help us collect, store, and manage device configurations in Nautobot.
 
 We'll:
+
 1. Add the nzth_demo_jobs repository to Nautobot
 2. Review available Jobs
 3. Run Jobs to collect device configurations

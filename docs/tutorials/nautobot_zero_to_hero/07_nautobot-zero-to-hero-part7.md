@@ -36,6 +36,7 @@ draft: true
 In this part, we'll create a Provision job that deploys golden configurations to network devices. This job will retrieve the intended configuration from Golden Config and push it to the device.
 
 We'll:
+
 1. Create a Provision job
 2. Configure job parameters
 3. Deploy the golden configuration to a device

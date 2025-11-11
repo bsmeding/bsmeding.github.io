@@ -38,6 +38,7 @@ draft: true
 In this final part of the series, we'll install and configure the Design Builder plugin. This plugin allows you to create network designs (templates for network topologies) and deploy them to your network. Designs can be synced from Git repositories and deployed via Jobs.
 
 We'll:
+
 1. Install the Design Builder plugin
 2. Enable it in configuration
 3. Create designs via Git sync of jobs

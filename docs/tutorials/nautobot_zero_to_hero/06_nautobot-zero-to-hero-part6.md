@@ -37,6 +37,7 @@ draft: true
 In this part, we'll install and configure the Golden Config plugin, which enables configuration compliance and remediation. We'll fork the required repositories and set up golden configurations for our devices.
 
 We'll:
+
 1. Install the Golden Config plugin
 2. Fork three required repositories (backups, jinja templates, intended config)
 3. Add the forked repositories to Nautobot

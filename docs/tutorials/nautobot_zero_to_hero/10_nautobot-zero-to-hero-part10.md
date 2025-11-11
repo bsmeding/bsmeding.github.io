@@ -38,6 +38,7 @@ draft: true
 In this part, we'll use Golden Config to generate remediation configurations that fix compliance issues. We'll create automated workflows to deploy these remediations and verify they resolve the drift.
 
 We'll:
+
 1. Generate remediation configurations from compliance differences
 2. Review and validate remediation configs
 3. Create a remediation deployment job

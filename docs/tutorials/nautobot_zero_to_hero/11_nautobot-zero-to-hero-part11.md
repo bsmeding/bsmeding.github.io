@@ -37,6 +37,7 @@ draft: true
 In this part, we'll set up event-driven automation that automatically deploys the full golden configuration to a device whenever that device is changed in Nautobot. This ensures that any changes made in Nautobot are immediately reflected on the actual network device.
 
 We'll:
+
 1. Understand event-driven automation concepts
 2. Create a job to deploy golden config on device changes
 3. Set up Job Hooks to trigger on device modifications

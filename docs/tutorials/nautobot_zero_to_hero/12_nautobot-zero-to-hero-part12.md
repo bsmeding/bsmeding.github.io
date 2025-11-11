@@ -37,6 +37,7 @@ draft: true
 In this part, we'll install and configure the Floorplan plugin, which allows you to create visual floor plans for your network sites and map devices to physical locations. This provides a visual representation of where devices are located.
 
 We'll:
+
 1. Install the Floorplan plugin
 2. Enable it in nautobot_config.py
 3. Create floor plans for your sites

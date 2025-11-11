@@ -37,6 +37,7 @@ draft: true
 In this part, we'll set up configuration compliance checking using the Golden Config plugin. This will allow us to detect configuration drift by comparing actual device configurations against our golden (intended) configurations.
 
 We'll:
+
 1. Configure compliance rules
 2. Set up compliance features to check
 3. Run compliance checks on devices

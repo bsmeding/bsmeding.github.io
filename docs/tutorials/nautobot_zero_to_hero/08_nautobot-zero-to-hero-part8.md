@@ -36,6 +36,7 @@ draft: true
 In this part, we'll separate the Interface configuration from the main golden config template into its own file. We'll then create a Job and Job Hook that automatically executes when an interface is created, updated, or deleted in Nautobot.
 
 We'll:
+
 1. Create a separate Interface Jinja template
 2. Create a Job to deploy interface configurations
 3. Set up a Job Hook to trigger on interface changes
