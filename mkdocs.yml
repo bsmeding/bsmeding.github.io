@@ -74,6 +74,7 @@ nav:
     - 'Jenkins': blog/posts/tools/jenkins.md
     - 'Jinja2': blog/posts/tools/jinja2.md
     - 'Nautobot': blog/posts/tools/nautobot.md
+    - 'YAML': blog/posts/tools/yaml.md
     - 'NetBox': blog/posts/tools/netbox.md
     - 'NetPicker.io': blog/posts/tools/netpicker.md
     - 'Nornir': blog/posts/tools/nornir.md
