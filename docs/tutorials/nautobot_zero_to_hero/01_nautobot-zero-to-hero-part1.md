@@ -150,7 +150,7 @@ Once the installation is complete, you can access Nautobot:
 - **Default Password:** `admin` (change this immediately!)
 - **Default API Token:** `1234567890abcde0987654321` (found in user profile)
 
-![Nautobot Dashboard](/tutorials/nautobot_zero_to_hero/images/nautobot_login_screen.png)
+![Nautobot Login page](/tutorials/nautobot_zero_to_hero/images/nautobot_login_screen.png)
 
 After logging in, you should see the Nautobot dashboard.
 
@@ -176,6 +176,8 @@ All services should show as "healthy" or "running":
 - `celery-worker-1` - Background job worker
 - `celery-beat` - Scheduled task scheduler
 
+![docker compose ps output](/tutorials/nautobot_zero_to_hero/images/docker_ps_container_healthy.png)
+
 ### Check Nautobot Health
 
 ```bash
@@ -183,6 +185,7 @@ curl http://localhost:8080/health/
 ```
 
 You should see a JSON response indicating all services are healthy.
+
 
 ### Access the API
 
