@@ -5,8 +5,8 @@ date: 2023-04-18
 layout: single
 comments: true
 title: Ansible - Filter plugins for Cisco networking
-summary: Learn how to create and use custom Ansible filter plugins to simplify Cisco IOS configuration tasks, with practical examples and extended filter functions.
-tags: ["ansible", "cisco", "ios", "filter-plugins", "network-automation"]
+summary: Learn how to create and use 14 custom Ansible filter plugins for Cisco IOS automation. Includes VLAN management, interface normalization, IP address conversion, CIDR to netmask, ACL formatting, and validation filters with practical playbook examples.
+tags: ["ansible", "cisco", "ios", "filter-plugins", "network-automation", "vlan", "interface", "cidr", "netmask", "acl"]
 ---
 
 # Ansible - Filter plugins for Cisco networking
@@ -14,6 +14,34 @@ tags: ["ansible", "cisco", "ios", "filter-plugins", "network-automation"]
 When automating Cisco network devices with Ansible, you often need to transform data into formats that match Cisco IOS configuration syntax. Custom filter plugins allow you to create reusable functions that simplify these transformations directly in your playbooks and templates.
 
 <!-- more -->
+
+## Quick Reference: Available Filters
+
+This guide provides **14 custom filter plugins** for Cisco IOS automation. These filters help transform data formats, normalize interface names, manage VLAN configurations, validate network settings, and format Cisco IOS configuration syntax. Here's a quick reference of all available filters:
+
+### VLAN Management Filters
+- **`vlan_ranges`** - Converts a list of VLAN numbers into range notation (e.g., `[1,2,3,5,7,8,9]` → `['1-3', '5', '7-9']`)
+- **`vlan_ranges_to_config`** - Splits VLAN ranges into multiple lines that fit within a maximum line length
+- **`expand_vlan_range`** - Expands a VLAN range string into a list of individual VLAN numbers (e.g., `'1-3,5,7-9'` → `[1, 2, 3, 5, 7, 8, 9]`)
+
+### Interface Management Filters
+- **`get_interface_id`** - Extracts the interface ID from a full interface name (e.g., `'GigabitEthernet1/1/2'` → `'1/1/2'`)
+- **`get_interface_id_and_range`** - Extracts interface ID and range from interface range notation (e.g., `'gi 1/1-10'` → `('1/1', 1, 10)`)
+- **`normalize_interface_name`** - Normalizes interface names to Cisco standard format (e.g., `'gi1/0/1'` → `'GigabitEthernet1/0/1'`)
+- **`split_interface_range`** - Splits an interface range into individual interfaces (e.g., `'GigabitEthernet1/0/1-10'` → list of 10 interfaces)
+- **`interface_in_range`** - Checks if an interface is within a specified range (e.g., `'1/2/6'` in `'1/1/0-1/3/0'` → `True`)
+
+### IP Address and Network Filters
+- **`get_ip_prefix`** - Extracts the prefix length from CIDR notation (e.g., `'10.0.0.1/25'` → `'25'`)
+- **`prefix_to_netmask`** - Converts prefix length to subnet mask (e.g., `25` → `'255.255.255.128'`)
+- **`cidr_to_network`** - Extracts network address from CIDR notation (e.g., `'10.0.0.1/24'` → `'10.0.0.0'`)
+- **`validate_ip_address`** - Validates if a string is a valid IP address (e.g., `'192.168.1.1'` → `True`)
+- **`validate_cidr`** - Validates if a string is a valid CIDR notation (e.g., `'192.168.1.0/24'` → `True`)
+
+### Configuration Formatting Filters
+- **`format_ios_acl_rule`** - Formats a dictionary into Cisco IOS ACL rule syntax
+
+For detailed usage examples and implementation, see the sections below.
 
 ## What are Filter Plugins?
 
@@ -757,6 +785,11 @@ Custom filter plugins are powerful tools for simplifying Cisco IOS configuration
 - Generate complex configurations from simple data structures
 
 By creating reusable filter plugins, you can make your Ansible playbooks more readable, maintainable, and less error-prone. Start with the filters provided in this guide and extend them based on your specific needs.
+
+## Related Articles
+
+- [Getting Started with Ansible Network Automation](/blog/posts/2023/2023-03-20-getting-started-with-ansible-network-automation/) - Learn the fundamentals of Ansible network automation
+- [Ansible Network Settings](/blog/posts/2023/2023-02-07-ansible_network_settings/) - Configure Ansible for network device automation with network_cli
 
 ## Additional Resources
 

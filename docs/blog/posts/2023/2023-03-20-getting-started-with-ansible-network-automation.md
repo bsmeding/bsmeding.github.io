@@ -461,6 +461,11 @@ Remember to:
 - Document your automation workflows
 - Continuously improve and refine your processes
 
+## Related Articles
+
+- [Ansible Filter Plugins for Cisco Networking](/blog/posts/2023/2023-04-18-ansible_filter_plugin_for_cisco/) - Learn how to create and use custom filter plugins to simplify Cisco IOS configuration tasks
+- [Ansible Network Settings](/blog/posts/2023/2023-02-07-ansible_network_settings/) - Configure Ansible for network device automation with network_cli
+
 ## Additional Resources
 
 - [Ansible Network Automation Documentation](https://docs.ansible.com/ansible/latest/network/)

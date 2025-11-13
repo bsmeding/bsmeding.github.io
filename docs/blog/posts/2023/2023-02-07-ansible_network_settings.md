@@ -137,6 +137,11 @@ For Arista, use `eos_facts:` instead of `ios_facts:`.
 
 ---
 
+## Related Articles
+
+- [Getting Started with Ansible Network Automation](/blog/posts/2023/2023-03-20-getting-started-with-ansible-network-automation/) - Learn the fundamentals of Ansible network automation with practical examples
+- [Ansible Filter Plugins for Cisco Networking](/blog/posts/2023/2023-04-18-ansible_filter_plugin_for_cisco/) - Create custom filter plugins to simplify Cisco IOS configuration tasks
+
 ## More Resources
 - [Ansible Network Guide](https://docs.ansible.com/ansible/latest/network/index.html)
 - [Ansible network_cli connection](https://docs.ansible.com/ansible/latest/plugins/connection/network_cli.html)
